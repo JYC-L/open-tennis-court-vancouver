@@ -1,0 +1,111 @@
+Court,Date,Session Name,Start Time,End Time,Interval (min),Category,SubCategory,Capacity,Restrictions,Court Cost,Guest Price,Member Price
+Bubble Court 1,2025-05-31,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-05-31,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-05-31,Junior Saturday Match Play,07:00,09:00,120,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-05-31,Master Provincial Backup,09:00,23:00,840,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-05-31,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,Closed,07:00,07:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,All court times & fees 2,07:30,09:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,Master Provincial,09:00,13:00,240,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,All court times & fees 2,13:00,17:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,Booking,17:00,18:30,90,1000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,All court times & fees 2,18:30,22:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,Booking,22:00,23:00,60,1000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-01,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,All court times & fees 2,06:30,08:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Coaching: Caglar,08:00,09:00,60,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Adult--Develop 3.0,09:00,10:30,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Adult 2.5,10:30,12:00,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Coaching: Francis,12:00,13:00,60,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Coaching: Owen,13:00,14:00,60,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,All court times & fees 2,14:00,16:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Junior Compete U10,16:00,18:00,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Fitness (U10+U12 2star/3star/4star),18:00,18:30,30,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Junior Camp: Compete U12 (2+3)Star,18:30,20:30,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Adult 4.0,20:30,22:00,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,All court times & fees 2,22:00,23:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 1,2025-06-02,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-05-31,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-05-31,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-05-31,Junior Saturday Match Play,07:00,09:00,120,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-05-31,Master Provincial Backup,09:00,23:00,840,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-05-31,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-01,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-01,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-01,Closed,07:00,07:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-01,All court times & fees 2,07:30,09:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 2,2025-06-01,Master Provincial,09:00,13:00,240,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-01,All court times & fees 2,13:00,23:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 2,2025-06-01,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,All court times & fees 2,06:30,08:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Coaching: Francis,08:00,09:00,60,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Adult--Develop 3.0,09:00,10:30,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Adult 2.5,10:30,12:00,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Private Radin,12:00,13:00,60,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,All court times & fees 2,13:00,15:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Coaching: Caglar,15:00,16:00,60,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Junior Compete U10,16:00,18:00,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Fitness (U10+U12 2star/3star/4star),18:00,18:30,30,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Junior Camp: Compete U12 (2+3)Star,18:30,20:30,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Adult 4.0,20:30,22:00,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,All court times & fees 2,22:00,23:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 2,2025-06-02,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-05-31,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-05-31,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-05-31,Junior Saturday Match Play,07:00,09:00,120,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-05-31,Master Provincial Backup,09:00,23:00,840,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-05-31,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-01,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-01,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-01,Closed,07:00,07:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-01,All court times & fees 2,07:30,09:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 3,2025-06-01,Master Provincial,09:00,13:00,240,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-01,All court times & fees 2,13:00,23:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 3,2025-06-01,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,All court times & fees 2,06:30,07:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Booking,07:00,09:00,120,1000,0,0,None,56.0,0.0,0.0
+Bubble Court 3,2025-06-02,All court times & fees 2,09:00,11:30,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Booking,11:30,13:30,120,1000,0,0,None,70.0,0.0,0.0
+Bubble Court 3,2025-06-02,All court times & fees 2,13:30,16:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Junior Compete U12-4star,16:00,18:00,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Fitness (U10+U12 2star/3star/4star),18:00,18:30,30,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Junior Camp: Compete U12 (2+3)Star,18:30,20:30,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Adult 3.5,20:30,22:00,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,All court times & fees 2,22:00,23:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 3,2025-06-02,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-05-31,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-05-31,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-05-31,Junior Saturday Match Play,07:00,09:00,120,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-05-31,Master Provincial Backup,09:00,23:00,840,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-05-31,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,Closed,06:30,07:00,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,Closed,07:00,07:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,All court times & fees 2,07:30,09:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,Master Provincial,09:00,13:00,240,3000,3010,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,All court times & fees 2,13:00,15:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,Booking,15:00,16:00,60,1000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,All court times & fees 2,16:00,20:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,Booking,20:00,22:00,120,1000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,All court times & fees 2,22:00,23:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-01,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Closed,06:00,06:30,30,8000,0,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,All court times & fees 2,06:30,09:30,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Booking,09:30,10:30,60,1000,0,0,None,35.0,0.0,0.0
+Bubble Court 4,2025-06-02,All court times & fees 2,10:30,11:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Coaching: Ethan,11:00,12:30,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,All court times & fees 2,12:30,13:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Coaching: Ethan,13:00,14:30,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Coaching: Ethan,14:30,15:30,60,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,All court times & fees 2,15:30,16:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Junior Compete U12-4star,16:00,18:00,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Fitness (U10+U12 2star/3star/4star),18:00,18:30,30,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Junior Camp: Compete U12 (2+3)Star,18:30,20:30,120,2000,2020,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Adult 3.0,20:30,22:00,90,2000,2010,0,None,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,All court times & fees 2,22:00,23:00,30,0,0,1,Member,0.0,0.0,0.0
+Bubble Court 4,2025-06-02,Closed,23:00,23:30,30,8000,0,0,None,0.0,0.0,0.0
