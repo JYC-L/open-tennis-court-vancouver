@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { describe, it, before } from "mocha";
 import { bcHubInceptor } from "./BcHubInceptor.js";
+import { makeBookableValue } from "./TennisBcHubScrapper.js";
 
 describe("bcHubInceptor", function () {
   // Puppeteer tests can be a bit slow
@@ -55,4 +56,10 @@ describe("bcHubInceptor", function () {
       expect(richmond.roleId).to.be.a("number");
     })
   });
+
+  describe("makeBookableValue",()=>[
+    it("should return 0 when bookable now",()=>{
+      expect(makeBookableValue("2025-06-22", ))
+    })
+  ]);
 });
