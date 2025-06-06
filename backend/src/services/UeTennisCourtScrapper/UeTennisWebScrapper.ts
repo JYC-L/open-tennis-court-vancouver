@@ -305,4 +305,27 @@ export class UeTennisScrapper {
 
     console.log(`CSV file saved at ${filePath}`, new Date().toISOString());
   }
+
+  /**
+   * Writes a JSON array to a file in the uetennis directory.
+   * @param data The JSON array to write
+   * @param filename The name of the file (default: "availability.json")
+   */
+  async writeJsonToDisk(filename = "availability.json"): Promise<void> {
+    const folderPath = path.join(__dirname, "..", "uetennis");
+
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true });
+    }
+
+    const filePath = path.join(folderPath, filename);
+
+    fs.writeFileSync(
+      filePath,
+      JSON.stringify(this.allAvailability, null, 2),
+      "utf8"
+    );
+
+    console.log(`✅ JSON data saved to: ${filePath}`);
+  }
 }
