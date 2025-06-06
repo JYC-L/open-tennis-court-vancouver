@@ -4,6 +4,7 @@ async function runScripper(): Promise<void> {
   try {
     const scrapper = new UeTennisScrapper();
     await scrapper.getCourtBooking();
+    await scrapper.writeJsonToDisk();
   } catch (err: any) {
     console.error("Error running scrapper:", err.message);
   }
