@@ -1,5 +1,6 @@
 "use client";
-import "./App.css";
+import React from "react";
+import "../App.css";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
   ChevronDownIcon,
@@ -9,7 +10,17 @@ import {
 } from "@heroicons/react/20/solid";
 import { useEffect, useRef, useState } from "react";
 
-const sampleEvents = {
+type Event = {
+  title: string;
+  time: string;
+  color: string;
+};
+
+type EventsMap = {
+  [date: string]: Event[];
+};
+
+const sampleEvents: EventsMap = {
   "2025-06-04": [
     {
       title:
@@ -143,7 +154,7 @@ const sampleEvents = {
 };
 
 // return gridRow based on time
-function getGridRow(time, duration = 60) {
+function getGridRow(time: string, duration: number = 60): string {
   // time: "HH:mm"，duration: calculated in minutes
   const [h, m] = time.split(":").map(Number);
   // 6AM=0，1 hr=12 unitt，1 unit=5 mins
@@ -152,9 +163,20 @@ function getGridRow(time, duration = 60) {
   return `${start} / span ${span}`;
 }
 
-function getDaysForMonth(year, month, selectedDate) {
+type Day = {
+  date: string;
+  isCurrentMonth: boolean;
+  isToday: boolean;
+  isSelected: boolean;
+};
+
+function getDaysForMonth(
+  year: number,
+  month: number,
+  selectedDate: string
+): Day[] {
   // month: 0-based (0=Jan)
-  const days = [];
+  const days: Day[] = [];
   const firstDay = new Date(Date.UTC(year, month, 1));
   const lastDay = new Date(Date.UTC(year, month + 1, 0));
   const today = new Date(
@@ -218,14 +240,14 @@ function getDaysForMonth(year, month, selectedDate) {
   return days;
 }
 
-function classNames(...classes) {
+function classNames(...classes: (string | false | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Calender() {
-  const container = useRef(null);
-  const containerNav = useRef(null);
-  const containerOffset = useRef(null);
+  const container = useRef();
+  const containerNav = useRef();
+  const containerOffset = useRef();
 
   // Get Vancouver Local Date
   const vancouverNow = new Date(
@@ -273,7 +295,7 @@ export default function Calender() {
   // const [weekStartDate, setWeekStartDate] = useState(selectedDate);
 
   // Get the Monday of the week of a given date
-  function getWeekStart(dateStr) {
+  function getWeekStart(dateStr: string): Date {
     const date = new Date(dateStr);
     const day = date.getDay() || 7;
     date.setDate(date.getDate() - day + 1);
@@ -281,7 +303,7 @@ export default function Calender() {
   }
 
   // Switch to the previous week
-  function handlePrev() {
+  function handlePrev(): void {
     // Mobile, switch to the previous week
     const start = getWeekStart(selectedDate);
     start.setDate(start.getDate() - 7);
@@ -289,7 +311,7 @@ export default function Calender() {
   }
 
   // Switch to the next week
-  function handleNext() {
+  function handleNext(): void {
     const start = getWeekStart(selectedDate);
     start.setDate(start.getDate() + 7);
     setSelectedDate(start.toISOString().slice(0, 10));
