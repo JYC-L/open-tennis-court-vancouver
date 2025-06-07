@@ -14,6 +14,13 @@ We are building a website called VancouverTennis for local tennis lovers who wan
 ## Notice
 
 At this milestone, although we have finished the backend scraper development, backend framework is not runnable yet. Therefore, please only refer to our frontend.
+Please only go to http://localhost:8080 to try our frontend.
+
+## Instructions
+
+- docker-compose down
+- docker-compose up --build
+- visit http://localhost:8080
 
 ---
 

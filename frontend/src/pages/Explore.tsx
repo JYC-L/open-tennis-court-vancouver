@@ -36,7 +36,7 @@ export default function Explore() {
                   <div className="mt-10 flex items-center justify-center gap-x-6">
                     <Link
                       to="/courtfinder"
-                      className="rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex items-center"
+                      className="rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 flex items-center"
                     >
                       <span>Find Bookable Courts</span>
                       <MagnifyingGlassIcon
