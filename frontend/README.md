@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Team 16 - CourtFinder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Team Members
 
-## Available Scripts
+- Yiping (Francis) Huang
+- Lewis Li
+- Shu (Charlie) Chen
+- Jonathon (Tong) Liu
 
-In the project directory, you can run:
+## Project Description
 
-### `npm start`
+We are building a website called VancouverTennis for local tennis lovers who want to book exclusive tennis court sections without paying expensive tennis club membership fees. This website will provide a joined calendar which helps users to easily explore the availability of bookable tennis courts in Metro Vancouver. We would collect these availability data and redirect users to their target booking webpage without the tedious process of checking the availability website by website and page by page. In addition, we expect to include local tennis court map and local tennis events into this website.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Notice
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+At this milestone, although we have finished the backend scraper development, backend framework is not runnable yet. Therefore, please only refer to our frontend.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Milestones
 
-### `npm run build`
+### Milestone 1: First Steps
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Project Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Develope the complete frontend UI for the MVP features with sample data.
+- Build a list of web scraper for the main feature, but backend does no have to be completed at this point.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Component Structure
 
-### `npm run eject`
+- CourtFinder (main component)
+- CourtsDetail (sub-component of CourtFinder)
+- Explore (home page)
+- MobileBottomNav (Nav UI component)
+- PCtopNav (Nav UI component)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### UI Progress
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Applied effective styling to the main component and supporting components.
+- Completed a key piece of the UI prototype for the event and court display.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Progress Toward Goals
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Demonstrated progress toward the minimal goal of displaying and filtering tennis court events by location and date. The court calendar (CourtFinder) also has a series of intuitive UI features that improve user experience.

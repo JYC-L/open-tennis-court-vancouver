@@ -10,155 +10,13 @@ import {
 } from "@heroicons/react/20/solid";
 import { useEffect, useRef, useState } from "react";
 import { CourtsDetail } from "./CourtsDetail.tsx";
-
-type Event = {
-  title: string;
-  time: string;
-  color: string;
-};
-
-type EventsMap = {
-  [date: string]: Event[];
-};
+import { sampleEvents } from "./SampleEvents.ts";
 
 type Day = {
   date: string;
   isCurrentMonth: boolean;
   isToday: boolean;
   isSelected: boolean;
-};
-
-const sampleEvents: EventsMap = {
-  "2025-06-04": [
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2 ",
-
-      time: "06:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "07:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2 ",
-
-      time: "09:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "10:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 5 | Tennis BC HUB @ Richmond 1 | Tennis BC HUB @ Standley 3",
-
-      time: "13:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "15:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 5 | Tennis BC HUB @ Richmond 1 | Tennis BC HUB @ Standley 3",
-
-      time: "16:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "18:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 5 | Tennis BC HUB @ Richmond 1 | Tennis BC HUB @ Standley 3",
-
-      time: "20:00",
-      color: "bg-emerald-200",
-    },
-  ],
-  "2025-06-05": [
-    {
-      title:
-        "UBC Tennis Center 3 | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2 ",
-
-      time: "07:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "08:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2 ",
-
-      time: "09:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "10:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 5 | Tennis BC HUB @ Richmond 1 | Tennis BC HUB @ Standley 3",
-
-      time: "11:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "15:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 5 | Tennis BC HUB @ Richmond 1 | Tennis BC HUB @ Standley 3",
-
-      time: "16:00",
-      color: "bg-emerald-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 3  | Tennis BC HUB @ Richmond 2 | Tennis BC HUB @ Standley 2",
-
-      time: "17:00",
-      color: "bg-yellow-200",
-    },
-    {
-      title:
-        "UBC Tennis Center 5 | Tennis BC HUB @ Richmond 1 | Tennis BC HUB @ Standley 3",
-
-      time: "20:00",
-      color: "bg-emerald-200",
-    },
-  ],
 };
 
 // return gridRow based on time
@@ -208,9 +66,9 @@ function getDaysForMonth(
       d
     ).padStart(2, "0")}`;
     const isToday =
-      today.getUTCFullYear() === year &&
-      today.getUTCMonth() === month &&
-      today.getUTCDate() === d;
+      today.getFullYear() === year &&
+      today.getMonth() === month &&
+      today.getDate() === d;
     days.push({
       date: dateStr,
       isCurrentMonth: true,
@@ -295,6 +153,7 @@ export default function CourtFinder() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [locationFilter, setLocationFilter] = useState("All");
 
   useEffect(() => {
     const vancouverNow = new Date(
@@ -363,6 +222,18 @@ export default function CourtFinder() {
       setCalendarMonth(calendarMonth + 1);
     }
   }
+
+  let filteredEvents = (sampleEvents[selectedDate] || [])
+    .map((event) => {
+      const filteredClubs =
+        locationFilter === "All"
+          ? event.clubDetails
+          : event.clubDetails.filter(
+              (club) => club.location === locationFilter
+            );
+      return { ...event, clubDetails: filteredClubs };
+    })
+    .filter((event) => event.clubDetails.length > 0);
 
   return (
     <div className="flex h-full flex-col">
@@ -450,36 +321,36 @@ export default function CourtFinder() {
               >
                 <div className="py-1">
                   <MenuItem>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                    <button
+                      onClick={() => setLocationFilter("All")}
+                      className="block w-full px-4 py-2 text-sm text-gray-700 text-left hover:bg-gray-100"
                     >
                       Metro Vancouver
-                    </a>
+                    </button>
                   </MenuItem>
                   <MenuItem>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                    <button
+                      onClick={() => setLocationFilter("UBC")}
+                      className="block w-full px-4 py-2 text-sm text-gray-700 text-left hover:bg-gray-100"
                     >
                       UBC
-                    </a>
+                    </button>
                   </MenuItem>
                   <MenuItem>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
-                    >
-                      Vancouver DT
-                    </a>
-                  </MenuItem>
-                  <MenuItem>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                    <button
+                      onClick={() => setLocationFilter("Richmond")}
+                      className="block w-full px-4 py-2 text-sm text-gray-700 text-left hover:bg-gray-100"
                     >
                       Richmond
-                    </a>
+                    </button>
+                  </MenuItem>
+                  <MenuItem>
+                    <button
+                      onClick={() => setLocationFilter("Vancouver DT")}
+                      className="block w-full px-4 py-2 text-sm text-gray-700 text-left hover:bg-gray-100"
+                    >
+                      Vancouver DT
+                    </button>
                   </MenuItem>
                 </div>
               </MenuItems>
@@ -516,36 +387,36 @@ export default function CourtFinder() {
               </div>
               <div className="py-1">
                 <MenuItem>
-                  <a
-                    href="#"
+                  <button
+                    onClick={() => setLocationFilter("All")}
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
-                    Day view
-                  </a>
+                    Metro Vancouver
+                  </button>
                 </MenuItem>
                 <MenuItem>
-                  <a
-                    href="#"
+                  <button
+                    onClick={() => setLocationFilter("UBC")}
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
-                    Week view
-                  </a>
+                    UBC
+                  </button>
                 </MenuItem>
                 <MenuItem>
-                  <a
-                    href="#"
+                  <button
+                    onClick={() => setLocationFilter("Richmond")}
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
-                    Month view
-                  </a>
+                    Richmond
+                  </button>
                 </MenuItem>
                 <MenuItem>
-                  <a
-                    href="#"
+                  <button
+                    onClick={() => setLocationFilter("Vancouver DT")}
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
-                    Year view
-                  </a>
+                    Vancouver DT
+                  </button>
                 </MenuItem>
               </div>
             </MenuItems>
@@ -602,10 +473,10 @@ export default function CourtFinder() {
             <div className="grid flex-auto grid-cols-1 grid-rows-1">
               {/* Horizontal lines */}
               <div
-                className="col-start-1 col-end-2 row-start-1 grid divide-y divide-gray-100"
+                className="col-start-1 col-end-2 row-start-1 grid divide-y divide-gray-100 "
                 style={{ gridTemplateRows: "repeat(17, minmax(4.5rem, 1fr))" }} // 17*2=34
               >
-                <div ref={containerOffset} className="row-end-1 h-7"></div>
+                <div ref={containerOffset} className="row-end-1 h-7 "></div>
                 {Array.from({ length: 17 }).map((_, i) => (
                   <div key={i * 2}>
                     <div className="sticky left-0 -ml-14 -mt-2.5 w-14 pr-2 text-right text-xs/5 text-gray-400">
@@ -631,15 +502,19 @@ export default function CourtFinder() {
                   gridTemplateRows: "repeat(204, minmax(0, 1fr))", // 17*12=204
                 }}
               >
-                {(sampleEvents[selectedDate] || []).map((event, idx) => {
+                {filteredEvents.map((event, idx) => {
                   const gridRow = getGridRow(event.time);
-                  // formating time
-                  const [h, m] = event.time.split(":").map(Number);
-                  const ampm = h < 12 ? "AM" : "PM";
-                  const hour12 = h % 12 === 0 ? 12 : h % 12;
-                  const displayTime = `${hour12}:${m
-                    .toString()
-                    .padStart(2, "0")} ${ampm}`;
+                  const dynamicTitle = event.clubDetails
+                    .map(
+                      (club) =>
+                        `${club.clubName}${
+                          club.courtsDetails
+                            ? " " + club.courtsDetails.length
+                            : ""
+                        }`
+                    )
+                    .join(" | ");
+
                   return (
                     <li
                       key={event.title + event.time}
@@ -662,16 +537,22 @@ export default function CourtFinder() {
                         <p
                           className={`order-1 font-semibold text-black text-left text-xs lg:text-sm`}
                         >
-                          {event.title}
+                          {dynamicTitle}
                         </p>
                       </button>
                     </li>
                   );
                 })}
               </ol>
+              <div
+                className="bg-white hidden lg:flex"
+                aria-hidden
+                style={{ minHeight: "48px" }}
+              />
             </div>
           </div>
         </div>
+
         <div className="hidden w-1/2 max-w-md flex-none border-l border-gray-100 px-8 py-10 md:block">
           <div className="flex items-center text-center text-gray-900">
             <button
