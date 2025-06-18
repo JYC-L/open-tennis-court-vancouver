@@ -3,7 +3,7 @@ import "../App.css";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import PCTopNav from "./PCTopNav.tsx";
 
-export default function Explore() {
+export default function Home() {
   return (
     <div>
       <PCTopNav />

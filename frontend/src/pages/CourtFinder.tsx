@@ -361,7 +361,7 @@ export default function CourtFinder() {
               className="ml-4 rounded-md bg-emerald-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
               onClick={() => (window.location.href = "/")}
             >
-              Home page
+              Back
             </button>
             <div className="ml-6 h-6 w-px bg-gray-300" />
           </div>

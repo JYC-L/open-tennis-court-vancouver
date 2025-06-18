@@ -24,7 +24,7 @@ export type EventsMap = {
 };
 
 export const sampleEvents: EventsMap = {
-  "2025-06-06": [
+  "2025-06-16": [
     {
       title:
         "UBC Tennis Center 4  | Tennis BC HUB @ Richmond 4 | Tennis BC HUB @ Standley 6 | UE Tennis 4",
@@ -198,7 +198,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-emerald-200",
     },
   ],
-  "2025-06-07": [
+  "2025-06-17": [
     {
       title: "Tennis BC HUB @ Stanley Park 3 | UBC Tennis Center 1",
       time: "09:00",
@@ -209,24 +209,24 @@ export const sampleEvents: EventsMap = {
           courtsDetails: [
             {
               courtNumber: "Stanley Park Court 1",
-              startTime: "08:00",
-              endTime: "09:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://clubspark.ca/TBCHubStanleyPark/Booking1",
             },
             {
               courtNumber: "Stanley Park Court 2",
-              startTime: "22:00",
-              endTime: "23:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://clubspark.ca/TBCHubStanleyPark/Booking2",
             },
             {
               courtNumber: "Stanley Park Court 3",
-              startTime: "14:00",
-              endTime: "15:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://clubspark.ca/TBCHubStanleyPark/Booking3",
@@ -241,8 +241,8 @@ export const sampleEvents: EventsMap = {
             },
             {
               courtNumber: "Stanley Park Court 5",
-              startTime: "20:00",
-              endTime: "21:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://clubspark.ca/TBCHubStanleyPark/Booking5",
@@ -255,32 +255,32 @@ export const sampleEvents: EventsMap = {
           courtsDetails: [
             {
               courtNumber: "Court 1",
-              startTime: "12:00",
-              endTime: "13:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=c0668c1c-1fd6-4432-a20e-4c50aaad5baa",
             },
             {
               courtNumber: "Court 2",
-              startTime: "21:00",
-              endTime: "22:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=e2d99dda-cdc4-4af4-8df6-6c8061ffd56f",
             },
             {
               courtNumber: "Court 3",
-              startTime: "15:00",
-              endTime: "16:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=c117a102-0ba0-4aa8-b8cf-eb8a1480be55",
             },
             {
               courtNumber: "Court 4",
-              startTime: "19:00",
-              endTime: "20:00",
+              startTime: "09:00",
+              endTime: "10:00",
               bookable: "Book Now",
               courtBookingLink:
                 "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=47f78e62-2ac0-4d39-8ffa-5d331f60e14e",
@@ -511,7 +511,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-yellow-200",
     },
   ],
-  "2025-06-08": [
+  "2025-06-18": [
     {
       title: "UBC Tennis Center 6",
       time: "13:00",
@@ -558,7 +558,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-yellow-200",
     },
   ],
-  "2025-06-09": [
+  "2025-06-19": [
     {
       title: "Tennis BC HUB @ Stanley Park 6 | UE Tennis 5",
       time: "11:00",
@@ -627,7 +627,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-emerald-200",
     },
   ],
-  "2025-06-10": [
+  "2025-06-20": [
     {
       title: "UE Tennis 6 | UBC Tennis Center 3 | Tennis BC HUB @ Richmond 4",
       time: "21:00",
@@ -716,7 +716,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-emerald-200",
     },
   ],
-  "2025-06-11": [
+  "2025-06-21": [
     {
       title: "UBC Tennis Center 4 | Tennis BC HUB @ Richmond 3 | UE Tennis 5",
       time: "15:00",
@@ -804,7 +804,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-emerald-200",
     },
   ],
-  "2025-06-12": [
+  "2025-06-22": [
     {
       title: "UBC Tennis Center 6 | Tennis BC HUB @ Stanley Park 6",
       time: "19:00",
@@ -897,7 +897,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-blue-200",
     },
   ],
-  "2025-06-13": [
+  "2025-06-23": [
     {
       title:
         "Tennis BC HUB @ Richmond 3 | UBC Tennis Center 4 | Tennis BC HUB @ Stanley Park 4",
@@ -1009,7 +1009,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-emerald-200",
     },
   ],
-  "2025-06-14": [
+  "2025-06-24": [
     {
       title: "Tennis BC HUB @ Stanley Park 6 | UBC Tennis Center 6",
       time: "12:00",
@@ -1094,7 +1094,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-red-200",
     },
   ],
-  "2025-06-15": [
+  "2025-06-25": [
     {
       title:
         "Tennis BC HUB @ Richmond 6 | UE Tennis 6 | Tennis BC HUB @ Stanley Park 4",
@@ -1214,7 +1214,7 @@ export const sampleEvents: EventsMap = {
       color: "bg-yellow-200",
     },
   ],
-  "2025-06-16": [
+  "2025-06-26": [
     {
       title: "UBC Tennis Center 1 | UE Tennis 2",
       time: "10:00",

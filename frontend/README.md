@@ -37,7 +37,7 @@ Please only go to http://localhost:8080 to try our frontend.
 
 - CourtFinder (main component)
 - CourtsDetail (sub-component of CourtFinder)
-- Explore (home page)
+- Home (home page)
 - MobileBottomNav (Nav UI component)
 - PCtopNav (Nav UI component)
 

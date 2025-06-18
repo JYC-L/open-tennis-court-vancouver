@@ -3,7 +3,7 @@ import "../App.css";
 
 export default function PCTopNav() {
   const navigation = [
-    { name: "Explore", href: "/" },
+    { name: "Home", href: "/" },
     { name: "Bookable Court Finder", href: "/courtfinder" },
     { name: "Court Map", href: "/" },
   ];
