@@ -10,6 +10,6 @@ async function run() {
   } catch (error) {
     console.error("Error scraping availabilities:", error);
   }
-}availabilities
+}
 
 run();

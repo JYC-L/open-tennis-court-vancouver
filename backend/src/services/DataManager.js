@@ -19,7 +19,7 @@ class AvailabilityManager {
     this.dbClient = dbClient;
     this.orchestrator = orchestrator;
     this.freshnessCutoffMinutes = options.freshnessCutoffMinutes || 30;
-    this.collection = this.dbClient.db().collection('availability');
+    this.collection = this.dbClient.db().collection('availabilities');
   }
 
   /**
@@ -37,28 +37,30 @@ class AvailabilityManager {
   }
 
   /**
-   * Main method to get availability data
-   * @param {Object} params
-   * @param {string} params.court
-   * @param {Date} params.startDate
-   * @param {Date} params.endDate
-   * @param {Date} params.requestedAt
-   * @returns {Promise<Object>} AvailabilityResult
-   * @throws on orchestrator or db failure
+   * Main method to get availability data for a club/location
+   * @param {string} clubName - The name of the club/location to fetch availability for
+   * @param {string} date - The date for which to fetch availability (format: YYYY-MM-DD)
+   * @param {Date} startDate - The start of the date range (if applicable)
+   * @param {Date} endDate - The end of the date range (if applicable)
+   * @param {Date} requestedAt - The time the client requested the data (used for freshness checks)
+   * @returns {Promise<Object>} AvailabilityResult - The availability data and metadata
+   * @throws {Error} On orchestrator or database failure
    */
-  async getAvailability({ court, startDate, endDate, requestedAt }) {
+  async getAvailability(clubName, date, startDate, endDate, requestedAt) {
     // 1. Try to get data from DB
+    
     let record;
     try {
-      record = await this.collection.findOne({ court, startDate, endDate });
+      record = await this.collection.findOne({ clubName, courtNumber, date, startTime });
     } catch (err) {
       throw new Error('Database error: ' + err.message);
     }
 
     // 2. Check freshness (stubbed to always true for now)
-    let isFresh = true;
     let lastUpdated = record ? record.lastUpdated : null;
-    if (record && await this.isFresh(lastUpdated, requestedAt)) {
+    let isFresh = await this.isFresh(lastUpdated, requestedAt);
+    isFresh = true;
+    if (record && isFresh) {
       return {
         data: record.data,
         requested_at: requestedAt,
@@ -69,11 +71,12 @@ class AvailabilityManager {
 
     // 3. If missing/stale, call orchestrator (with 5s timeout)
     let orchestratorData, orchestratorLastUpdated;
+    let timeoutWindow = 5000;
     try {
       orchestratorData = await this._withTimeout(
         this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate),
-        5000,
-        'Orchestrator timed out after 5 seconds.'
+        timeoutWindow,
+        `Orchestrator timed out after ${timeoutWindow/1000} seconds.`
       );
       orchestratorLastUpdated = new Date();
     } catch (err) {
@@ -97,12 +100,18 @@ class AvailabilityManager {
   }
 
   /**
-   * Stub: Always returns true (for now)
+   * Check if data is fresh based on lastUpdated timestamp
    * @private
    */
-  async isFresh(lastUpdated, requestedAt) {
-    // TODO: Implement real freshness logic
-    return true;
+  isFresh(lastUpdated, requestedAt) {
+    if (!lastUpdated) {
+      return false; // No data means not fresh
+    }
+    
+    const timeDiffMs = requestedAt.getTime() - lastUpdated.getTime();
+    const timeDiffMinutes = timeDiffMs / (1000 * 60);
+    
+    return timeDiffMinutes < this.freshnessCutoffMinutes;
   }
 
   /**
@@ -118,6 +127,18 @@ class AvailabilityManager {
       promise.finally(() => clearTimeout(timeout)),
       timeoutPromise,
     ]);
+  }
+
+  /**
+   * Update the DB with new data and lastUpdated timestamp
+   * @private
+   */
+  async updateDatabase(clubName, courtNumber, date, startTime, data, lastUpdated) {
+    await this.collection.updateOne(
+      { clubName, courtNumber, date, startTime },
+      { $set: { ...data, lastUpdated } },
+      { upsert: true }
+    );
   }
 }
 
