@@ -45,7 +45,7 @@ export class UeTennisScrapper {
       "Starting UE Tennis court booking scrapper...",
       scrappingStartTime
     );
-    this.browser = await puppeteer.launch({ headless: false });
+    this.browser = await puppeteer.launch({ headless: true });
     this.page = await this.browser.newPage();
     // Capture authorization token from network requests
     await this.captureAuthToken();

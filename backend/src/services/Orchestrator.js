@@ -1,6 +1,7 @@
 import { TennisBcHubScrapper } from './TennisBcHubScrapper/TennisBcHubScrapper.js';
 import UbcTennisCenterScrapper from './ubc-scrapper.js';
 import { UeTennisScrapper } from './UeTennisCourtScrapper/UeTennisWebScrapper.ts';
+import { saveAvailabilityToJSON } from './TennisBcHubScrapper/runScraper.js';
 
 class Orchestrator {
   constructor() {
@@ -11,14 +12,19 @@ class Orchestrator {
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking()
     );
-    const results = await Promise.all(promises);
+    let results = await Promise.all(promises);
     results = results.flat();
-    return results;
+    saveAvailabilityToJSON(results, "all_availabilities.json");
+    this.pushToDB(results);
+  }
+
+  async pushToDB(results) {
+    console.log("Pushing results to DB...");
+    console.log("Pushed to db at ", new Date().toISOString());
   }
 }
 
 (async () => {
   const orchestrator = new Orchestrator();
-  const results = await orchestrator.onDemandUpdate();
-  console.log(results);
+  orchestrator.onDemandUpdate(new Date(), new Date(), new Date());
 })();
