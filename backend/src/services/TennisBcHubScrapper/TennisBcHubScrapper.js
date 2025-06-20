@@ -8,7 +8,7 @@ class TennisBcHubScrapper {
         courtName: "Richmond",
         resourceFingerprint: "TBCHubRichmond",
         displayName: "Tennis BC Hub @ Richmond",
-        location: "Downtown" 
+        location: "Vancouver DT" 
       },
       stanley: {
         courtName: "Stanley",
@@ -66,7 +66,7 @@ class TennisBcHubScrapper {
               bookable: makeBookableValue(date, session.StartTime),
               // Pass needed parameters to construct the URL:
               courtBookingLink: makecourtBookingLink(locKey, courtNumber, this.locationInfo),
-              location: this.locationInfo[locKey].courtName
+              location: this.locationInfo[locKey].location
             });
           }
         }
