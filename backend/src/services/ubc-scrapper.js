@@ -119,11 +119,11 @@ class UbcTennisCenterScrapper {
         const endTime = this.convertTo24Hour(endTimeRaw.trim());
 
         const statusNorm = span.text().trim().toLowerCase();
-        let status = null;
+        let bookable = null;
         if (["book now", "reserve now"].includes(statusNorm)) {
-          status = 0;
+          bookable = 0;
         } else if (statusNorm.includes("24hrs")) {
-          status = 24;
+          bookable = 24;
         } else {
           return;
         }
@@ -135,7 +135,7 @@ class UbcTennisCenterScrapper {
           startHour: startTime,
           startTime: startTime,
           endTime: endTime,
-          status,
+          bookable,
           courtBookingLink: `${this.baseUrl}?facilityId=${courtId}`,
           location: "UBC",
         });
