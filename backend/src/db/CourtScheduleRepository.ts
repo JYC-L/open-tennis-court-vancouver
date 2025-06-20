@@ -132,4 +132,23 @@ export class CourtScheduleRepository {
 
     return `${year}-${month}-${day} ${hour}:${minute}`;
   }
+
+  /**
+   * Gets the most recent lastUpdated timestamp from the database
+   * @returns The most recent lastUpdated timestamp as a Date object, or null if no documents exist
+   */
+  public async getLastUpdatedTimestamp(): Promise<Date | null> {
+    const collection = await this.getAllAvailability();
+    const mostRecentDoc = await collection
+      .find({ lastUpdated: { $exists: true } })
+      .sort({ lastUpdated: -1 })
+      .limit(1)
+      .toArray();
+    
+    if (mostRecentDoc.length === 0) {
+      return null;
+    }
+    
+    return mostRecentDoc[0].lastUpdated as Date;
+  }
 }

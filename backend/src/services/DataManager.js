@@ -1,12 +1,4 @@
-// DataManager.js
-// AvailabilityManager: Handles fetching and freshness of court availability data from MongoDB and orchestrator
-
-const { MongoClient } = require('mongodb');
-
-/**
- * Example orchestrator import (assume orchestrator is provided elsewhere)
- * const orchestrator = require('./orchestrator');
- */
+import {CourtScheduleRepository} from "../db/CourtScheduleRepository";
 
 class AvailabilityManager {
   /**
@@ -15,8 +7,8 @@ class AvailabilityManager {
    * @param {object} [options]
    * @param {number} [options.freshnessCutoffMinutes=30] - Freshness window in minutes
    */
-  constructor(dbClient, orchestrator, options = {}) {
-    this.dbClient = dbClient;
+  constructor(orchestrator, options = {}) {
+    this.courtScheduleRepository = new CourtScheduleRepository();
     this.orchestrator = orchestrator;
     this.freshnessCutoffMinutes = options.freshnessCutoffMinutes || 30;
     this.collection = this.dbClient.db().collection('availabilities');
@@ -47,58 +39,38 @@ class AvailabilityManager {
    * @throws {Error} On orchestrator or database failure
    */
   async getAvailability(clubName, date, startDate, endDate, requestedAt) {
-    // 1. Try to get data from DB
-    
-    let records;
-    // records = db.getData(clubName, date, startDate, endDate)  // assume it's a list of objects like thisl
-  //   {
-  //   "clubName": "Tennis BC Hub @ Richmond",
-  //   "courtNumber": "Bubble Court 1",
-  //   "date": "2025-06-19",
-  //   "startHour": "06:00",
-  //   "startTime": "06:30",
-  //   "endTime": "09:00",
-  //   "bookable": 0,
-  //   "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
-  //   "location": "Vancouver DT"
-  // }
-
-    // 2. Check freshness (stubbed to always true for now)
-    // let lastUpdated = await db.getLastUpdated(); // assume it's a string with format YYYY-MM-DD HH:MM
-    // lastUpdated = Date(lastUpdated)
-    let isFresh = await this.isFresh(lastUpdated, requestedAt);
-    isFresh = true;
-    if (records && isFresh) {
-      return records;
+    // 1. Check freshness
+    const lastUpdated = await this.courtScheduleRepository.getLastUpdatedTimestamp();
+    let isFresh = false;
+    if (lastUpdated) {
+      isFresh = this.isFresh(lastUpdated, requestedAt);
     }
 
-    // 3. If missing/stale, call orchestrator (with 5s timeout)
-    let timeoutWindow = 5000;
+    let records = [];
+    if (isFresh) {
+      try {
+        records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
+        return records;
+      } catch (err) {
+        throw new Error('Database error: ' + err.message);
+      }
+    }
+
+    // 2. If missing/stale, call orchestrator (with timeout)
+    const timeoutWindow = 600000; // 10 minutes
     try {
       await this._withTimeout(
-        // this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate), orchestrator will trigger all scrappers and push data to the db.
+        this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate),
         timeoutWindow,
-        `Orchestrator timed out after ${timeoutWindow/1000} seconds.`
+        `Orchestrator timed out after ${timeoutWindow / 1000} seconds.`
       );
-      records = getDataFromDB()
+      records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
     } catch (err) {
       throw new Error('Orchestrator error: ' + err.message);
     }
 
-    // 4. Update DB with new data
-    try {
-      await this.updateDatabase(court, startDate, endDate, orchestratorData, orchestratorLastUpdated);
-    } catch (err) {
-      throw new Error('Database update error: ' + err.message);
-    }
-
-    // 5. Return orchestrator data
-    return {
-      data: orchestratorData,
-      requested_at: requestedAt,
-      last_updated: orchestratorLastUpdated,
-      source: 'orchestrator',
-    };
+    // 3. Return orchestrator data
+    return records;
   }
 
   /**
@@ -135,9 +107,9 @@ class AvailabilityManager {
    * Update the DB with new data and lastUpdated timestamp
    * @private
    */
-  async updateDatabase(clubName, courtNumber, date, startTime, data, lastUpdated) {
+  async updateDatabase(clubName, court, date, startDate, endDate, data, lastUpdated) {
     await this.collection.updateOne(
-      { clubName, courtNumber, date, startTime },
+      { clubName, court, date, startDate, endDate },
       { $set: { ...data, lastUpdated } },
       { upsert: true }
     );
