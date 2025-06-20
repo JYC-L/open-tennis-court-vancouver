@@ -1,4 +1,4 @@
-[
+
   {
     "clubName": "UE Tennis",
     "courtNumber": "Court 1",
@@ -3430,5 +3430,4 @@
     "bookable": 0,
     "courtBookingLink": "http://www.uetennis.com/booking-calendar/court-5?referral=service_list_widget",
     "location": "Richmond"
-  }
-]
+  },

@@ -16,6 +16,8 @@ export type Event = {
   time: string;
   clubDetails: Club[];
   color: string;
+  hoverColor: string;
+  textColor: string;
 };
 
 export type EventsMap = {

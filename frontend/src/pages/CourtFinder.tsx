@@ -195,6 +195,8 @@ function transformApiResponseToEventsMap(apiResponse: any[]): EventsMap {
       time: startHour,
       clubDetails: [club],
       color: "bg-emerald-200",
+      hoverColor: "bg-emerald-100",
+      textColor: "text-gray-900",
     };
 
     // Add the event to the eventsMap
@@ -413,6 +415,8 @@ export default function CourtFinder() {
 
   filteredEvents = filteredEvents.map((event) => {
     let color = "bg-emerald-200";
+    let hoverColor = "bg-emerald-100";
+    let textColor = "text-gray-900";
     const hourGroup = [
       "06:00",
       "08:00",
@@ -425,13 +429,19 @@ export default function CourtFinder() {
       "22:00",
     ];
     if (hourGroup.includes(event.time)) {
-      color = "bg-emerald-200";
+      color = "bg-emerald-500";
+      hoverColor = "bg-emerald-400";
+      textColor = "text-white";
     } else {
-      color = "bg-yellow-200";
+      color = "bg-yellow-300";
+      hoverColor = "bg-yellow-200";
+      textColor = "text-emerald-800";
     }
     return {
       ...event,
       color: color,
+      hoverColor: hoverColor,
+      textColor: textColor,
     };
   });
 
@@ -662,7 +672,7 @@ export default function CourtFinder() {
                         "bg-indigo-600 text-white",
                       day.isSelected &&
                         !day.isToday &&
-                        "bg-gray-900 text-white",
+                        "bg-emerald-600 text-white",
                       !day.isSelected && day.isToday && "text-indigo-600",
                       !day.isSelected && !day.isToday && "text-gray-900"
                     )}
@@ -710,14 +720,30 @@ export default function CourtFinder() {
                 {filteredEvents.map((event, idx) => {
                   const gridRow = getGridRow(event.time);
                   const dynamicTitle = event.clubDetails
-                    .map(
-                      (club) =>
-                        `${club.clubName}${
-                          club.courtsDetails
-                            ? " " + club.courtsDetails.length
-                            : ""
-                        }`
-                    )
+                    .map((club) => {
+                      const courtCountEmoji = club.courtsDetails
+                        ? [...club.courtsDetails.length.toString()]
+                            .map((digit) => {
+                              const emojiMap = {
+                                "0": "0️⃣",
+                                "1": "1️⃣",
+                                "2": "2️⃣",
+                                "3": "3️⃣",
+                                "4": "4️⃣",
+                                "5": "5️⃣",
+                                "6": "6️⃣",
+                                "7": "7️⃣",
+                                "8": "8️⃣",
+                                "9": "9️⃣",
+                              };
+                              return emojiMap[digit];
+                            })
+                            .join("")
+                        : "";
+                      return `​🎾​​ ${club.clubName}${
+                        courtCountEmoji ? " " + courtCountEmoji : ""
+                      }`;
+                    })
                     .join(" | ");
 
                   return (
@@ -732,15 +758,10 @@ export default function CourtFinder() {
                           setSelectedEvent(event);
                           setModalOpen(true);
                         }}
-                        className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${
-                          event.color
-                        } p-2 text-xs/5 hover:${event.color.replace(
-                          "200",
-                          "100"
-                        )} sm:min-h-0 min-h-[56px]`}
+                        className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[56px]`}
                       >
                         <p
-                          className={`order-1 font-semibold text-black text-left text-xs lg:text-sm`}
+                          className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm`}
                         >
                           {dynamicTitle}
                         </p>
