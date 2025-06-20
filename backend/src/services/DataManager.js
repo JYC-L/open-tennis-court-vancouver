@@ -49,36 +49,38 @@ class AvailabilityManager {
   async getAvailability(clubName, date, startDate, endDate, requestedAt) {
     // 1. Try to get data from DB
     
-    let record;
-    try {
-      record = await this.collection.findOne({ clubName, courtNumber, date, startTime });
-    } catch (err) {
-      throw new Error('Database error: ' + err.message);
-    }
+    let records;
+    // records = db.getData(clubName, date, startDate, endDate)  // assume it's a list of objects like thisl
+  //   {
+  //   "clubName": "Tennis BC Hub @ Richmond",
+  //   "courtNumber": "Bubble Court 1",
+  //   "date": "2025-06-19",
+  //   "startHour": "06:00",
+  //   "startTime": "06:30",
+  //   "endTime": "09:00",
+  //   "bookable": 0,
+  //   "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+  //   "location": "Vancouver DT"
+  // }
 
     // 2. Check freshness (stubbed to always true for now)
-    let lastUpdated = record ? record.lastUpdated : null;
+    // let lastUpdated = await db.getLastUpdated(); // assume it's a string with format YYYY-MM-DD HH:MM
+    // lastUpdated = Date(lastUpdated)
     let isFresh = await this.isFresh(lastUpdated, requestedAt);
     isFresh = true;
-    if (record && isFresh) {
-      return {
-        data: record.data,
-        requested_at: requestedAt,
-        last_updated: lastUpdated,
-        source: 'db',
-      };
+    if (records && isFresh) {
+      return records;
     }
 
     // 3. If missing/stale, call orchestrator (with 5s timeout)
-    let orchestratorData, orchestratorLastUpdated;
     let timeoutWindow = 5000;
     try {
-      orchestratorData = await this._withTimeout(
-        this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate),
+      await this._withTimeout(
+        // this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate), orchestrator will trigger all scrappers and push data to the db.
         timeoutWindow,
         `Orchestrator timed out after ${timeoutWindow/1000} seconds.`
       );
-      orchestratorLastUpdated = new Date();
+      records = 
     } catch (err) {
       throw new Error('Orchestrator error: ' + err.message);
     }
