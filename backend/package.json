@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend for the project using Node.js and TypeScript",
-  "main": "src/app.ts",
+  "main": "src/app.js",
   "scripts": {
-    "start": "ts-node src/app.ts",
+    "start": "node src/app.js",
     "test": "mocha -r ts-node/register src/services/*.spec.js",
     "test:orchestrator": "mocha -r ts-node/register src/services/Ochestrator.spec.js",
     "test:datamanager": "mocha -r ts-node/register src/services/DataManager.spec.js"

@@ -1,52 +1,43 @@
 const AvailabilityManager = require("../services/DataManager");
-const { MongoClient } = require("mongodb");
+const manager = new AvailabilityManager(); // No need for DB or orchestrator in mock
 
-const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017";
-const client = new MongoClient(mongoUri);
-
-const dummyOrchestrator = {
-  onDemandUpdate: async (requestedAt, startDate, endDate) => {
-    return [
-      {
-        clubName: "UBC Tennis Center",
-        courtNumber: "UBC-Court-1",
-        date: "2025-06-20",
-        startHour: "08:00 AM",
-        startTime: "08:00 AM",
-        endTime: "09:00 AM",
-        status: "Bookable",
-        courtBookingLink: "https://example.com/ubc-court-1"
-      }
-    ];
-  }
-};
-
-let availabilityManager;
-client.connect().then(() => {
-  availabilityManager = new AvailabilityManager(client, dummyOrchestrator);
-});
-
-const getAvailability = async (req, res) => {
+exports.getAvailability = async (req, res) => {
   try {
     const { court, start_date, end_date, requested_at } = req.query;
 
-    if (!start_date || !end_date) {
-      res.status(400).json({ error: "start_date and end_date are required" });
-      return;
+    if (!court || !start_date || !end_date || !requested_at) {
+      return res
+        .status(400)
+        .json({ error: "Missing required query parameters." });
     }
 
-    const result = await availabilityManager.getAvailability({
-      court,
-      startDate: new Date(start_date),
-      endDate: new Date(end_date),
-      requestedAt: requested_at ? new Date(requested_at) : new Date()
-    });
+    const startDate = new Date(start_date);
+    const endDate = new Date(end_date);
+    const requestedAt = new Date(requested_at);
 
-    res.json(result);
-  } catch (error) {
-    console.error("getAvailability error:", error);
-    res.status(500).json({ error: error.message || "Internal server error" });
+    if (isNaN(startDate) || isNaN(endDate) || isNaN(requestedAt)) {
+      return res
+        .status(400)
+        .json({ error: "Invalid date format in query parameters." });
+    }
+
+    const results = await manager.getAvailability(
+      court,
+      start_date.slice(0, 10),
+      startDate,
+      endDate,
+      requestedAt
+    );
+
+    res.status(200).json({
+      court,
+      start_date,
+      end_date,
+      requested_at,
+      results,
+    });
+  } catch (err) {
+    console.error("Controller Error:", err);
+    res.status(500).json({ error: "Internal server error." });
   }
 };
-
-module.exports = { getAvailability };
