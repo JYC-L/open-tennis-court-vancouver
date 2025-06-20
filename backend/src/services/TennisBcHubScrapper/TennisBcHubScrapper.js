@@ -1,5 +1,5 @@
-import { launch } from "puppeteer";
-import { makecourtBookingLink } from "./makecourtBookingLink.js";
+const { launch } = require("puppeteer");
+const { makecourtBookingLink } = require("./makecourtBookingLink.js");
 
 class TennisBcHubScrapper {
   constructor() {
@@ -181,7 +181,7 @@ function minutesToTime(sessionDate, minutes) {
   return baseDate.toTimeString().slice(0, 5);
 }
 
-export function makeBookableValue(dateString, minutes) {
+function makeBookableValue(dateString, minutes) {
   // Create a Date object based on dateString and set time to midnight.
   const sessionTime = new Date(dateString);
   sessionTime.setHours(0, 0, 0, 0);
@@ -204,4 +204,4 @@ export function makeBookableValue(dateString, minutes) {
   return distanceHours > sevenDaysHours ? distanceHours : 0;
 }
 
-export { TennisBcHubScrapper };
+module.exports = { TennisBcHubScrapper, makeBookableValue };

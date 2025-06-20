@@ -1,4 +1,4 @@
-import {CourtScheduleRepository} from "../db/CourtScheduleRepository";
+import {CourtScheduleRepository} from "../db/CourtScheduleRepository.ts";
 
 class AvailabilityManager {
   /**

@@ -1,14 +1,9 @@
-import { TennisBcHubScrapper } from "./TennisBcHubScrapper.js";
-import { saveBookingsToCSV } from "./saveBookingsToCSV.js";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+const { TennisBcHubScrapper } = require("./TennisBcHubScrapper.js");
+const { saveBookingsToCSV } = require("./saveBookingsToCSV.js");
+const fs = require("fs");
+const path = require("path");
 
-// Get the current file's directory (works with ES modules)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export function saveAvailabilityToJSON(availability, filename = "availability.json") {
+function saveAvailabilityToJSON(availability, filename = "availability.json") {
   const filePath = path.join(__dirname, filename);
   fs.writeFileSync(filePath, JSON.stringify(availability, null, 2), "utf8");
   console.log(`Availability saved to ${filePath}`);
@@ -27,3 +22,5 @@ async function run() {
 }
 
 // run();
+
+module.exports = { saveAvailabilityToJSON };

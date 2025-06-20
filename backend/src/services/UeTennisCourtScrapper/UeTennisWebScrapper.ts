@@ -1,7 +1,7 @@
-import puppeteer, { Browser, Page } from "puppeteer";
-import fs from "fs";
-import axios from "axios";
-import path from "path";
+const puppeteer = require("puppeteer");
+const fs = require("fs");
+const axios = require("axios");
+const path = require("path");
 import { time, timeStamp } from "console";
 import { request } from "http";
 import { start } from "repl";
@@ -19,15 +19,15 @@ export type CourtAvailability = {
 };
 
 export class UeTennisScrapper {
-  private browser!: Browser;
-  private page!: Page;
-  private authToken: string | null = null;
-  private serviceIds: Record<number, string> = {};
-  private allAvailability: CourtAvailability[] = [];
-  private readonly baseUrl: string = "https://www.uetennis.com";
-  private readonly bookingOnlineUrl: string = `${this.baseUrl}/book-online`;
-  private readonly bookingCalendar1Url: string = `https://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget`;
-  private readonly bookingLinks: { [courtName: string]: string } = {
+  private browser;
+  private page;
+  private authToken = null;
+  private serviceIds = {};
+  private allAvailability = [];
+  private readonly baseUrl = "https://www.uetennis.com";
+  private readonly bookingOnlineUrl = `${this.baseUrl}/book-online`;
+  private readonly bookingCalendar1Url = `https://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget`;
+  private readonly bookingLinks = {
     "Court 1":
       "http://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget",
     "Court 2":
@@ -39,7 +39,7 @@ export class UeTennisScrapper {
   };
   private readonly clubName = "UE Tennis";
 
-  public async getCourtBooking(): Promise<any[]> {
+  public async getCourtBooking() {
     const scrappingStartTime = new Date().toISOString();
     console.log(
       "Starting UE Tennis court booking scrapper...",
@@ -73,7 +73,7 @@ export class UeTennisScrapper {
     return this.allAvailability;
   }
 
-  private async captureAuthToken(): Promise<void> {
+  private async captureAuthToken() {
     this.page.on("request", (request) => {
       if (request.url().includes("/availability/query")) {
         const token = request.headers()["authorization"];
@@ -85,26 +85,26 @@ export class UeTennisScrapper {
     });
   }
 
-  private async goToBookingOnlinePage(): Promise<void> {
+  private async goToBookingOnlinePage() {
     try {
       await this.page.goto(this.bookingOnlineUrl, {
         waitUntil: "networkidle2",
       });
       console.log("Navigated to booking online page.");
-    } catch (error: any) {
+    } catch (error) {
       throw new Error(
         `Failed to navigate to booking online page: ${error.message}`
       );
     }
   }
   //navigate to first court calendar page to trigger the query api to fetch auth token
-  private async goToBookingCalendarPage(): Promise<void> {
+  private async goToBookingCalendarPage() {
     try {
       await this.page.goto(this.bookingCalendar1Url, {
         waitUntil: "networkidle2",
       });
       console.log("Navigated to booking calendar page for court 1.");
-    } catch (error: any) {
+    } catch (error) {
       throw new Error(
         `Failed to navigate to booking online page: ${error.message}`
       );
@@ -115,10 +115,10 @@ export class UeTennisScrapper {
    * Extracts service IDs from the page and sets them to the serviceIds property.
    * This method looks for elements with a specific data attribute and retrieves their IDs.
    */
-  private async extractAndSetServiceIds(): Promise<void> {
+  private async extractAndSetServiceIds() {
     try {
       const ids = await this.page.evaluate(() => {
-        const ids: Record<string, string> = {};
+        const ids = {};
         const serviceIdElements = document.querySelectorAll(
           "div[data-hook='card-info']"
         );
@@ -146,7 +146,7 @@ export class UeTennisScrapper {
     }
   }
 
-  private async queryAvailability(): Promise<void> {
+  private async queryAvailability() {
     if (!this.authToken) {
       throw new Error(
         "Authorization token not found. Cannot query availability."
@@ -165,7 +165,7 @@ export class UeTennisScrapper {
           startDateStr,
           endDateStr
         );
-        const availabilityEntries: any[] = response.data.availabilityEntries;
+        const availabilityEntries = response.data.availabilityEntries;
         await this.writeAvailabilityDataToMem(availabilityEntries);
       } catch (error) {
         console.error(`Error fetching for ${serviceId} on:`, error);
@@ -174,13 +174,13 @@ export class UeTennisScrapper {
   }
 
   private async writeAvailabilityDataToMem(
-    EntriesResponseArr: any[]
-  ): Promise<void> {
+    EntriesResponseArr
+  ) {
     if (!EntriesResponseArr || EntriesResponseArr.length === 0) {
       console.warn("No availability entries found.");
       return;
     }
-    EntriesResponseArr.forEach((entry: any) => {
+    EntriesResponseArr.forEach((entry) => {
       const clubName = this.clubName;
       const serviceId = entry.slot.serviceId;
       const courtName = Object.entries(this.serviceIds).find(
@@ -217,10 +217,10 @@ export class UeTennisScrapper {
    * @returns
    */
   private async sendPostRequestsForAvailability(
-    serviceId: string,
-    startDate: string,
-    endDate: string
-  ): Promise<any> {
+    serviceId,
+    startDate,
+    endDate
+  ) {
     try {
       const response = await axios.post(
         "https://www.uetennis.com/_api/availability-calendar/v1/availability/query",
@@ -246,7 +246,7 @@ export class UeTennisScrapper {
         }
       );
       return response;
-    } catch (error: any) {
+    } catch (error) {
       console.error(
         `Error sending POST request for serviceId ${serviceId}:`,
         error
@@ -259,7 +259,7 @@ export class UeTennisScrapper {
    *
    * @param {string} filename - The name of the CSV file to write.
    */
-  private writeToCSV(filename = "UE_tennis_court_availability.csv"): void {
+  private writeToCSV(filename = "UE_tennis_court_availability.csv") {
     console.log(
       "Writing availability data to CSV...",
       new Date().toISOString()
@@ -311,7 +311,7 @@ export class UeTennisScrapper {
    * @param data The JSON array to write
    * @param filename The name of the file (default: "availability.json")
    */
-  async writeJsonToDisk(filename = "availability.json"): Promise<void> {
+  async writeJsonToDisk(filename = "availability.json") {
     const folderPath = path.join(__dirname, "..", "uetennis");
 
     if (!fs.existsSync(folderPath)) {
@@ -329,3 +329,5 @@ export class UeTennisScrapper {
     console.log(`✅ JSON data saved to: ${filePath}`);
   }
 }
+
+module.exports = { UeTennisScrapper };

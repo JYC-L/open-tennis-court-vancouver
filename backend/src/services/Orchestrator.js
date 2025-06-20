@@ -1,8 +1,8 @@
-import { TennisBcHubScrapper } from './TennisBcHubScrapper/TennisBcHubScrapper.js';
-import UbcTennisCenterScrapper from './ubc-scrapper.js';
-import { UeTennisScrapper } from './UeTennisCourtScrapper/UeTennisWebScrapper.ts';
-import { saveAvailabilityToJSON } from './TennisBcHubScrapper/runScraper.js';
-import { CourtScheduleRepository } from '../db/CourtScheduleRepository.js';
+const { TennisBcHubScrapper } = require('./TennisBcHubScrapper/TennisBcHubScrapper.js');
+const UbcTennisCenterScrapper = require('./ubc-scrapper.js');
+const { UeTennisScrapper } = require('./UeTennisCourtScrapper/UeTennisWebScrapper.ts');
+const { saveAvailabilityToJSON } = require('./TennisBcHubScrapper/runScraper.js');
+const { CourtScheduleRepository } = require('../db/CourtScheduleRepository.ts');
 
 class Orchestrator {
   constructor() {
@@ -37,6 +37,7 @@ class Orchestrator {
       console.log("Pushed results to DB at ", new Date().toISOString());
     } catch (err) {
       console.error("Error pushing results to DB:", err);
+      throw err;
     }
   }
 
@@ -86,4 +87,4 @@ class Orchestrator {
   // })();
 }
 
-export { Orchestrator };
+module.exports = { Orchestrator };

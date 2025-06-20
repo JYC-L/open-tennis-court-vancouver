@@ -5,7 +5,9 @@
   "main": "src/app.ts",
   "scripts": {
     "start": "ts-node src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register src/services/*.spec.js",
+    "test:orchestrator": "mocha -r ts-node/register src/services/Ochestrator.spec.js",
+    "test:datamanager": "mocha -r ts-node/register src/services/DataManager.spec.js"
   },
   "dependencies": {
     "axios": "^1.9.0",
@@ -25,7 +27,7 @@
     "@types/express": "^4.17.22",
     "@types/node": "^16.18.126",
     "chai": "^5.2.0",
-    "mocha": "^11.5.0",
+    "mocha": "^11.7.0",
     "sinon": "^21.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^4.9.5"

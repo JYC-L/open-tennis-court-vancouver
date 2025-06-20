@@ -6,8 +6,6 @@ const { expect } = chai;
 import { readFileSync } from "fs";
 import sinon from "sinon";
 
-let results;
-
 describe("Orchestrator scheduledUpdate", () => {
   let clock;
   let orchestrator;
@@ -45,22 +43,24 @@ describe("Orchestrator scheduledUpdate", () => {
   // });
 });
 
-before(async function () {
-  this.timeout(10 * 60 * 1000); // 10 minutes
-    const orchestrator = new Orchestrator();
-    await orchestrator.onDemandUpdate(
-      new Date(),
-      new Date(),
-      new Date()
-    );
-  const fileContent = readFileSync(
-    "src/services/TennisBcHubScrapper/all_availabilities.json",
-    "utf8"
-  );
-  results = JSON.parse(fileContent);
-});
-
 describe("Orchestrator onDemandUpdate", () => {
+  let results;
+
+  before(async function () {
+    this.timeout(10 * 60 * 1000); // 10 minutes
+      const orchestrator = new Orchestrator();
+      await orchestrator.onDemandUpdate(
+        new Date(),
+        new Date(),
+        new Date()
+      );
+    const fileContent = readFileSync(
+      "src/services/TennisBcHubScrapper/all_availabilities.json",
+      "utf8"
+    );
+    results = JSON.parse(fileContent);
+  });
+
   it("should be able to get court booking", 
     async () => {
     expect(results).to.be.an("array");
@@ -167,4 +167,36 @@ describe("Orchestrator onDemandUpdate", () => {
   //     expect(resultDate.getDate()).to.be.greaterThanOrEqual(now.getDate());
   //   });
   // });
+});
+
+describe("Orchestrator pushToDB", () => {
+  let orchestrator;
+  let testData;
+
+  before(() => {
+    // Use the local JSON as test data
+    const fileContent = readFileSync(
+      "src/services/TennisBcHubScrapper/all_availabilities.json",
+      "utf8"
+    );
+    testData = JSON.parse(fileContent);
+  });
+
+  beforeEach(() => {
+    orchestrator = new Orchestrator();
+  });
+
+  it("should resolve successfully when pushing data to DB", async function() {
+    this.timeout(30000); // 30 seconds timeout for database operations
+    
+    // This will actually call the real repository method
+    try {
+      await orchestrator.pushToDB(testData);
+      // If we get here, the promise resolved successfully
+      expect(true).to.be.true; // This will always pass if we reach this point
+    } catch (error) {
+      // If there's any error, fail the test
+      expect.fail(`pushToDB should have resolved but threw: ${error.message}`);
+    }
+  });
 });
