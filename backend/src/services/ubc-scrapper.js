@@ -3,7 +3,8 @@ const cheerio = require("cheerio");
 
 class UbcTennisCenterScrapper {
   constructor() {
-    this.baseUrl = "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility";
+    this.baseUrl =
+      "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility";
     this.courts = [
       { id: "c0668c1c-1fd6-4432-a20e-4c50aaad5baa", label: "court01" },
       { id: "e2d99dda-cdc4-4af4-8df6-6c8061ffd56f", label: "court02" },
@@ -44,6 +45,21 @@ class UbcTennisCenterScrapper {
     return d.toISOString().split("T")[0];
   }
 
+  convertTo24Hour(timeStr) {
+    const [time, modifier] = timeStr.split(" ");
+    let [hours, minutes] = time.split(":").map(Number);
+
+    if (modifier === "PM" && hours !== 12) {
+      hours += 12;
+    } else if (modifier === "AM" && hours === 12) {
+      hours = 0;
+    }
+
+    return `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}`;
+  }
+
   async fetchHtmlForCourt(page, facilityId) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -54,7 +70,11 @@ class UbcTennisCenterScrapper {
     const htmlData = [];
 
     for (const arrivalDate of dates) {
-      const url = `${this.baseUrl}?facilityId=${facilityId}&arrivalDate=${encodeURIComponent(arrivalDate)}`;
+      const url = `${
+        this.baseUrl
+      }?facilityId=${facilityId}&arrivalDate=${encodeURIComponent(
+        arrivalDate
+      )}`;
       let attempts = 0;
       let html = null;
 
@@ -94,7 +114,10 @@ class UbcTennisCenterScrapper {
         if (!span.length) return;
 
         const timeRange = span.attr("title").trim();
-        const [startTime, endTime] = timeRange.split("-");
+        const [startTimeRaw, endTimeRaw] = timeRange.split("-");
+        const startTime = this.convertTo24Hour(startTimeRaw.trim());
+        const endTime = this.convertTo24Hour(endTimeRaw.trim());
+
         const statusNorm = span.text().trim().toLowerCase();
         let status = null;
         if (["book now", "reserve now"].includes(statusNorm)) {
@@ -114,6 +137,7 @@ class UbcTennisCenterScrapper {
           endTime: endTime,
           status,
           courtBookingLink: `${this.baseUrl}?facilityId=${courtId}`,
+          location: "UBC",
         });
       });
     }
