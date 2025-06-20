@@ -13,7 +13,14 @@ export class CourtScheduleRepository {
 
   public async getAllAvailabilityAsArr(): Promise<CourtScheduleEntry[]> {
     const collection = await MongoConnection.getCollection();
-    return await collection.find({}).toArray();
+    const docs = await collection.find({}).toArray();
+    return docs.map((doc) => {
+      const { _id, _pk, ...rest } = doc as CourtScheduleEntry & {
+        _id?: any;
+        _pk?: string;
+      };
+      return rest;
+    });
   }
 
   public async saveAllAvailability(
@@ -25,6 +32,7 @@ export class CourtScheduleRepository {
   // Overwrite with full upsert strategy
   public async overwrite(entries: CourtScheduleEntry[]): Promise<void> {
     const collection = await this.getAllAvailability();
+    const lastUpdated = new Date();
     for (const entry of entries) {
       const pk = this.computePrimaryKey(entry);
       await collection.updateOne(
@@ -33,7 +41,7 @@ export class CourtScheduleRepository {
           $set: {
             ...entry,
             _pk: pk,
-            lastUpdated: new Date(),
+            lastUpdated: lastUpdated,
           },
         },
         { upsert: true }
