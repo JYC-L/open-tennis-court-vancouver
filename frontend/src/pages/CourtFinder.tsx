@@ -813,48 +813,62 @@ export default function CourtFinder() {
             <div>S</div>
             <div>S</div>
           </div>
+
           <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
-            {monthDays.map((day, dayIdx) => (
-              <button
-                key={day.date}
-                type="button"
-                onClick={() => {
-                  setSelectedDate(day.date);
-                  updateDayButtonStatus();
-                }}
-                className={classNames(
-                  "py-1.5 hover:bg-gray-100 focus:z-10",
-                  day.isCurrentMonth ? "bg-white" : "bg-gray-50",
-                  (day.isSelected || day.isToday) && "font-semibold",
-                  day.isSelected && "text-white",
-                  !day.isSelected &&
-                    day.isCurrentMonth &&
-                    !day.isToday &&
-                    "text-gray-900",
-                  !day.isSelected &&
-                    !day.isCurrentMonth &&
-                    !day.isToday &&
-                    "text-gray-400",
-                  day.isToday && !day.isSelected && "text-indigo-600",
-                  dayIdx === 0 && "rounded-tl-lg",
-                  dayIdx === 6 && "rounded-tr-lg",
-                  dayIdx === days.length - 7 && "rounded-bl-lg",
-                  dayIdx === days.length - 1 && "rounded-br-lg"
-                )}
-              >
-                <time
-                  dateTime={day.date}
+            {monthDays.map((day, dayIdx) => {
+              // Check whether is the past data
+              const todayStr = getVancouverTodayString();
+              const isPast = day.date < todayStr;
+              return (
+                <button
+                  key={day.date}
+                  type="button"
+                  onClick={() => {
+                    if (!isPast) {
+                      setSelectedDate(day.date);
+                      updateDayButtonStatus();
+                    }
+                  }}
+                  disabled={isPast}
                   className={classNames(
-                    "mx-auto flex size-7 items-center justify-center rounded-full",
-                    day.isSelected && day.isToday && "bg-indigo-600",
-                    day.isSelected && !day.isToday && "bg-emerald-600"
+                    "py-1.5 focus:z-10",
+                    day.isCurrentMonth && !isPast && "bg-white",
+                    !day.isCurrentMonth && "bg-gray-100",
+                    isPast && "bg-gray-100 text-gray-400",
+                    (day.isSelected || day.isToday) && "font-semibold",
+                    day.isSelected && "text-white",
+                    !day.isSelected &&
+                      day.isCurrentMonth &&
+                      !day.isToday &&
+                      !isPast &&
+                      "text-gray-900",
+                    !day.isSelected &&
+                      !day.isCurrentMonth &&
+                      !day.isToday &&
+                      "text-gray-400",
+                    day.isToday && !day.isSelected && "text-indigo-600",
+                    dayIdx === 0 && "rounded-tl-lg",
+                    dayIdx === 6 && "rounded-tr-lg",
+                    dayIdx === days.length - 7 && "rounded-bl-lg",
+                    dayIdx === days.length - 1 && "rounded-br-lg",
+                    isPast && "cursor-not-allowed"
                   )}
                 >
-                  {(day.date.split("-").pop() ?? "").replace(/^0/, "")}
-                </time>
-              </button>
-            ))}
+                  <time
+                    dateTime={day.date}
+                    className={classNames(
+                      "mx-auto flex size-7 items-center justify-center rounded-full",
+                      day.isSelected && day.isToday && "bg-indigo-600",
+                      day.isSelected && !day.isToday && "bg-emerald-600"
+                    )}
+                  >
+                    {(day.date.split("-").pop() ?? "").replace(/^0/, "")}
+                  </time>
+                </button>
+              );
+            })}
           </div>
+
           <div className="flex justify-center mt-4">
             <button
               type="button"

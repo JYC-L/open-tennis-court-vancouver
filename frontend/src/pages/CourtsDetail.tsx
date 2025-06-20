@@ -45,7 +45,7 @@ export function CourtsDetail({ open, event, onClose }: EventDetailModalProps) {
           style={{ maxHeight: 500 }}
         >
           <Dialog.Title className="text-lg lg:text-2xl font-bold mb-2">
-            Event Details
+            Court Availability Details
           </Dialog.Title>
           <div className="overflow-y-auto" style={{ maxHeight: 350 }}>
             <div className="mb-2 text-sm lg:text-lg">
