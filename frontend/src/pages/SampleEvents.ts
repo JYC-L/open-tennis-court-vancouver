@@ -894,7 +894,7 @@ export const sampleEvents: EventsMap = {
           ],
         },
       ],
-      color: "bg-blue-200",
+      color: "bg-emerald-200",
     },
   ],
   "2025-06-23": [
@@ -1091,7 +1091,7 @@ export const sampleEvents: EventsMap = {
           ],
         },
       ],
-      color: "bg-red-200",
+      color: "bg-emerald-200",
     },
   ],
   "2025-06-25": [

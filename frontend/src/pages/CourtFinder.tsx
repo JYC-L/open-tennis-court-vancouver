@@ -11,6 +11,19 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { CourtsDetail } from "./CourtsDetail.tsx";
 import { sampleEvents } from "./SampleEvents.ts";
+import { sampleAPIResponse } from "./SampleAPIResponse.ts";
+import type {
+  Court,
+  Club,
+  Event,
+  EventsMap,
+} from "../utils/CourtAvailabilityData.ts";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  deleteOldEventsMap,
+  moveNewEventsMapToOld,
+  addNewEventsMap,
+} from "../store/eventsMapStoreSlice.ts";
 
 type Day = {
   date: string;
@@ -18,6 +31,8 @@ type Day = {
   isToday: boolean;
   isSelected: boolean;
 };
+
+const API_URL = "https://example.com/api/court-finder";
 
 // return gridRow based on time
 function getGridRow(time: string, duration: number = 60): string {
@@ -127,7 +142,132 @@ function classNames(...classes: (string | false | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
+function transformApiResponseToEventsMap(apiResponse: any[]): EventsMap {
+  const eventsMap: EventsMap = {};
+
+  apiResponse.forEach((item) => {
+    const {
+      clubName,
+      courtNumber,
+      date,
+      startHour,
+      startTime,
+      endTime,
+      bookable,
+      courtBookingLink,
+      location,
+    } = item;
+
+    // transfer bookable into string
+    let bookableStatus = "Book Now";
+
+    if (bookable !== 0) {
+      const bookableHours = parseInt(bookable.toString().trim(), 10);
+
+      if (bookableHours > 72) {
+        const days = Math.ceil(bookableHours / 24);
+        bookableStatus = `Bookable ${days} day${
+          days > 1 ? "s" : ""
+        } in advance`;
+      } else {
+        bookableStatus = `Bookable ${bookableHours} hrs in advance`;
+      }
+    }
+
+    // create court object
+    const court: Court = {
+      courtNumber,
+      startTime,
+      endTime,
+      bookable: bookableStatus,
+      courtBookingLink,
+    };
+
+    // create club object
+    const club: Club = {
+      clubName,
+      location,
+      courtsDetails: [court],
+    };
+
+    // create event object
+    const event: Event = {
+      time: startHour,
+      clubDetails: [club],
+      color: "bg-emerald-200",
+    };
+
+    // Add the event to the eventsMap
+    if (!eventsMap[date]) {
+      eventsMap[date] = [];
+    }
+
+    // Check if the event already exists for the date
+    const existingEvent = eventsMap[date].find((e) => e.time === event.time);
+    if (existingEvent) {
+      // If there is an existing event, merge the club details
+      const existingClub = existingEvent.clubDetails.find(
+        (c) => c.clubName === clubName && c.location === location
+      );
+      if (existingClub) {
+        // if there is an existing same club, merge the court details
+        existingClub.courtsDetails.push(court);
+      } else {
+        // If there is no existing same club, add the new club
+        existingEvent.clubDetails.push(club);
+      }
+    } else {
+      // If there is no existing event for the time, add the new event
+      eventsMap[date].push(event);
+    }
+  });
+
+  return eventsMap;
+}
+
+async function fetchAndTransformEvents(): Promise<EventsMap> {
+  try {
+    // const response = await fetch(API_URL);
+    // if (!response.ok) {
+    //   throw new Error(`Failed to fetch data: ${response.statusText}`);
+    // }
+    // const apiResponse: any[] = await response.json();
+
+    const apiResponse: any[] = sampleAPIResponse;
+
+    // Transder API response into EventsMap
+    return transformApiResponseToEventsMap(apiResponse);
+  } catch (error) {
+    console.error("Error fetching or transforming data:", error);
+    return {};
+  }
+}
+
 export default function CourtFinder() {
+  // Get the latest court availability data from the server
+  const [courtsTable, setCourtsTable] = useState(
+    useSelector(
+      (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
+    )
+  );
+  console.log("Courts Table:", courtsTable);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetchAndTransformEvents();
+        dispatch(deleteOldEventsMap());
+        dispatch(moveNewEventsMapToOld());
+        dispatch(addNewEventsMap(response));
+        setCourtsTable(response);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    }
+    fetchData();
+  }, [dispatch]);
+
   const container = useRef();
   const containerNav = useRef();
   const containerOffset = useRef();
@@ -153,7 +293,8 @@ export default function CourtFinder() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [locationFilter, setLocationFilter] = useState("All");
+  const [locationFilter, setLocationFilter] = useState("All Locations");
+  const [dayButtonStatus, setDayButtonStatus] = useState("Today");
 
   useEffect(() => {
     const vancouverNow = new Date(
@@ -180,6 +321,10 @@ export default function CourtFinder() {
     }
   }, []);
 
+  useEffect(() => {
+    updateDayButtonStatus();
+  }, [selectedDate]);
+
   // Switch to the previous week
   function handlePrev(): void {
     // Mobile, switch to the previous week
@@ -203,6 +348,37 @@ export default function CourtFinder() {
       start.setDate(start.getDate() + 7);
     }
     setSelectedDate(start.toISOString().slice(0, 10));
+    updateDayButtonStatus();
+  }
+
+  // Update the DayButtonStatus
+  function updateDayButtonStatus() {
+    const today = getVancouverTodayString(); // "YYYY-MM-DD"
+    const [ty, tm, td] = today.split("-").map(Number);
+    const [sy, sm, sd] = selectedDate.split("-").map(Number);
+
+    const todayUTC = Date.UTC(ty, tm - 1, td);
+    const selectedUTC = Date.UTC(sy, sm - 1, sd);
+
+    const diffInDays = Math.round(
+      (selectedUTC - todayUTC) / (1000 * 60 * 60 * 24)
+    );
+
+    if (selectedDate === today) {
+      setDayButtonStatus("Today");
+    } else if (diffInDays === 1) {
+      setDayButtonStatus("Tomorrow");
+    } else if (diffInDays === -1) {
+      setDayButtonStatus("Yesterday");
+    } else {
+      setDayButtonStatus(selectedDate.split("-").slice(1).join("-")); // MM-DD
+    }
+  }
+
+  function getWeekday(dateString) {
+    const [year, month, day] = dateString.split("-").map(Number);
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString("en-US", { weekday: "long" });
   }
 
   function handlePrevMonth() {
@@ -223,10 +399,10 @@ export default function CourtFinder() {
     }
   }
 
-  let filteredEvents = (sampleEvents[selectedDate] || [])
+  let filteredEvents = (courtsTable[selectedDate] || [])
     .map((event) => {
       const filteredClubs =
-        locationFilter === "All"
+        locationFilter === "All Locations"
           ? event.clubDetails
           : event.clubDetails.filter(
               (club) => club.location === locationFilter
@@ -234,6 +410,30 @@ export default function CourtFinder() {
       return { ...event, clubDetails: filteredClubs };
     })
     .filter((event) => event.clubDetails.length > 0);
+
+  filteredEvents = filteredEvents.map((event) => {
+    let color = "bg-emerald-200";
+    const hourGroup = [
+      "06:00",
+      "08:00",
+      "10:00",
+      "12:00",
+      "14:00",
+      "16:00",
+      "18:00",
+      "20:00",
+      "22:00",
+    ];
+    if (hourGroup.includes(event.time)) {
+      color = "bg-emerald-200";
+    } else {
+      color = "bg-yellow-200";
+    }
+    return {
+      ...event,
+      color: color,
+    };
+  });
 
   return (
     <div className="flex h-full flex-col">
@@ -274,10 +474,12 @@ export default function CourtFinder() {
               })}
             </time>
           </h1>
-          <p className="mt-1 text-sm text-gray-500">Saturday</p>
+          <p className="mt-1 text-sm text-gray-500">
+            {getWeekday(selectedDate)}
+          </p>
         </div>
         <div className="flex items-center">
-          <div className="relative flex items-center rounded-md bg-white shadow-sm md:items-stretch">
+          <div className="relative flex items-center justify-center rounded-md bg-white shadow-sm md:items-stretch">
             <button
               type="button"
               onClick={handlePrev}
@@ -288,9 +490,9 @@ export default function CourtFinder() {
             </button>
             <button
               type="button"
-              className="hidden border-y border-gray-300 px-3.5 text-sm font-semibold text-gray-900 hover:bg-gray-50 focus:relative md:block"
+              className="hidden border-y w-20 justify-center border-gray-300 text-sm font-semibold text-gray-900 hover:bg-gray-50 focus:relative md:block"
             >
-              Today
+              {dayButtonStatus}
             </button>
             <span className="relative -mx-px h-5 w-px bg-gray-300 md:hidden" />
             <button
@@ -306,9 +508,9 @@ export default function CourtFinder() {
             <Menu as="div" className="relative">
               <MenuButton
                 type="button"
-                className="flex items-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                className="flex w-40 items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
               >
-                Location
+                {locationFilter}
                 <ChevronDownIcon
                   className="-mr-1 size-5 text-gray-400"
                   aria-hidden="true"
@@ -322,10 +524,10 @@ export default function CourtFinder() {
                 <div className="py-1">
                   <MenuItem>
                     <button
-                      onClick={() => setLocationFilter("All")}
+                      onClick={() => setLocationFilter("All Locations")}
                       className="block w-full px-4 py-2 text-sm text-gray-700 text-left hover:bg-gray-100"
                     >
-                      Metro Vancouver
+                      All Locations
                     </button>
                   </MenuItem>
                   <MenuItem>
@@ -378,7 +580,10 @@ export default function CourtFinder() {
               <div className="py-1">
                 <MenuItem>
                   <button
-                    onClick={() => setSelectedDate(getVancouverTodayString())}
+                    onClick={() => {
+                      setSelectedDate(getVancouverTodayString());
+                      updateDayButtonStatus();
+                    }}
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
                     Go to today
@@ -391,7 +596,7 @@ export default function CourtFinder() {
                     onClick={() => setLocationFilter("All")}
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
-                    Metro Vancouver
+                    All Locations
                   </button>
                 </MenuItem>
                 <MenuItem>
@@ -517,7 +722,7 @@ export default function CourtFinder() {
 
                   return (
                     <li
-                      key={event.title + event.time}
+                      key={event.time}
                       className="relative mt-px flex"
                       style={{ gridRow }}
                     >
@@ -592,7 +797,10 @@ export default function CourtFinder() {
               <button
                 key={day.date}
                 type="button"
-                onClick={() => setSelectedDate(day.date)}
+                onClick={() => {
+                  setSelectedDate(day.date);
+                  updateDayButtonStatus();
+                }}
                 className={classNames(
                   "py-1.5 hover:bg-gray-100 focus:z-10",
                   day.isCurrentMonth ? "bg-white" : "bg-gray-50",
@@ -629,7 +837,10 @@ export default function CourtFinder() {
           <div className="flex justify-center mt-4">
             <button
               type="button"
-              onClick={() => setSelectedDate(getVancouverTodayString())}
+              onClick={() => {
+                setSelectedDate(getVancouverTodayString());
+                updateDayButtonStatus();
+              }}
               className="flex items-center gap-x-1.5 rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             >
               Go to today
