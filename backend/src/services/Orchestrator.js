@@ -9,6 +9,17 @@ class Orchestrator {
   }
 
   async onDemandUpdate(requestedAt, startDate, endDate) {
+    // console.log("Running onDemandUpdate...");
+    // await new Promise(resolve => setTimeout(resolve, 2000));
+    // console.log("Getting availabilty for Tennis BC Courts..");
+    // await new Promise(resolve => setTimeout(resolve, 3000));
+    // console.log("Getting availabilty for UE Courts..");
+    // await new Promise(resolve => setTimeout(resolve, 2000));
+    // console.log("Getting availabilty for UBC Courts..");
+    // await new Promise(resolve => setTimeout(resolve, 2000));
+    // console.log("pushing data to db...");
+    // console.log("Writing availability to all_availabilities.json");
+    // return;
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking()
     );
@@ -23,54 +34,36 @@ class Orchestrator {
     console.log("Pushed to db at ", new Date().toISOString());
   }
 
-  //TODO: for 12:00 to 24:00, every 30 minutes +- random number < 10 minutes, trigger a onDemandUpdate. Assume the server is running 24/7.
-  async scheduledUpdate() {
-    const MS_PER_MINUTE = 60 * 1000;
-    const MS_PER_30_MIN = 30 * MS_PER_MINUTE;
-    const MAX_OFFSET = 10 * MS_PER_MINUTE; // 10 minutes
+  // Schedules onDemandUpdate every intervalSeconds (±offsetSeconds) between 00:00 and 00:00 the next day (full 24 hours).
+  // intervalSeconds and offsetSeconds are in seconds. Defaults: 1800s (30min), 600s (10min)
+  async scheduledUpdate(intervalSeconds = 1800, offsetSeconds = 600, onUpdateCallback) {
+    const MS_PER_SECOND = 1000;
+    const INTERVAL = intervalSeconds * MS_PER_SECOND;
+    const MAX_OFFSET = offsetSeconds * MS_PER_SECOND;
 
     const scheduleNext = () => {
+      console.log("Scheduling next update...");
       const now = new Date();
-      const hour = now.getHours();
-      if (hour < 12 || hour >= 24) {
-        // Not in the scheduling window, calculate ms until next 12:00
-        let nextNoon = new Date(now);
-        nextNoon.setHours(12, 0, 0, 0);
-        if (now >= nextNoon) {
-          nextNoon.setDate(nextNoon.getDate() + 1);
-        }
-        const msUntilNextNoon = nextNoon - now;
-        setTimeout(scheduleNext, msUntilNextNoon);
-        return;
-      }
-      // Find next 30-min mark
-      const nextHalfHour = new Date(now);
-      nextHalfHour.setSeconds(0, 0);
-      if (now.getMinutes() < 30) {
-        nextHalfHour.setMinutes(30);
-      } else {
-        nextHalfHour.setMinutes(0);
-        nextHalfHour.setHours(nextHalfHour.getHours() + 1);
-      }
-      // Random offset between -10 and +10 minutes
+      // Calculate the next run time
       const offset = Math.floor(Math.random() * (2 * MAX_OFFSET + 1)) - MAX_OFFSET;
-      let msUntilNext = nextHalfHour - now + offset;
-      // Ensure we don't schedule outside the window
+      let msUntilNext = INTERVAL + offset;
+
+      // If this would cross into the next day, schedule for midnight
       const nextRun = new Date(now.getTime() + msUntilNext);
-      if (nextRun.getHours() >= 24) {
-        // Schedule for next day at 12:00
-        let nextNoon = new Date(now);
-        nextNoon.setDate(nextNoon.getDate() + 1);
-        nextNoon.setHours(12, 0, 0, 0);
-        setTimeout(scheduleNext, nextNoon - now);
-        return;
+      if (nextRun.getDate() !== now.getDate()) {
+        let nextMidnight = new Date(now);
+        nextMidnight.setDate(nextMidnight.getDate() + 1);
+        nextMidnight.setHours(0, 0, 0, 0);
+        msUntilNext = nextMidnight - now;
       }
+
       setTimeout(async () => {
         try {
           const requestedAt = new Date();
           const startDate = new Date();
           const endDate = new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000);
-          await this.onDemandUpdate(requestedAt, startDate, endDate);
+          console.log("Running onDemandUpdate...");
+          if (onUpdateCallback) onUpdateCallback(new Date());
         } catch (err) {
           console.error('Error during scheduled onDemandUpdate:', err);
         }

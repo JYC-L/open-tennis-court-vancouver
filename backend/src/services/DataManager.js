@@ -80,7 +80,7 @@ class AvailabilityManager {
         timeoutWindow,
         `Orchestrator timed out after ${timeoutWindow/1000} seconds.`
       );
-      records = 
+      records = getDataFromDB()
     } catch (err) {
       throw new Error('Orchestrator error: ' + err.message);
     }

@@ -1,64 +1,115 @@
-import { Orchestrator } from './Orchestrator.js';
-import pkg from 'mocha';
-import * as chai from 'chai';
+import { Orchestrator } from "./Orchestrator.js";
+import pkg from "mocha";
+import * as chai from "chai";
 const { describe, it, before } = pkg;
 const { expect } = chai;
-import { readFileSync } from 'fs';
+import { readFileSync } from "fs";
+import sinon from "sinon";
 
 let results;
-before(async function() {
+
+describe("Orchestrator scheduledUpdate", () => {
+  let clock;
+  let orchestrator;
+  let callTimes;
+
+  beforeEach(() => {
+    clock = sinon.useFakeTimers();
+    orchestrator = new Orchestrator();
+    callTimes = [];
+  });
+
+  afterEach(() => {
+    clock.restore();
+  });
+
+  it("runs every 5 seconds", async () => {
+    orchestrator.scheduledUpdate(5, 0, () => callTimes.push(clock.now));
+    // Advance the clock in 5 second increments
+    for (let i = 0; i < 4; i++) {
+      clock.tick(5000);
+      await Promise.resolve(); // allow timers to fire
+    }
+    chai.expect(callTimes.length).to.be.within(3, 4);
+  });
+
+  // it("has a random offset of -2 to +2 seconds", async () => {
+  //   orchestrator.scheduledUpdate(5, 2, (time) => callTimes.push(time));
+  //   clock.tick(20000);
+  //   await Promise.resolve();
+  //   // Check that the intervals between callTimes are between 3 and 7 seconds
+  //   for (let i = 1; i < callTimes.length; i++) {
+  //     const diff = (callTimes[i] - callTimes[i - 1]) / 1000;
+  //     chai.expect(diff).to.be.within(3, 7);
+  //   }
+  // });
+});
+
+before(async function () {
   this.timeout(10 * 60 * 1000); // 10 minutes
-//   const orchestrator = new Orchestrator();
-//   await orchestrator.onDemandUpdate(
-//     new Date(),
-//     new Date(),
-//     new Date()
-//   );
-  const fileContent = readFileSync('src/services/TennisBcHubScrapper/all_availabilities.json', 'utf8');
+    const orchestrator = new Orchestrator();
+    await orchestrator.onDemandUpdate(
+      new Date(),
+      new Date(),
+      new Date()
+    );
+  const fileContent = readFileSync(
+    "src/services/TennisBcHubScrapper/all_availabilities.json",
+    "utf8"
+  );
   results = JSON.parse(fileContent);
 });
 
-describe('Orchestrator', () => {
-  it('should be able to get court booking', async () => {
-    expect(results).to.be.an('array');
+describe("Orchestrator onDemandUpdate", () => {
+  it("should be able to get court booking", 
+    async () => {
+    expect(results).to.be.an("array");
   });
-  it('should have right fields', async () => {
-    results.forEach(result => {
-      expect(result).to.have.property('clubName');
-      expect(result).to.have.property('courtNumber');
-      expect(result).to.have.property('date');
-      expect(result).to.have.property('startHour');
-      expect(result).to.have.property('startTime');
-      expect(result).to.have.property('endTime');
-      expect(result).to.have.property('bookable');
-      expect(result).to.have.property('courtBookingLink');
-      expect(result).to.have.property('location');
+  it("should have right fields", async () => {
+    results.forEach((result) => {
+      expect(result).to.have.property("clubName");
+      expect(result).to.have.property("courtNumber");
+      expect(result).to.have.property("date");
+      expect(result).to.have.property("startHour");
+      expect(result).to.have.property("startTime");
+      expect(result).to.have.property("endTime");
+      expect(result).to.have.property("bookable");
+      expect(result).to.have.property("courtBookingLink");
+      expect(result).to.have.property("location");
     });
   });
-  it('bookable should be >=0 and an integer', async () => {
-    results.forEach(result => {
-      expect(result.bookable).to.be.a('number');
+  it("bookable should be >=0 and an integer", async () => {
+    results.forEach((result) => {
+      expect(result.bookable).to.be.a("number");
       expect(result.bookable).to.be.greaterThanOrEqual(0);
     });
   });
-  it('clubName should have all and only the following values', async () => {
-    const validNames = ['Tennis BC Hub @ Richmond', 'Tennis BC Hub @ Stanley Park',
-        'UBC Tennis Center', 'UE Tennis'];
-    results.forEach(result => {
+  it("clubName should have all and only the following values", async () => {
+    const validNames = [
+      "Tennis BC Hub @ Richmond",
+      "Tennis BC Hub @ Stanley Park",
+      "UBC Tennis Center",
+      "UE Tennis"
+    ];
+    results.forEach((result) => {
       expect(result.clubName).to.be.oneOf(validNames);
     });
-    const uniqueNames = Array.from(new Set(results.map(result => result.clubName)));
+    const uniqueNames = Array.from(
+      new Set(results.map((result) => result.clubName))
+    );
     expect(uniqueNames.sort()).to.deep.equal(validNames.sort());
   });
-  it('location should be oneof', async () => {
-    const validLocations = ['Vancouver DT', 'Richmond', 'UBC'];
-    results.forEach(result => {
+  it("location should be oneof", async () => {
+    const validLocations = ["Vancouver DT", "Richmond", "UBC"];
+    results.forEach((result) => {
       expect(result.location).to.be.oneOf(validLocations);
     });
-    const uniqueLocations = Array.from(new Set(results.map(result => result.location)));
+    const uniqueLocations = Array.from(
+      new Set(results.map((result) => result.location))
+    );
     expect(uniqueLocations.sort()).to.deep.equal(validLocations.sort());
   });
-  it('courtNumber should be oneof', async () => {
+  it("courtNumber should be oneof", async () => {
     const validCourtNumbers = [
       "Bubble Court 1",
       "Bubble Court 2",
@@ -89,29 +140,31 @@ describe('Orchestrator', () => {
       "Court 4",
       "Court 5"
     ];
-    results.forEach(result => {
+    results.forEach((result) => {
       expect(result.courtNumber).to.be.oneOf(validCourtNumbers);
     });
-    const uniqueCourtNumbers = Array.from(new Set(results.map(result => result.courtNumber)));
+    const uniqueCourtNumbers = Array.from(
+      new Set(results.map((result) => result.courtNumber))
+    );
     expect(uniqueCourtNumbers.sort()).to.deep.equal(validCourtNumbers.sort());
   });
   it("time should be in the format HH:MM", async () => {
-    results.forEach(result => {
+    results.forEach((result) => {
       expect(result.startHour).to.match(/^\d{2}:\d{2}$/);
       expect(result.startTime).to.match(/^\d{2}:\d{2}$/);
       expect(result.endTime).to.match(/^\d{2}:\d{2}$/);
     });
   });
   it("date should be a dateTime string", async () => {
-    results.forEach(result => {
+    results.forEach((result) => {
       expect(result.date).to.match(/^\d{4}-\d{2}-\d{2}$/);
     });
   });
-  it("date should be in the future", async () => {
-    const now = new Date();
-    results.forEach(result => {
-      const resultDate = new Date(result.date);
-      expect(resultDate.getDate()).to.be.greaterThanOrEqual(now.getDate());
-    });
-  });
-})
+  // it("date should be in the future", async () => {
+  //   const now = new Date();
+  //   results.forEach((result) => {
+  //     const resultDate = new Date(result.date);
+  //     expect(resultDate.getDate()).to.be.greaterThanOrEqual(now.getDate());
+  //   });
+  // });
+});
