@@ -2,45 +2,12 @@
   {
     "clubName": "Tennis BC Hub @ Richmond",
     "courtNumber": "Bubble Court 1",
-    "date": "2025-06-19",
-    "startHour": "06:00",
-    "startTime": "06:30",
-    "endTime": "09:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 1",
-    "date": "2025-06-19",
-    "startHour": "14:00",
-    "startTime": "14:30",
-    "endTime": "15:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 1",
-    "date": "2025-06-19",
-    "startHour": "22:00",
-    "startTime": "22:00",
-    "endTime": "23:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 1",
     "date": "2025-06-20",
     "startHour": "08:00",
     "startTime": "08:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -51,7 +18,7 @@
     "startTime": "15:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -62,18 +29,18 @@
     "startTime": "07:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
     "clubName": "Tennis BC Hub @ Richmond",
     "courtNumber": "Bubble Court 1",
     "date": "2025-06-22",
-    "startHour": "19:00",
-    "startTime": "19:00",
+    "startHour": "21:00",
+    "startTime": "21:00",
     "endTime": "22:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -84,7 +51,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -95,7 +62,7 @@
     "startTime": "13:00",
     "endTime": "14:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -106,7 +73,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -117,7 +84,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -128,7 +95,7 @@
     "startTime": "12:00",
     "endTime": "13:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -139,7 +106,7 @@
     "startTime": "06:30",
     "endTime": "07:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -150,7 +117,7 @@
     "startTime": "08:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -161,7 +128,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -172,7 +139,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -183,7 +150,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -194,7 +161,7 @@
     "startTime": "08:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -205,7 +172,7 @@
     "startTime": "15:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -215,8 +182,8 @@
     "startHour": "10:00",
     "startTime": "10:30",
     "endTime": "23:00",
-    "bookable": 179.2216263888889,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 177.7342052777778,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -226,8 +193,8 @@
     "startHour": "07:00",
     "startTime": "07:30",
     "endTime": "23:00",
-    "bookable": 200.2216263888889,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 198.7342052777778,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -237,8 +204,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "09:00",
-    "bookable": 223.2216263888889,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 221.7342052777778,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -248,8 +215,8 @@
     "startHour": "13:00",
     "startTime": "13:30",
     "endTime": "14:30",
-    "bookable": 230.2216263888889,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 228.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -259,8 +226,8 @@
     "startHour": "17:00",
     "startTime": "17:00",
     "endTime": "23:00",
-    "bookable": 233.7216263888889,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 232.234205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -270,52 +237,19 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "23:00",
-    "bookable": 247.2216263888889,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 245.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
     "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 2",
-    "date": "2025-06-19",
+    "courtNumber": "Bubble Court 1",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 2",
-    "date": "2025-06-19",
-    "startHour": "12:00",
-    "startTime": "12:00",
-    "endTime": "14:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 2",
-    "date": "2025-06-19",
-    "startHour": "15:00",
-    "startTime": "15:00",
-    "endTime": "16:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 2",
-    "date": "2025-06-19",
-    "startHour": "22:00",
-    "startTime": "22:00",
-    "endTime": "23:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 269.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -326,7 +260,7 @@
     "startTime": "12:00",
     "endTime": "14:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -337,7 +271,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -348,7 +282,7 @@
     "startTime": "07:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -359,7 +293,7 @@
     "startTime": "19:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -370,7 +304,7 @@
     "startTime": "06:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -381,7 +315,7 @@
     "startTime": "13:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -392,7 +326,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -403,7 +337,7 @@
     "startTime": "06:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -414,7 +348,7 @@
     "startTime": "12:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -425,7 +359,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -436,7 +370,7 @@
     "startTime": "12:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -447,7 +381,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -458,7 +392,7 @@
     "startTime": "06:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -469,7 +403,7 @@
     "startTime": "14:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -480,7 +414,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -491,7 +425,7 @@
     "startTime": "08:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -500,9 +434,20 @@
     "date": "2025-06-27",
     "startHour": "12:00",
     "startTime": "12:00",
+    "endTime": "14:00",
+    "bookable": 0,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
+    "location": "Vancouver DT"
+  },
+  {
+    "clubName": "Tennis BC Hub @ Richmond",
+    "courtNumber": "Bubble Court 2",
+    "date": "2025-06-27",
+    "startHour": "16:00",
+    "startTime": "16:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -512,8 +457,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "23:00",
-    "bookable": 177.7216261111111,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 176.234205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -523,8 +468,8 @@
     "startHour": "07:00",
     "startTime": "07:30",
     "endTime": "23:00",
-    "bookable": 200.2216261111111,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 198.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -534,8 +479,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "09:00",
-    "bookable": 223.2216261111111,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 221.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -545,8 +490,8 @@
     "startHour": "13:00",
     "startTime": "13:30",
     "endTime": "14:30",
-    "bookable": 230.2216261111111,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 228.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -556,8 +501,8 @@
     "startHour": "17:00",
     "startTime": "17:00",
     "endTime": "23:00",
-    "bookable": 233.7216261111111,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 232.234205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -567,41 +512,19 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "23:00",
-    "bookable": 247.2216261111111,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 245.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
     "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 3",
-    "date": "2025-06-19",
+    "courtNumber": "Bubble Court 2",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
-    "endTime": "13:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 3",
-    "date": "2025-06-19",
-    "startHour": "15:00",
-    "startTime": "15:00",
-    "endTime": "16:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 3",
-    "date": "2025-06-19",
-    "startHour": "22:00",
-    "startTime": "22:00",
-    "endTime": "23:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "endTime": "08:00",
+    "bookable": 269.734205,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -612,7 +535,7 @@
     "startTime": "08:30",
     "endTime": "14:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -623,7 +546,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -634,7 +557,7 @@
     "startTime": "07:30",
     "endTime": "09:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -645,7 +568,7 @@
     "startTime": "17:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -656,7 +579,7 @@
     "startTime": "20:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -667,7 +590,7 @@
     "startTime": "06:30",
     "endTime": "11:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -678,7 +601,7 @@
     "startTime": "13:30",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -689,7 +612,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -700,7 +623,7 @@
     "startTime": "06:30",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -711,7 +634,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -722,7 +645,7 @@
     "startTime": "06:30",
     "endTime": "10:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -733,7 +656,7 @@
     "startTime": "12:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -744,7 +667,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -755,7 +678,7 @@
     "startTime": "06:30",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -766,7 +689,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -775,9 +698,20 @@
     "date": "2025-06-27",
     "startHour": "09:00",
     "startTime": "09:30",
+    "endTime": "14:00",
+    "bookable": 0,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
+    "location": "Vancouver DT"
+  },
+  {
+    "clubName": "Tennis BC Hub @ Richmond",
+    "courtNumber": "Bubble Court 3",
+    "date": "2025-06-27",
+    "startHour": "16:00",
+    "startTime": "16:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -787,8 +721,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "23:00",
-    "bookable": 177.72162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 176.23420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -798,8 +732,8 @@
     "startHour": "07:00",
     "startTime": "07:30",
     "endTime": "23:00",
-    "bookable": 200.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 198.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -809,8 +743,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "09:00",
-    "bookable": 223.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 221.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -820,8 +754,8 @@
     "startHour": "13:00",
     "startTime": "13:30",
     "endTime": "14:30",
-    "bookable": 230.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 228.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -831,8 +765,8 @@
     "startHour": "17:00",
     "startTime": "17:00",
     "endTime": "23:00",
-    "bookable": 233.72162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 232.23420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -842,30 +776,19 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "23:00",
-    "bookable": 247.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 245.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
     "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 4",
-    "date": "2025-06-19",
+    "courtNumber": "Bubble Court 3",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
-    "endTime": "09:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
-    "location": "Vancouver DT"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Richmond",
-    "courtNumber": "Bubble Court 4",
-    "date": "2025-06-19",
-    "startHour": "12:00",
-    "startTime": "12:00",
-    "endTime": "15:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "endTime": "08:00",
+    "bookable": 269.7342047222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -876,7 +799,7 @@
     "startTime": "06:30",
     "endTime": "07:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -887,7 +810,7 @@
     "startTime": "11:30",
     "endTime": "12:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -898,7 +821,7 @@
     "startTime": "13:00",
     "endTime": "14:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -909,7 +832,7 @@
     "startTime": "16:00",
     "endTime": "17:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -920,7 +843,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -931,7 +854,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -942,7 +865,7 @@
     "startTime": "07:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -953,7 +876,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -964,7 +887,7 @@
     "startTime": "06:30",
     "endTime": "07:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -975,7 +898,7 @@
     "startTime": "09:00",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -986,7 +909,7 @@
     "startTime": "12:30",
     "endTime": "13:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -997,7 +920,7 @@
     "startTime": "14:30",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1008,7 +931,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1019,7 +942,7 @@
     "startTime": "06:30",
     "endTime": "07:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1030,7 +953,7 @@
     "startTime": "08:00",
     "endTime": "12:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1041,7 +964,7 @@
     "startTime": "14:00",
     "endTime": "14:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1052,7 +975,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1063,7 +986,7 @@
     "startTime": "06:30",
     "endTime": "07:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1074,7 +997,7 @@
     "startTime": "09:00",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1085,7 +1008,7 @@
     "startTime": "12:30",
     "endTime": "13:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1096,7 +1019,7 @@
     "startTime": "14:30",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1107,7 +1030,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1118,7 +1041,7 @@
     "startTime": "06:30",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1129,7 +1052,7 @@
     "startTime": "12:30",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1140,7 +1063,7 @@
     "startTime": "22:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1151,7 +1074,7 @@
     "startTime": "06:30",
     "endTime": "08:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1160,9 +1083,20 @@
     "date": "2025-06-27",
     "startHour": "09:00",
     "startTime": "09:30",
+    "endTime": "14:00",
+    "bookable": 0,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
+    "location": "Vancouver DT"
+  },
+  {
+    "clubName": "Tennis BC Hub @ Richmond",
+    "courtNumber": "Bubble Court 4",
+    "date": "2025-06-27",
+    "startHour": "16:00",
+    "startTime": "16:00",
     "endTime": "23:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1172,8 +1106,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "23:00",
-    "bookable": 177.72162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 176.23420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1183,8 +1117,8 @@
     "startHour": "07:00",
     "startTime": "07:30",
     "endTime": "23:00",
-    "bookable": 200.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 198.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1194,8 +1128,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "09:00",
-    "bookable": 223.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 221.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1205,8 +1139,8 @@
     "startHour": "13:00",
     "startTime": "13:30",
     "endTime": "14:30",
-    "bookable": 230.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 228.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1216,8 +1150,8 @@
     "startHour": "17:00",
     "startTime": "17:00",
     "endTime": "23:00",
-    "bookable": 233.72162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 232.23420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
@@ -1227,42 +1161,20 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "23:00",
-    "bookable": 247.22162583333332,
-    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 245.73420472222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Vancouver DT"
   },
   {
-    "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #1",
-    "date": "2025-06-19",
+    "clubName": "Tennis BC Hub @ Richmond",
+    "courtNumber": "Bubble Court 4",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
-    "location": "Richmond"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #1",
-    "date": "2025-06-19",
-    "startHour": "09:00",
-    "startTime": "09:00",
-    "endTime": "09:30",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
-    "location": "Richmond"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #1",
-    "date": "2025-06-19",
-    "startHour": "11:00",
-    "startTime": "11:30",
-    "endTime": "12:30",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
-    "location": "Richmond"
+    "bookable": 269.7342047222222,
+    "courtBookingLink": "https://clubspark.ca/TBCHubRichmond/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
+    "location": "Vancouver DT"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
@@ -1272,7 +1184,7 @@
     "startTime": "07:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1283,7 +1195,7 @@
     "startTime": "10:00",
     "endTime": "14:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1294,7 +1206,7 @@
     "startTime": "15:30",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1305,7 +1217,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1316,7 +1228,7 @@
     "startTime": "09:00",
     "endTime": "11:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1327,7 +1239,7 @@
     "startTime": "19:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1338,7 +1250,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1349,7 +1261,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1360,7 +1272,7 @@
     "startTime": "09:00",
     "endTime": "13:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1371,7 +1283,7 @@
     "startTime": "15:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1382,7 +1294,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1393,7 +1305,7 @@
     "startTime": "09:00",
     "endTime": "13:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1404,7 +1316,7 @@
     "startTime": "15:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1415,7 +1327,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1426,7 +1338,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1437,7 +1349,7 @@
     "startTime": "09:00",
     "endTime": "12:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1448,7 +1360,7 @@
     "startTime": "13:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1459,7 +1371,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1470,7 +1382,7 @@
     "startTime": "09:00",
     "endTime": "09:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1481,7 +1393,7 @@
     "startTime": "11:30",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1492,7 +1404,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1503,7 +1415,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1514,7 +1426,7 @@
     "startTime": "09:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1525,7 +1437,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1535,8 +1447,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 175.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 173.73420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1546,8 +1458,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "11:00",
-    "bookable": 177.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 176.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1557,8 +1469,8 @@
     "startHour": "13:00",
     "startTime": "13:00",
     "endTime": "15:00",
-    "bookable": 181.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 180.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1568,8 +1480,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 199.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 197.73420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1579,8 +1491,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "10:00",
-    "bookable": 201.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 200.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1590,8 +1502,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 212.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 211.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1601,8 +1513,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 223.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 221.73420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1612,8 +1524,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "18:00",
-    "bookable": 225.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 224.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1623,8 +1535,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 236.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 235.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1634,8 +1546,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 247.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 245.73420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1645,30 +1557,41 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "21:00",
-    "bookable": 249.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=0&&role=guest",
+    "bookable": 248.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #2",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #1",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 269.73420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #2",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #1",
+    "date": "2025-07-02",
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "10:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 272.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
+    "location": "Richmond"
+  },
+  {
+    "clubName": "Tennis BC Hub @ Stanley Park",
+    "courtNumber": "Stanley Park Court #1",
+    "date": "2025-07-02",
+    "startHour": "20:00",
+    "startTime": "20:00",
+    "endTime": "21:00",
+    "bookable": 283.23420444444446,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=0&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1679,7 +1602,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1690,7 +1613,7 @@
     "startTime": "09:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1701,7 +1624,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1712,7 +1635,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1723,7 +1646,7 @@
     "startTime": "09:00",
     "endTime": "11:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1734,7 +1657,7 @@
     "startTime": "19:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1745,7 +1668,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1756,7 +1679,7 @@
     "startTime": "09:00",
     "endTime": "10:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1767,7 +1690,7 @@
     "startTime": "17:30",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1778,7 +1701,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1789,7 +1712,7 @@
     "startTime": "09:00",
     "endTime": "12:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1800,7 +1723,7 @@
     "startTime": "16:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1811,7 +1734,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1822,7 +1745,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1833,7 +1756,7 @@
     "startTime": "09:00",
     "endTime": "10:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1844,7 +1767,7 @@
     "startTime": "11:00",
     "endTime": "12:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1855,7 +1778,7 @@
     "startTime": "14:00",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1866,7 +1789,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1877,7 +1800,7 @@
     "startTime": "09:00",
     "endTime": "11:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1888,7 +1811,7 @@
     "startTime": "16:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1899,7 +1822,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1910,7 +1833,7 @@
     "startTime": "10:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1921,7 +1844,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1932,7 +1855,7 @@
     "startTime": "09:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1943,7 +1866,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1953,8 +1876,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 175.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 173.73420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1964,8 +1887,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "11:00",
-    "bookable": 177.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 176.23420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1975,8 +1898,8 @@
     "startHour": "13:00",
     "startTime": "13:00",
     "endTime": "15:00",
-    "bookable": 181.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 180.23420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1986,8 +1909,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 199.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 197.73420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -1997,8 +1920,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "10:00",
-    "bookable": 201.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 200.23420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2008,8 +1931,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 212.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 211.23420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2019,8 +1942,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 223.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 221.73420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2030,8 +1953,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "18:00",
-    "bookable": 225.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 224.23420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2041,8 +1964,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 236.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 235.23420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2052,8 +1975,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 247.22162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 245.73420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2063,41 +1986,41 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "21:00",
-    "bookable": 249.72162555555556,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=1&&role=guest",
+    "bookable": 248.23420416666667,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #3",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #2",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 269.73420416666664,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #3",
-    "date": "2025-06-19",
-    "startHour": "12:00",
-    "startTime": "12:00",
-    "endTime": "14:30",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtNumber": "Stanley Park Court #2",
+    "date": "2025-07-02",
+    "startHour": "09:00",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "bookable": 272.23420416666664,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #3",
-    "date": "2025-06-19",
-    "startHour": "16:00",
-    "startTime": "16:00",
-    "endTime": "16:30",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtNumber": "Stanley Park Court #2",
+    "date": "2025-07-02",
+    "startHour": "20:00",
+    "startTime": "20:00",
+    "endTime": "21:00",
+    "bookable": 283.23420416666664,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=1&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2108,7 +2031,7 @@
     "startTime": "06:30",
     "endTime": "07:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2119,7 +2042,7 @@
     "startTime": "12:00",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2130,7 +2053,7 @@
     "startTime": "16:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2141,7 +2064,7 @@
     "startTime": "20:30",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2152,7 +2075,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2163,7 +2086,7 @@
     "startTime": "09:00",
     "endTime": "10:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2174,7 +2097,7 @@
     "startTime": "20:30",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2185,7 +2108,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2196,7 +2119,7 @@
     "startTime": "19:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2207,7 +2130,7 @@
     "startTime": "06:30",
     "endTime": "07:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2218,7 +2141,7 @@
     "startTime": "12:00",
     "endTime": "13:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2229,7 +2152,7 @@
     "startTime": "14:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2240,7 +2163,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2251,7 +2174,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2262,7 +2185,7 @@
     "startTime": "12:00",
     "endTime": "14:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2273,7 +2196,7 @@
     "startTime": "16:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2284,7 +2207,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2295,7 +2218,7 @@
     "startTime": "12:00",
     "endTime": "13:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2306,7 +2229,7 @@
     "startTime": "14:00",
     "endTime": "15:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2317,7 +2240,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2328,7 +2251,7 @@
     "startTime": "12:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2339,7 +2262,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2350,7 +2273,7 @@
     "startTime": "12:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2361,7 +2284,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2371,8 +2294,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 175.22162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 173.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2382,8 +2305,8 @@
     "startHour": "17:00",
     "startTime": "17:00",
     "endTime": "19:00",
-    "bookable": 185.72162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 184.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2393,8 +2316,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 199.22162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 197.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2404,8 +2327,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "10:00",
-    "bookable": 201.72162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 200.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2415,8 +2338,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 212.72162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 211.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2426,8 +2349,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 223.22162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 221.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2437,8 +2360,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "18:00",
-    "bookable": 225.72162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 224.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2448,8 +2371,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 236.72162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 235.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2459,8 +2382,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 247.22162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 245.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2470,52 +2393,41 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "21:00",
-    "bookable": 249.72162527777778,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=2&&role=guest",
+    "bookable": 248.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #4",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #3",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 269.7342038888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #4",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #3",
+    "date": "2025-07-02",
     "startHour": "09:00",
     "startTime": "09:00",
-    "endTime": "10:30",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "endTime": "10:00",
+    "bookable": 272.2342038888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #4",
-    "date": "2025-06-19",
-    "startHour": "12:00",
-    "startTime": "12:30",
-    "endTime": "14:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
-    "location": "Richmond"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #4",
-    "date": "2025-06-19",
-    "startHour": "16:00",
-    "startTime": "16:00",
-    "endTime": "16:30",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtNumber": "Stanley Park Court #3",
+    "date": "2025-07-02",
+    "startHour": "20:00",
+    "startTime": "20:00",
+    "endTime": "21:00",
+    "bookable": 283.2342038888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=2&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2526,7 +2438,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2537,7 +2449,7 @@
     "startTime": "09:00",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2548,7 +2460,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2559,7 +2471,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2570,7 +2482,7 @@
     "startTime": "09:00",
     "endTime": "11:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2581,7 +2493,7 @@
     "startTime": "19:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2592,7 +2504,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2603,7 +2515,7 @@
     "startTime": "09:00",
     "endTime": "10:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2614,7 +2526,7 @@
     "startTime": "16:00",
     "endTime": "17:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2625,7 +2537,7 @@
     "startTime": "18:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2636,7 +2548,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2647,7 +2559,7 @@
     "startTime": "09:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2658,7 +2570,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2669,7 +2581,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2680,7 +2592,7 @@
     "startTime": "09:00",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2691,7 +2603,7 @@
     "startTime": "12:30",
     "endTime": "17:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2702,7 +2614,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2713,7 +2625,7 @@
     "startTime": "09:00",
     "endTime": "17:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2724,7 +2636,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2735,7 +2647,7 @@
     "startTime": "12:30",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2746,7 +2658,7 @@
     "startTime": "18:30",
     "endTime": "19:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2757,7 +2669,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2768,7 +2680,7 @@
     "startTime": "09:00",
     "endTime": "10:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2779,7 +2691,7 @@
     "startTime": "11:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2790,7 +2702,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2800,8 +2712,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 175.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 173.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2811,8 +2723,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "11:00",
-    "bookable": 177.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 176.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2822,8 +2734,8 @@
     "startHour": "13:00",
     "startTime": "13:00",
     "endTime": "15:00",
-    "bookable": 181.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 180.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2833,8 +2745,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 199.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 197.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2844,8 +2756,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "10:00",
-    "bookable": 201.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 200.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2855,8 +2767,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 212.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 211.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2866,8 +2778,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 223.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 221.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2877,8 +2789,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "18:00",
-    "bookable": 225.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 224.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2888,8 +2800,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 236.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 235.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2899,8 +2811,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 247.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 245.73420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2910,30 +2822,41 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "21:00",
-    "bookable": 249.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=3&&role=guest",
+    "bookable": 248.23420388888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #5",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #4",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 269.7342038888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #5",
-    "date": "2025-06-19",
-    "startHour": "14:00",
-    "startTime": "14:30",
-    "endTime": "15:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtNumber": "Stanley Park Court #4",
+    "date": "2025-07-02",
+    "startHour": "09:00",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "bookable": 272.2342038888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
+    "location": "Richmond"
+  },
+  {
+    "clubName": "Tennis BC Hub @ Stanley Park",
+    "courtNumber": "Stanley Park Court #4",
+    "date": "2025-07-02",
+    "startHour": "20:00",
+    "startTime": "20:00",
+    "endTime": "21:00",
+    "bookable": 283.2342038888889,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=3&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2944,7 +2867,7 @@
     "startTime": "09:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2955,7 +2878,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2966,7 +2889,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2977,7 +2900,7 @@
     "startTime": "19:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2988,7 +2911,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -2999,7 +2922,7 @@
     "startTime": "09:00",
     "endTime": "10:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3010,7 +2933,7 @@
     "startTime": "18:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3021,7 +2944,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3032,7 +2955,7 @@
     "startTime": "09:00",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3043,7 +2966,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3054,7 +2977,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3065,7 +2988,7 @@
     "startTime": "09:00",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3076,7 +2999,7 @@
     "startTime": "12:30",
     "endTime": "16:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3087,7 +3010,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3098,7 +3021,7 @@
     "startTime": "09:00",
     "endTime": "17:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3109,7 +3032,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3120,7 +3043,7 @@
     "startTime": "09:00",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3131,7 +3054,7 @@
     "startTime": "12:30",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3142,7 +3065,7 @@
     "startTime": "17:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3153,7 +3076,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3164,7 +3087,7 @@
     "startTime": "09:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3175,7 +3098,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3185,8 +3108,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 175.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 173.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3196,8 +3119,8 @@
     "startHour": "13:00",
     "startTime": "13:30",
     "endTime": "15:00",
-    "bookable": 182.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 180.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3207,8 +3130,8 @@
     "startHour": "19:00",
     "startTime": "19:00",
     "endTime": "21:00",
-    "bookable": 187.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 186.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3218,8 +3141,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 199.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 197.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3229,8 +3152,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "10:00",
-    "bookable": 201.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 200.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3240,8 +3163,8 @@
     "startHour": "18:00",
     "startTime": "18:00",
     "endTime": "21:00",
-    "bookable": 210.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 209.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3251,8 +3174,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 223.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 221.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3262,8 +3185,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "18:00",
-    "bookable": 225.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 224.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3273,8 +3196,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 236.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 235.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3284,8 +3207,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 247.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 245.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3295,52 +3218,41 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "21:00",
-    "bookable": 249.721625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=4&&role=guest",
+    "bookable": 248.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #6",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #5",
+    "date": "2025-07-02",
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 269.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #6",
-    "date": "2025-06-19",
+    "courtNumber": "Stanley Park Court #5",
+    "date": "2025-07-02",
     "startHour": "09:00",
-    "startTime": "09:30",
-    "endTime": "10:30",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "bookable": 272.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
     "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #6",
-    "date": "2025-06-19",
-    "startHour": "12:00",
-    "startTime": "12:30",
-    "endTime": "14:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
-    "location": "Richmond"
-  },
-  {
-    "clubName": "Tennis BC Hub @ Stanley Park",
-    "courtNumber": "Stanley Park Court #6",
-    "date": "2025-06-20",
-    "startHour": "06:00",
-    "startTime": "06:30",
-    "endTime": "08:00",
-    "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtNumber": "Stanley Park Court #5",
+    "date": "2025-07-02",
+    "startHour": "20:00",
+    "startTime": "20:00",
+    "endTime": "21:00",
+    "bookable": 283.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=4&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3351,7 +3263,7 @@
     "startTime": "09:00",
     "endTime": "14:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3362,7 +3274,7 @@
     "startTime": "17:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3373,7 +3285,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3384,7 +3296,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3395,7 +3307,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3406,7 +3318,7 @@
     "startTime": "12:00",
     "endTime": "12:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3417,7 +3329,7 @@
     "startTime": "16:30",
     "endTime": "17:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3428,7 +3340,7 @@
     "startTime": "19:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3439,7 +3351,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3450,7 +3362,7 @@
     "startTime": "09:00",
     "endTime": "09:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3461,7 +3373,7 @@
     "startTime": "11:30",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3472,7 +3384,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3483,7 +3395,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3494,7 +3406,7 @@
     "startTime": "09:00",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3505,7 +3417,7 @@
     "startTime": "12:30",
     "endTime": "16:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3516,7 +3428,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3527,7 +3439,7 @@
     "startTime": "09:00",
     "endTime": "17:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3538,7 +3450,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3549,7 +3461,7 @@
     "startTime": "10:00",
     "endTime": "10:30",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3560,7 +3472,7 @@
     "startTime": "12:30",
     "endTime": "15:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3571,7 +3483,7 @@
     "startTime": "17:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3582,7 +3494,7 @@
     "startTime": "06:30",
     "endTime": "08:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3593,7 +3505,7 @@
     "startTime": "09:00",
     "endTime": "18:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3604,7 +3516,7 @@
     "startTime": "20:00",
     "endTime": "21:00",
     "bookable": 0,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3614,8 +3526,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 175.221625,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 173.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3625,8 +3537,8 @@
     "startHour": "13:00",
     "startTime": "13:30",
     "endTime": "15:00",
-    "bookable": 182.22162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 180.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3636,8 +3548,8 @@
     "startHour": "17:00",
     "startTime": "17:00",
     "endTime": "21:00",
-    "bookable": 185.72162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 184.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3647,8 +3559,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 199.22162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 197.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3658,8 +3570,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "10:00",
-    "bookable": 201.72162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 200.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3669,8 +3581,8 @@
     "startHour": "18:00",
     "startTime": "18:00",
     "endTime": "21:00",
-    "bookable": 210.72162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 209.2342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3680,8 +3592,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 223.22162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 221.7342036111111,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3691,8 +3603,8 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "18:00",
-    "bookable": 225.72162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 224.23420333333334,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3702,8 +3614,8 @@
     "startHour": "20:00",
     "startTime": "20:00",
     "endTime": "21:00",
-    "bookable": 236.72162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 235.23420333333334,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3713,8 +3625,8 @@
     "startHour": "06:00",
     "startTime": "06:30",
     "endTime": "08:00",
-    "bookable": 247.22162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 245.73420333333334,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
@@ -3724,20 +3636,42 @@
     "startHour": "09:00",
     "startTime": "09:00",
     "endTime": "21:00",
-    "bookable": 249.72162472222223,
-    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-19&endDate=2025-06-26&resource=5&&role=guest",
+    "bookable": 248.23420333333334,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
     "location": "Richmond"
   },
   {
-    "clubName": "UBC Tennis Center",
-    "courtNumber": "court01",
-    "date": "2025-06-20",
-    "startHour": "14:00",
-    "startTime": "14:00",
-    "endTime": "15:00",
-    "bookable": 0,
-    "courtBookingLink": "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=c0668c1c-1fd6-4432-a20e-4c50aaad5baa",
-    "location": "UBC"
+    "clubName": "Tennis BC Hub @ Stanley Park",
+    "courtNumber": "Stanley Park Court #6",
+    "date": "2025-07-02",
+    "startHour": "06:00",
+    "startTime": "06:30",
+    "endTime": "08:00",
+    "bookable": 269.7342033333333,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
+    "location": "Richmond"
+  },
+  {
+    "clubName": "Tennis BC Hub @ Stanley Park",
+    "courtNumber": "Stanley Park Court #6",
+    "date": "2025-07-02",
+    "startHour": "09:00",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "bookable": 272.2342033333333,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
+    "location": "Richmond"
+  },
+  {
+    "clubName": "Tennis BC Hub @ Stanley Park",
+    "courtNumber": "Stanley Park Court #6",
+    "date": "2025-07-02",
+    "startHour": "20:00",
+    "startTime": "20:00",
+    "endTime": "21:00",
+    "bookable": 283.2342033333333,
+    "courtBookingLink": "https://clubspark.ca/TBCHubStanleyPark/Booking/bookbycourt#?startDate=2025-06-20&endDate=2025-06-27&resource=5&&role=guest",
+    "location": "Richmond"
   },
   {
     "clubName": "UBC Tennis Center",
@@ -7266,17 +7200,6 @@
     "startHour": "12:00",
     "startTime": "12:00",
     "endTime": "13:00",
-    "bookable": 0,
-    "courtBookingLink": "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=f7000b6c-0d93-472b-97af-e0f22915439f",
-    "location": "UBC"
-  },
-  {
-    "clubName": "UBC Tennis Center",
-    "courtNumber": "court06",
-    "date": "2025-06-20",
-    "startHour": "15:00",
-    "startTime": "15:00",
-    "endTime": "16:00",
     "bookable": 0,
     "courtBookingLink": "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=f7000b6c-0d93-472b-97af-e0f22915439f",
     "location": "UBC"
@@ -10005,17 +9928,6 @@
     "startHour": "11:00",
     "startTime": "11:00",
     "endTime": "12:00",
-    "bookable": 0,
-    "courtBookingLink": "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=d5894b7a-2b61-4345-a1a8-ea8a50c921ae",
-    "location": "UBC"
-  },
-  {
-    "clubName": "UBC Tennis Center",
-    "courtNumber": "court10",
-    "date": "2025-06-20",
-    "startHour": "12:00",
-    "startTime": "12:00",
-    "endTime": "13:00",
     "bookable": 0,
     "courtBookingLink": "https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Facility?facilityId=d5894b7a-2b61-4345-a1a8-ea8a50c921ae",
     "location": "UBC"
