@@ -4,5 +4,5 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npx tsc
-EXPOSE 5000
+EXPOSE 4325
 CMD ["node", "dist/app.js"]

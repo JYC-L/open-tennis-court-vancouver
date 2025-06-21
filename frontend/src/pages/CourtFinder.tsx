@@ -32,7 +32,8 @@ type Day = {
   isSelected: boolean;
 };
 
-const API_URL = "https://example.com/api/court-finder";
+const API_URL =
+  "http://127.0.0.1:4325/api/availability?court=UBC-Court-1&start_date=2025-06-20T08:00:00Z&end_date=2025-06-20T18:00:00Z&requested_at=2025-06-20T08:33:00Z";
 
 // return gridRow based on time
 function getGridRow(time: string, duration: number = 60): string {
@@ -228,14 +229,17 @@ function transformApiResponseToEventsMap(apiResponse: any[]): EventsMap {
 }
 
 async function fetchAndTransformEvents(): Promise<EventsMap> {
+  console.log("Reached:");
   try {
-    // const response = await fetch(API_URL);
-    // if (!response.ok) {
-    //   throw new Error(`Failed to fetch data: ${response.statusText}`);
-    // }
-    // const apiResponse: any[] = await response.json();
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.statusText}`);
+    }
+    const apiData: any = await response.json();
+    const apiResponse: any[] = apiData.results;
+    console.log("API Response:", apiResponse);
 
-    const apiResponse: any[] = sampleAPIResponse;
+    // const apiResponse: any[] = sampleAPIResponse;
 
     // Transder API response into EventsMap
     return transformApiResponseToEventsMap(apiResponse);
