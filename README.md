@@ -26,7 +26,7 @@ Please only go to http://localhost:8080 to try our frontend.
 
 ## Milestones
 
-### Milestone 1: First Steps
+### Milestone 1
 
 #### Project Setup
 
@@ -49,3 +49,16 @@ Please only go to http://localhost:8080 to try our frontend.
 #### Progress Toward Goals
 
 - Demonstrated progress toward the minimal goal of displaying and filtering tennis court events by location and date. The court calendar (CourtFinder) also has a series of intuitive UI features that improve user experience.
+
+### Milestone 2
+
+#### Frontend Update
+
+- Explore Page changed into Home Page with corresponding buttons.
+- Past dates on the calendar become unclickable with a different UI style
+- Filtering Dropdown table becomes dynamic
+- Date controler button becomes dynamic
+- Weekday indicator becomes dynamic
+- Hourly time slot UI improvement
+- Reduce Slice EventsMapStore Implemented with deleteOldEventsMap(), moveNewEventsMapToOld(), and addNewEventsMap()
+- API Response Data cleaning and manipulation implemented
