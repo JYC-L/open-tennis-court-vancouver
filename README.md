@@ -73,3 +73,9 @@ Please only go to http://localhost:8080 to try our frontend.
   - `requested_at` (client time for freshness validation).
 - Added input validation and sanitization for incoming requests.
 - Implemented a basic `PUT` route for updating schedules using the DataManager.
+- Added an orchestrator that's responsible for all scrappers. 
+  - Ochestrator conducts a scheduled scrape at an 30 min interval with +- 10 min interval. (This can be dynamically set).
+  - Ochestrator conducts a on-demand update when frontend requests so.
+- Added an availability manager that handles data pulling logic.
+  - Availability manager ensures the freshness of data. It checks the timestamp of the last updated information. If the users's demand is getting staled data, it will order the orchestrator to do an on-demand update.
+  - To avoid overwhelming update requests, the manager will deliver data within a cutoff threshold. It's currently set to 5 min.
