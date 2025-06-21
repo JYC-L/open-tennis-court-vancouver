@@ -5,4 +5,4 @@ RUN npm install
 COPY . .
 RUN npx tsc
 EXPOSE 4325
-CMD ["node", "dist/app.js"]
+CMD ["node", "src/app.js"]
