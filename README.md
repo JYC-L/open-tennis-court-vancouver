@@ -5,7 +5,7 @@
 - Yiping (Francis) Huang
 - Lewis Li
 - Shu (Charlie) Chen
-- Jonathon (Tong) Liu
+- Jonathan (Tong) Liu
 
 ## Project Description
 
