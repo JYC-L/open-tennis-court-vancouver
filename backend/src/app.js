@@ -1,17 +1,12 @@
-import express from "express";
-import cors from "cors";
-import { setSampleRoutes } from "./routes/sampleRoutes";
-import { setAvailabilityRoutes } from "./routes/availabilityRoutes";
-
+const express = require("express");
+const availabilityRoutes = require("./routes/availabilityRoutes");
 
 const app = express();
-app.use(cors());
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
+app.use("/api/availability", availabilityRoutes);
 
-setSampleRoutes(app);
-setAvailabilityRoutes(app);
-
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
