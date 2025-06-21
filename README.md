@@ -66,6 +66,8 @@ Please only go to http://localhost:8080 to try our frontend.
 #### Backend Update
 
 Back-end design diagram
+[Blank diagram.pdf](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/files/1058/Blank.diagram.pdf)
+
 
 - Designed and exposed backend court availability data to the frontend via RESTful API endpoints.
 - Built an Express server with well-structured route handlers for retrieving court availability.
