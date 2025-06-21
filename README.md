@@ -62,3 +62,14 @@ Please only go to http://localhost:8080 to try our frontend.
 - Hourly time slot UI improvement
 - Reduce Slice EventsMapStore Implemented with deleteOldEventsMap(), moveNewEventsMapToOld(), and addNewEventsMap()
 - API Response Data cleaning and manipulation implemented
+
+#### Backend Update
+
+- Designed and exposed backend court availability data to the frontend via RESTful API endpoints.
+- Built an Express server with well-structured route handlers for retrieving court availability.
+- Implemented `GET /api/availability` endpoint with support for filtering by:
+  - `court` (court name or ID),
+  - `start_date`, `end_date` (ISO date range), and
+  - `requested_at` (client time for freshness validation).
+- Added input validation and sanitization for incoming requests.
+- Implemented a basic `PUT` route for updating schedules using the DataManager.
