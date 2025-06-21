@@ -23,14 +23,16 @@ export class CourtScheduleRepository {
     });
   }
 
-  public async saveAllAvailability(
+  public async saveAvailabilityByArr(
     entries: CourtScheduleEntry[]
   ): Promise<void> {
-    await this.overwrite(entries);
+    await this.insertBulkDataWithUpsertStrategy(entries);
   }
 
   // Overwrite with full upsert strategy
-  public async overwrite(entries: CourtScheduleEntry[]): Promise<void> {
+  public async insertBulkDataWithUpsertStrategy(
+    entries: CourtScheduleEntry[]
+  ): Promise<void> {
     const collection = await this.getAllAvailability();
     const lastUpdated = new Date();
     for (const entry of entries) {
@@ -47,9 +49,20 @@ export class CourtScheduleRepository {
         { upsert: true }
       );
     }
-    console.log(
-      `✅ Overwrite completed for court-schedule with ${entries.length} entries.`
-    );
+  }
+
+  public async fullOverwrite(entries: CourtScheduleEntry[]) {
+    const collection = await MongoConnection.getCollection();
+    const lastUpdated = new Date();
+    await collection.deleteMany({});
+    const bulkEntries = entries.map((entry) => ({
+      ...entry,
+      _pk: this.computePrimaryKey(entry),
+      lastUpdated: lastUpdated,
+    }));
+    if (bulkEntries.length > 0) {
+      await collection.insertMany(bulkEntries);
+    }
   }
 
   // On-demand insert with upsert
