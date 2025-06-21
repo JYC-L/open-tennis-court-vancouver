@@ -1,8 +1,10 @@
 const { TennisBcHubScrapper } = require('./TennisBcHubScrapper/TennisBcHubScrapper.js');
 const UbcTennisCenterScrapper = require('./ubc-scrapper.js');
-const { UeTennisScrapper } = require('./UeTennisCourtScrapper/UeTennisWebScrapper.ts');
+const {
+  UeTennisScrapper
+} = require("../../dist/services/UeTennisCourtScrapper/UeTennisWebScrapper.js");
 const { saveAvailabilityToJSON } = require('./TennisBcHubScrapper/runScraper.js');
-const { CourtScheduleRepository } = require('../db/CourtScheduleRepository.ts');
+const { CourtScheduleRepository } = require('../../dist/db/CourtScheduleRepository.js');
 
 class Orchestrator {
   constructor() {

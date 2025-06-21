@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const CourtScheduleRepository = require('../db/CourtScheduleRepository');
+const { CourtScheduleRepository } = require('../../dist/db/CourtScheduleRepository');
 
 class AvailabilityManager {
   /**
@@ -9,11 +9,10 @@ class AvailabilityManager {
    * @param {object} [options]
    * @param {number} [options.freshnessCutoffMinutes=30] - Freshness window in minutes
    */
-  constructor(orchestrator, options = {}) {
+  constructor(orchestrator, freshnessCutoffMinutes = 30) {
     this.courtScheduleRepository = new CourtScheduleRepository();
     this.orchestrator = orchestrator;
-    this.freshnessCutoffMinutes = options.freshnessCutoffMinutes || 30;
-    this.collection = this.dbClient.db().collection('availabilities');
+    this.freshnessCutoffMinutes = freshnessCutoffMinutes;
   }
 
   /**
@@ -41,17 +40,17 @@ class AvailabilityManager {
    * @throws {Error} On orchestrator or database failure
    */
   async getAvailability(clubName, date, startDate, endDate, requestedAt) {
-    // Simulate DB fetch delay
-    await new Promise(resolve => setTimeout(resolve, 100));
+    // // Simulate DB fetch delay
+    // await new Promise(resolve => setTimeout(resolve, 100));
     
-    const filePath = path.join(__dirname, 'TennisBcHubScrapper', 'all_availabilities.json');
-    console.log('Reading file from:', filePath);
+    // const filePath = path.join(__dirname, 'TennisBcHubScrapper', 'all_availabilities.json');
+    // console.log('Reading file from:', filePath);
     
-    const buffer = fs.readFileSync(filePath, "utf8");
-    const results = JSON.parse(buffer);
+    // const buffer = fs.readFileSync(filePath, "utf8");
+    // const results = JSON.parse(buffer);
 
-    // Return mocked availability data
-    return results
+    // // Return mocked availability data
+    // return results
     // 1. Check freshness
     const lastUpdated = await this.courtScheduleRepository.getLastUpdatedTimestamp();
     let isFresh = false;
