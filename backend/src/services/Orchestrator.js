@@ -31,6 +31,7 @@ class Orchestrator {
     results = results.flat();
     saveAvailabilityToJSON(results, "all_availabilities.json");
     await this.pushToDB(results);
+    return
   }
 
   async pushToDB(results) {

@@ -33,7 +33,9 @@ type Day = {
 };
 
 const API_URL =
-  "http://127.0.0.1:4325/api/availability?court=UBC-Court-1&start_date=2025-06-20T08:00:00Z&end_date=2025-06-20T18:00:00Z&requested_at=2025-06-20T08:33:00Z";
+  `http://127.0.0.1:4325/api/availability?court=UBC-Court-1&start_date=2025-06-20T08:00:00Z&end_date=2025-06-20T18:00:00Z&requested_at=${
+    new Date().toISOString()
+  }`;
 
 // return gridRow based on time
 function getGridRow(time: string, duration: number = 60): string {
