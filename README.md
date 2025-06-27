@@ -5,7 +5,7 @@
 - Yiping (Francis) Huang
 - Lewis Li
 - Shu (Charlie) Chen
-- Jonathon (Tong) Liu
+- Jonathan (Tong) Liu
 
 ## Project Description
 
@@ -65,6 +65,10 @@ Please only go to http://localhost:8080 to try our frontend.
 
 #### Backend Update
 
+Back-end design diagram
+[Blank diagram.pdf](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/files/1058/Blank.diagram.pdf)
+
+
 - Designed and exposed backend court availability data to the frontend via RESTful API endpoints.
 - Built an Express server with well-structured route handlers for retrieving court availability.
 - Implemented `GET /api/availability` endpoint with support for filtering by:
@@ -73,9 +77,12 @@ Please only go to http://localhost:8080 to try our frontend.
   - `requested_at` (client time for freshness validation).
 - Added input validation and sanitization for incoming requests.
 - Implemented a basic `PUT` route for updating schedules using the DataManager.
-- Added an orchestrator that's responsible for all scrappers. 
+- Added an orchestrator that's responsible for all scrappers.
   - Ochestrator conducts a scheduled scrape at an 30 min interval with +- 10 min interval. (This can be dynamically set).
   - Ochestrator conducts a on-demand update when frontend requests so.
 - Added an availability manager that handles data pulling logic.
   - Availability manager ensures the freshness of data. It checks the timestamp of the last updated information. If the users's demand is getting staled data, it will order the orchestrator to do an on-demand update.
   - To avoid overwhelming update requests, the manager will deliver data within a cutoff threshold. It's currently set to 5 min.
+- Integrated MongoDB into the project for data persistance
+  - The database interface (CourtScheduleRepository and MongoConnection) provides functions to retrieve availability data, insert new data into the database, and query data based on various parameters such as date, start hour, club name, court number, and location.
+  - The database layer also includes mechanisms to ensure data integrity. Each availability document contains a synthetic primary key (composed of clubName, courtNumber, startTime, and date), which is used to perform upserts, deduplicate records, and ensure the most recent data is preserved during bulk updates.

@@ -8,13 +8,13 @@ class TennisBcHubScrapper {
         courtName: "Richmond",
         resourceFingerprint: "TBCHubRichmond",
         displayName: "Tennis BC Hub @ Richmond",
-        location: "Vancouver DT" 
+        location: "Richmond" 
       },
       stanley: {
         courtName: "Stanley",
         resourceFingerprint: "TBCHubStanleyPark",
         displayName: "Tennis BC Hub @ Stanley Park",
-        location: "Richmond"
+        location: "Vancouver DT"
       }
     };
   }
