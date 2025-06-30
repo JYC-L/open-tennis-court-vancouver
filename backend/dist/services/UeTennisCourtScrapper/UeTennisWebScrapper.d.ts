@@ -20,7 +20,7 @@ export declare class UeTennisScrapper {
     private readonly bookingCalendar1Url;
     private readonly bookingLinks;
     private readonly clubName;
-    getCourtBooking(): Promise<any[]>;
+    getCourtBooking(): Promise<CourtAvailability[]>;
     private captureAuthToken;
     private goToBookingOnlinePage;
     private goToBookingCalendarPage;

@@ -7,8 +7,9 @@ export declare class CourtScheduleRepository {
      */
     getAllAvailability(): Promise<Collection<CourtScheduleEntry>>;
     getAllAvailabilityAsArr(): Promise<CourtScheduleEntry[]>;
-    saveAllAvailability(entries: CourtScheduleEntry[]): Promise<void>;
-    overwrite(entries: CourtScheduleEntry[]): Promise<void>;
+    saveAvailabilityByArr(entries: CourtScheduleEntry[]): Promise<void>;
+    insertBulkDataWithUpsertStrategy(entries: CourtScheduleEntry[]): Promise<void>;
+    fullOverwrite(entries: CourtScheduleEntry[]): Promise<void>;
     addScheduleByEntry(entry: CourtScheduleEntry): Promise<void>;
     cleanup(collectionName: string): Promise<void>;
     fetchByDate(collectionName: string, date: string): Promise<CourtScheduleEntry[]>;

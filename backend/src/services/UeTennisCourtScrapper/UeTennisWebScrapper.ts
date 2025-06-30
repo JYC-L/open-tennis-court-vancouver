@@ -19,15 +19,15 @@ export type CourtAvailability = {
 };
 
 export class UeTennisScrapper {
-  private browser;
-  private page;
-  private authToken = null;
-  private serviceIds = {};
-  private allAvailability = [];
+  private browser: any;
+  private page: any;
+  private authToken: string | null = null;
+  private serviceIds: Record<number, string> = {};
+  private allAvailability: CourtAvailability[] = [];
   private readonly baseUrl = "https://www.uetennis.com";
   private readonly bookingOnlineUrl = `${this.baseUrl}/book-online`;
   private readonly bookingCalendar1Url = `https://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget`;
-  private readonly bookingLinks = {
+  private readonly bookingLinks: Record<string, string> = {
     "Court 1":
       "http://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget",
     "Court 2":

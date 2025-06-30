@@ -10,7 +10,7 @@ class AvailabilityManager {
    * @param {object} [options]
    * @param {number} [options.freshnessCutoffMinutes=30] - Freshness window in minutes
    */
-  constructor(freshnessCutoffMinutes = 30) {
+  constructor(freshnessCutoffMinutes = 1) {
     this.courtScheduleRepository = new CourtScheduleRepository();
     this.orchestrator = new Orchestrator();
     this.freshnessCutoffMinutes = freshnessCutoffMinutes;

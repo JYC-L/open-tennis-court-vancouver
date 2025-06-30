@@ -146,6 +146,7 @@ class UbcTennisCenterScrapper {
   }
 
   async getCourtBooking() {
+    const now = new Date();
     const browser = await puppeteer.launch({ headless: true });
     const allResults = [];
 
@@ -158,6 +159,7 @@ class UbcTennisCenterScrapper {
     }
 
     await browser.close();
+    console.log(`UBC scrapping took ${(new Date().getTime() -  now)/1000} seconds.`)
     return allResults;
   }
 }

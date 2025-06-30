@@ -20,6 +20,7 @@ class TennisBcHubScrapper {
   }
 
   async getCourtBooking() {
+    const now = new Date();
     const urlParamsByLocation = await this.interceptURLPrams();
     const bookings = [];
 
@@ -73,6 +74,7 @@ class TennisBcHubScrapper {
       }
     }
 
+    console.log(`TennisBCScrapper took ${(new Date().getTime() - now.getTime())/1000} seconds.)`)
     return bookings;
   }
 

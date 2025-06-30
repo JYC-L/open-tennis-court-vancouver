@@ -1,15 +1,14 @@
 const { TennisBcHubScrapper } = require('./TennisBcHubScrapper/TennisBcHubScrapper.js');
 const UbcTennisCenterScrapper = require('./ubc-scrapper.js');
-const {
-  UeTennisScrapper
-} = require("../../dist/services/UeTennisCourtScrapper/UeTennisWebScrapper.js");
+const { UeTennisScrapper } = require('../../dist/services/UeTennisCourtScrapper/UeTennisWebScrapper');
 const { saveAvailabilityToJSON } = require('./TennisBcHubScrapper/runScraper.js');
-const { CourtScheduleRepository } = require('../../dist/db/CourtScheduleRepository.js');
+const { CourtScheduleRepository } = require('../../dist/db/CourtScheduleRepository');
 
 class Orchestrator {
   constructor() {
     this.scrapers = [new TennisBcHubScrapper(), new UbcTennisCenterScrapper(), new UeTennisScrapper()];
     this.courtScheduleRepository = new CourtScheduleRepository();
+    this.scheduledUpdate();
   }
 
   async onDemandUpdate(requestedAt, startDate, endDate) {
@@ -25,18 +24,25 @@ class Orchestrator {
     // console.log("Writing availability to all_availabilities.json");
     // return;
     const promises = this.scrapers.map((scraper) =>
-      scraper.getCourtBooking()
+      scraper.getCourtBooking().catch(error => {
+        console.log("a scrapper had troubles:", error);
+        return null; // Return null on error
+      })
     );
     let results = await Promise.all(promises);
     results = results.flat();
     saveAvailabilityToJSON(results, "all_availabilities.json");
-    await this.pushToDB(results);
+    try{
+      await this.pushToDB(results);
+    } catch (e) {
+      console.log("Error in ochestrator on demand update push step.")
+    }
     return
   }
 
   async pushToDB(results) {
     try {
-      await this.courtScheduleRepository.saveAllAvailability(results);
+      await this.courtScheduleRepository.saveAvailabilityByArr(results);
       console.log("Pushed results to DB at ", new Date().toISOString());
     } catch (err) {
       console.error("Error pushing results to DB:", err);
