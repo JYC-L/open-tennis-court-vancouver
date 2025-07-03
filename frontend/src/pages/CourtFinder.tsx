@@ -546,19 +546,19 @@ export default function CourtFinder() {
         bookableHoverColor = "bg-blue-200";
         bookableTextColor = "text-white";
       } else if (clubName === "Tennis BC Hub @ Richmond") {
+        bookNowColor = "bg-yellow-300";
+        bookNowHoverColor = "bg-yellow-200";
+        bookNowTextColor = "text-emerald-800";
+        bookableColor = "bg-yellow-200";
+        bookableHoverColor = "bg-yellow-100";
+        bookableTextColor = "text-emerald-800";
+      } else if (clubName === "Tennis BC Hub @ Stanley Park") {
         bookNowColor = "bg-emerald-500";
         bookNowHoverColor = "bg-emerald-400";
         bookNowTextColor = "text-white";
         bookableColor = "bg-emerald-300";
         bookableHoverColor = "bg-emerald-200";
         bookableTextColor = "text-white";
-      } else if (clubName === "Tennis BC Hub @ Stanley Park") {
-        bookNowColor = "bg-yellow-500";
-        bookNowHoverColor = "bg-yellow-400";
-        bookNowTextColor = "text-white";
-        bookableColor = "bg-yellow-300";
-        bookableHoverColor = "bg-yellow-200";
-        bookableTextColor = "text-emerald-800";
       } else {
         bookNowColor = "bg-indigo-500";
         bookNowHoverColor = "bg-indigo-400";
@@ -965,7 +965,7 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 ${club.clubName}${
+                                  return `🎾 UBC${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
                                 })
@@ -1027,7 +1027,7 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 ${club.clubName}${
+                                  return `🎾 BC Hub @ SP${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
                                 })
@@ -1089,7 +1089,7 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 ${club.clubName}${
+                                  return `🎾 BC Hub @ RMD${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
                                 })
@@ -1151,7 +1151,7 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 ${club.clubName}${
+                                  return `🎾 UE${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
                                 })
