@@ -1,19 +1,23 @@
-const fs = require('fs');
-const path = require('path');
-const { CourtScheduleRepository } = require('../../dist/db/CourtScheduleRepository');
-const {Orchestrator} = require('./Orchestrator')
+const {
+  CourtScheduleRepository
+} = require("../../dist/db/CourtScheduleRepository");
+const { Orchestrator } = require("./Orchestrator");
 
 class AvailabilityManager {
   /**
    * @param {MongoClient} dbClient - Connected MongoDB client
    * @param {object} orchestrator - Orchestrator instance with onDemandUpdate(requestedAt, startDate, endDate)
    * @param {object} [options]
-   * @param {number} [options.freshnessCutoffMinutes=30] - Freshness window in minutes
+   * @param {number} [options.freshnessCutoffMinutes=20] - Freshness window in minutes
    */
-  constructor(freshnessCutoffMinutes = 1) {
-    this.courtScheduleRepository = new CourtScheduleRepository();
-    this.orchestrator = new Orchestrator();
-    this.freshnessCutoffMinutes = freshnessCutoffMinutes;
+  constructor(freshnessCutoffMinutes = 20) {
+    try {
+      this.courtScheduleRepository = new CourtScheduleRepository();
+      this.orchestrator = new Orchestrator();
+      this.freshnessCutoffMinutes = freshnessCutoffMinutes;
+    } catch (error) {
+      throw new Error("AvailablityManager.constructor: error when initializing fields;",{cause:error});
+    }
   }
 
   /**
@@ -43,43 +47,68 @@ class AvailabilityManager {
   async getAvailability(clubName, date, startDate, endDate, requestedAt) {
     // // Simulate DB fetch delay
     // await new Promise(resolve => setTimeout(resolve, 100));
-    
+
     // const filePath = path.join(__dirname, 'TennisBcHubScrapper', 'all_availabilities.json');
     // console.log('Reading file from:', filePath);
-    
+
     // const buffer = fs.readFileSync(filePath, "utf8");
     // const results = JSON.parse(buffer);
 
     // // Return mocked availability data
     // return results
-    // 1. Check freshness
-    const lastUpdated = await this.courtScheduleRepository.getLastUpdatedTimestamp();
+    // 1. Check freshness using orchestrator's cached timestamp
+    let lastUpdated = null;
     let isFresh = false;
-    if (lastUpdated) {
-      isFresh = this.isFresh(lastUpdated, requestedAt);
-    }
+    const orchestratorLastUpdated = this.orchestrator.lastUpdated;
+    const dbLastUpdated = await this.courtScheduleRepository.getLastUpdatedTimestamp();
+    if (orchestratorLastUpdated) {
+      lastUpdated = orchestratorLastUpdated;
+    } else if (dbLastUpdated) {
+      lastUpdated = dbLastUpdated;
+    } 
+
+    isFresh = this.isFresh(lastUpdated, requestedAt);
 
     let records = [];
-    if (isFresh) {
+    if (isFresh && this.orchestrator.records) {
+      // Return cached data from orchestrator if fresh and available
       try {
-        records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
+        records = this.orchestrator.records;
         return records;
       } catch (err) {
-        throw new Error('Database error: ' + err.message);
+        throw new Error(
+          "DataManager.getAvailability: Error when accessing cached data from orchestrator;",
+          { cause: err }
+        );
+      }
+    }
+
+    if (isFresh) {
+      try {
+        records = await this.courtScheduleRepository.getAllAvailabilityAsArr()
+        this.orchestrator.records = records;
+        return records
+      } catch (err) {
+        throw new Error(
+          "DataManager.getAvailability: Error when accessing db data using orchestrator;",
+          { cause: err }
+        );
       }
     }
 
     // 2. If missing/stale, call orchestrator (with timeout)
     const timeoutWindow = 600000; // 10 minutes
     try {
-      await this._withTimeout(
+      records = await this._withTimeout(
         this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate),
         timeoutWindow,
         `Orchestrator timed out after ${timeoutWindow / 1000} seconds.`
       );
-      records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
     } catch (err) {
-      throw new Error('Orchestrator error: ' + err.message);
+      throw new Error(
+        "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;",
+        { cause: err }
+      );
     }
 
     // 3. Return orchestrator data
@@ -94,10 +123,10 @@ class AvailabilityManager {
     if (!lastUpdated) {
       return false; // No data means not fresh
     }
-    
+
     const timeDiffMs = requestedAt.getTime() - lastUpdated.getTime();
     const timeDiffMinutes = timeDiffMs / (1000 * 60);
-    
+
     return timeDiffMinutes < this.freshnessCutoffMinutes;
   }
 
@@ -112,20 +141,8 @@ class AvailabilityManager {
     });
     return Promise.race([
       promise.finally(() => clearTimeout(timeout)),
-      timeoutPromise,
+      timeoutPromise
     ]);
-  }
-
-  /**
-   * Update the DB with new data and lastUpdated timestamp
-   * @private
-   */
-  async updateDatabase(clubName, court, date, startDate, endDate, data, lastUpdated) {
-    await this.collection.updateOne(
-      { clubName, court, date, startDate, endDate },
-      { $set: { ...data, lastUpdated } },
-      { upsert: true }
-    );
   }
 }
 

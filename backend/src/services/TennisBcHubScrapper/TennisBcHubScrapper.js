@@ -74,7 +74,7 @@ class TennisBcHubScrapper {
       }
     }
 
-    console.log(`TennisBCScrapper took ${(new Date().getTime() - now.getTime())/1000} seconds.)`)
+    console.log(`TennisBCScrapper took ${(new Date().getTime() - now.getTime())/1000} seconds.`)
     return bookings;
   }
 
