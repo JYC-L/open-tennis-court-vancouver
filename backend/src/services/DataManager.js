@@ -77,6 +77,9 @@ class AvailabilityManager {
     if (isFresh && this.orchestrator.records) {
       // Return cached data from orchestrator if fresh and available
       try {
+        console.log(
+          "DataManager.getAvailability: Data is fresh, using cached orchestrator data."
+        );
         records = this.orchestrator.records;
         return { data: records, updated_at: lastUpdated };
       } catch (err) {
@@ -89,6 +92,9 @@ class AvailabilityManager {
 
     if (isFresh) {
       try {
+        console.log(
+          "DataManager.getAvailability: Data is fresh, using db data."
+        );
         records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
         this.orchestrator.records = records;
         return { data: records, updated_at: requestedAt };
@@ -103,6 +109,9 @@ class AvailabilityManager {
     // 2. If missing/stale, call orchestrator (with timeout)
     const timeoutWindow = 600000; // 10 minutes
     try {
+      console.log(
+        "DataManager.getAvailability: Data is stale, invoking onDemand Parsing for fresh data."
+      );
       records = await this._withTimeout(
         this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate),
         timeoutWindow,

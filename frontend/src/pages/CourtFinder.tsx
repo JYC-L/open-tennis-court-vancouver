@@ -319,7 +319,9 @@ export default function CourtFinder() {
     ).UE
   );
 
-  const [updatedAt, setUpdatedAt] = useState(new Date());
+  const [updatedAt, setUpdatedAt] = useState(
+    new Date().toLocaleString("en-US", { timeZone: "America/Vancouver" })
+  );
 
   const dispatch = useDispatch();
 
@@ -677,13 +679,13 @@ export default function CourtFinder() {
             {getWeekday(selectedDate)}&nbsp;
             <time className="inline sm:hidden text-gray-400">
               (Updated at&nbsp;
-              {updatedAt
+              {new Date(updatedAt)
                 .toLocaleString("en-US", {
                   timeZone: "America/Vancouver",
                 })
                 .slice(10, 14)}
               &nbsp;
-              {updatedAt
+              {new Date(updatedAt)
                 .toLocaleString("en-US", {
                   timeZone: "America/Vancouver",
                 })
@@ -1282,13 +1284,13 @@ export default function CourtFinder() {
           <div className="flex justify-center mt-4 text-xs text-gray-400">
             <time>
               Last updated at today&nbsp;
-              {updatedAt
+              {new Date(updatedAt)
                 .toLocaleString("en-US", {
                   timeZone: "America/Vancouver",
                 })
                 .slice(10, 14)}
               &nbsp;
-              {updatedAt
+              {new Date(updatedAt)
                 .toLocaleString("en-US", {
                   timeZone: "America/Vancouver",
                 })
