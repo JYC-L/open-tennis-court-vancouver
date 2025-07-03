@@ -232,7 +232,6 @@ function transformApiResponseToEventsMap(apiResponse: any[]): EventsMap {
 
 // API Call & Cleaning: Call the API and transform the response into EventsMap
 async function fetchAndTransformEvents(): Promise<EventsMap> {
-  console.log("Reached:");
   try {
     // const response = await fetch(API_URL);
     // if (!response.ok) {
@@ -291,35 +290,6 @@ function splitEventsMapByClub(eventsMap: EventsMap) {
 }
 
 export default function CourtFinder() {
-  // Get the latest court availability data from the server
-  // const [ubcCourtsTable, setUbcCourtsTable] = useState(
-  //   splitEventsMapByClub(
-  //     useSelector(
-  //       (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
-  //     )
-  //   ).UBC
-  // );
-  // const [hubRichmondCourtsTable, setHubRichmondCourtsTable] = useState(
-  //   splitEventsMapByClub(
-  //     useSelector(
-  //       (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
-  //     )
-  //   ).HubRichmond
-  // );
-  // const [hubStanleyCourtsTable, setHubStanleyCourtsTable] = useState(
-  //   splitEventsMapByClub(
-  //     useSelector(
-  //       (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
-  //     )
-  //   ).HubStanleyPark
-  // );
-  // const [ueTennisCourtsTable, setUeTennisCourtsTable] = useState(
-  //   splitEventsMapByClub(
-  //     useSelector(
-  //       (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
-  //     )
-  //   ).UE
-  // );
   const [ubcCourtsData, setUbcCourtsData] = useState(
     splitEventsMapByClub(
       useSelector(
@@ -348,7 +318,12 @@ export default function CourtFinder() {
       )
     ).UE
   );
+
   const dispatch = useDispatch();
+
+  const container = useRef();
+  const containerNav = useRef();
+  const containerOffset = useRef();
 
   useEffect(() => {
     async function fetchData() {
@@ -387,20 +362,12 @@ export default function CourtFinder() {
         setHubRichmondCourtsData(HubRichmond);
         setHubStanleyCourtsData(HubStanleyPark);
         setUeTennisCourtsData(UE);
-        // setUbcCourtsTable(UBC);
-        // setHubRichmondCourtsTable(HubRichmond);
-        // setHubStanleyCourtsTable(HubStanleyPark);
-        // setUeTennisCourtsTable(UE);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
     }
     fetchData();
   }, [dispatch]);
-
-  const container = useRef();
-  const containerNav = useRef();
-  const containerOffset = useRef();
 
   // Get Vancouver Local Date
   const vancouverNow = new Date(
@@ -451,38 +418,8 @@ export default function CourtFinder() {
     }
   }, []);
 
-  useEffect(() => {
-    updateDayButtonStatus();
-  }, [selectedDate]);
-
-  // Switch to the previous week
-  function handlePrev(): void {
-    // Mobile, switch to the previous week
-    const start = new Date(selectedDate);
-    // check if the screen is large or small
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      start.setDate(start.getDate() - 1);
-    } else {
-      start.setDate(start.getDate() - 7);
-    }
-    setSelectedDate(start.toISOString().slice(0, 10));
-  }
-
-  // Switch to the next week
-  function handleNext(): void {
-    const start = new Date(selectedDate);
-    // check if the screen is large or small
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      start.setDate(start.getDate() + 1);
-    } else {
-      start.setDate(start.getDate() + 7);
-    }
-    setSelectedDate(start.toISOString().slice(0, 10));
-    updateDayButtonStatus();
-  }
-
   // Update the DayButtonStatus
-  function updateDayButtonStatus() {
+  const updateDayButtonStatus = React.useCallback(() => {
     const today = getVancouverTodayString(); // "YYYY-MM-DD"
     const [ty, tm, td] = today.split("-").map(Number);
     const [sy, sm, sd] = selectedDate.split("-").map(Number);
@@ -503,6 +440,43 @@ export default function CourtFinder() {
     } else {
       setDayButtonStatus(selectedDate.split("-").slice(1).join("-")); // MM-DD
     }
+  }, [selectedDate]);
+
+  useEffect(() => {
+    updateDayButtonStatus();
+  }, [selectedDate, updateDayButtonStatus]);
+
+  // Handle the previous button on the date switcher
+  function handlePrev(): void {
+    // check if the screen is large or small
+    const current = new Date(selectedDate);
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      current.setDate(current.getDate() - 1);
+    } else {
+      current.setDate(current.getDate() - 7);
+    }
+    // Shall not select a date before today
+    const todayStr = getVancouverTodayString();
+    if (current < new Date(todayStr)) {
+      setSelectedDate(todayStr);
+      updateDayButtonStatus();
+    } else {
+      setSelectedDate(current.toISOString().slice(0, 10));
+      updateDayButtonStatus();
+    }
+  }
+
+  // Handle the next button on the date switcher
+  function handleNext(): void {
+    const start = new Date(selectedDate);
+    // check if the screen is large or small
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      start.setDate(start.getDate() + 1);
+    } else {
+      start.setDate(start.getDate() + 7);
+    }
+    setSelectedDate(start.toISOString().slice(0, 10));
+    updateDayButtonStatus();
   }
 
   function getWeekday(dateString) {
@@ -511,6 +485,7 @@ export default function CourtFinder() {
     return date.toLocaleDateString("en-US", { weekday: "long" });
   }
 
+  // Handle the click on a previous month button on the mini calendar
   function handlePrevMonth() {
     if (calendarMonth === 0) {
       setCalendarMonth(11);
@@ -520,6 +495,7 @@ export default function CourtFinder() {
     }
   }
 
+  // Handle the click on a next month button on the mini calendar
   function handleNextMonth() {
     if (calendarMonth === 11) {
       setCalendarMonth(0);
@@ -529,6 +505,7 @@ export default function CourtFinder() {
     }
   }
 
+  // Assign colors to events based on club name
   function assignColor(events: Event[], clubName: string) {
     return events.map((event) => {
       let bookNowColor = "bg-emerald-500";
@@ -865,36 +842,50 @@ export default function CourtFinder() {
               const weekDays = days.slice(weekStartIdx, weekStartIdx + 7);
               // mark title of the week
               const weekTitles = ["M", "T", "W", "T", "F", "S", "S"];
-              return weekDays.map((day, i) => (
-                <button
-                  key={day.date}
-                  type="button"
-                  onClick={() => setSelectedDate(day.date)}
-                  className="flex flex-col items-center pb-1.5 pt-3"
-                >
-                  <span>{weekTitles[i]}</span>
-                  <span
+              const todayStr = getVancouverTodayString();
+              return weekDays.map((day, i) => {
+                const isPast = day.date < todayStr;
+                return (
+                  <button
+                    key={day.date}
+                    type="button"
+                    onClick={() => {
+                      if (!isPast) setSelectedDate(day.date);
+                    }}
+                    disabled={isPast}
                     className={classNames(
-                      "mt-3 flex size-8 items-center justify-center rounded-full text-base font-semibold",
-                      day.isSelected &&
-                        day.isToday &&
-                        "bg-indigo-600 text-white",
-                      day.isSelected &&
-                        !day.isToday &&
-                        "bg-emerald-600 text-white",
-                      !day.isSelected && day.isToday && "text-indigo-600",
-                      !day.isSelected && !day.isToday && "text-gray-900"
+                      "flex flex-col items-center pb-1.5 pt-3",
+                      isPast && "cursor-not-allowed"
                     )}
                   >
-                    {parseInt(day.date.split("-")[2], 10)}
-                  </span>
-                </button>
-              ));
+                    <span>{weekTitles[i]}</span>
+                    <span
+                      className={classNames(
+                        "mt-3 flex size-8 items-center justify-center rounded-full text-base font-semibold",
+                        day.isSelected &&
+                          day.isToday &&
+                          "bg-indigo-600 text-white",
+                        day.isSelected &&
+                          !day.isToday &&
+                          "bg-emerald-600 text-white",
+                        !day.isSelected && day.isToday && "text-indigo-600",
+                        !day.isSelected &&
+                          !day.isToday &&
+                          !isPast &&
+                          "text-gray-900",
+                        isPast && "text-gray-400"
+                      )}
+                    >
+                      {parseInt(day.date.split("-")[2], 10)}
+                    </span>
+                  </button>
+                );
+              });
             })()}
           </div>
           <div className="flex w-full flex-auto">
             {/* Hour Captions Column*/}
-            <div className="flex flex-col w-14 flex-none bg-white ring-1 ring-gray-100">
+            <div className="flex flex-col w-14 flex-none bg-white mt-4">
               <div
                 className="grid"
                 style={{ gridTemplateRows: "repeat(17, 4.5rem)" }} // must match the event area
@@ -920,7 +911,7 @@ export default function CourtFinder() {
             {ubcCourtsTable.length !== 0 && (
               <div className="flex-1">
                 <ol
-                  className="grid divide-y divide-gray-100 border-t mt-4"
+                  className="grid divide-y divide-gray-100 border-t mt-8"
                   style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
                 >
                   {hours.map((hour, idx) => {
@@ -982,7 +973,7 @@ export default function CourtFinder() {
             {hubStanleyCourtsTable.length !== 0 && (
               <div className="flex-1">
                 <ol
-                  className="grid divide-y divide-gray-100 border-t mt-4"
+                  className="grid divide-y divide-gray-100 border-t mt-8"
                   style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
                 >
                   {hours.map((hour, idx) => {
@@ -1044,7 +1035,7 @@ export default function CourtFinder() {
             {hubRichmondCourtsTable.length !== 0 && (
               <div className="flex-1">
                 <ol
-                  className="grid divide-y divide-gray-100 border-t mt-4"
+                  className="grid divide-y divide-gray-100 border-t mt-8"
                   style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
                 >
                   {hours.map((hour, idx) => {
@@ -1106,7 +1097,7 @@ export default function CourtFinder() {
             {ueTennisCourtsTable.length !== 0 && (
               <div className="flex-1">
                 <ol
-                  className="grid divide-y divide-gray-100 border-t mt-4"
+                  className="grid divide-y divide-gray-100 border-t mt-8"
                   style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
                 >
                   {hours.map((hour, idx) => {
@@ -1202,7 +1193,7 @@ export default function CourtFinder() {
             <div>S</div>
             <div>S</div>
           </div>
-
+          {/* Mini Calendar */}
           <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
             {monthDays.map((day, dayIdx) => {
               // Check whether is the past data
