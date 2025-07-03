@@ -8,39 +8,45 @@ class TennisBcHubScrapper {
         courtName: "Richmond",
         resourceFingerprint: "TBCHubRichmond",
         displayName: "Tennis BC Hub @ Richmond",
-        location: "Richmond" 
+        location: "Richmond",
       },
       stanley: {
         courtName: "Stanley",
         resourceFingerprint: "TBCHubStanleyPark",
         displayName: "Tennis BC Hub @ Stanley Park",
-        location: "Vancouver DT"
-      }
+        location: "Vancouver DT",
+      },
     };
   }
 
   async getCourtBooking() {
+    console.log("Tennis BC Hub Scrapper Started.");
     const now = new Date();
     const urlParamsByLocation = await this.interceptURLPrams();
     const bookings = [];
 
     // Build an array of fetch promises using async/await
-    const fetchPromises = Object.entries(urlParamsByLocation).map(async ([locKey, params]) => {
-      const url = params.targetUrl;
-      const headers = { "User-Agent": "Mozilla/5.0" };
-      try {
-        const response = await fetch(url, { headers });
-        if (!response.ok) {
-          throw new Error(`Failed to fetch data. Status:${response.status}.`);
+    const fetchPromises = Object.entries(urlParamsByLocation).map(
+      async ([locKey, params]) => {
+        const url = params.targetUrl;
+        const headers = {
+          "User-Agent":
+            "NonProfitFriendlyBot/1.0 (Contact: francishuang.lawtech@gmail.com; Purpose: UBC CS student project for tennis court availability, no commercial use.)",
+        };
+        try {
+          const response = await fetch(url, { headers });
+          if (!response.ok) {
+            throw new Error(`Failed to fetch data. Status:${response.status}.`);
+          }
+          const data = await response.json();
+          // Return an object with locKey and the resources data.
+          return { locKey, resources: data.Resources };
+        } catch (err) {
+          console.error("Fetch failed:", err);
+          return { locKey, resources: [] }; // Return empty array on error
         }
-        const data = await response.json();
-        // Return an object with locKey and the resources data.
-        return { locKey, resources: data.Resources };
-      } catch (err) {
-        console.error("Fetch failed:", err);
-        return { locKey, resources: [] }; // Return empty array on error
       }
-    });
+    );
 
     // Wait for all fetch promises to resolve
     const allResults = await Promise.all(fetchPromises);
@@ -55,26 +61,39 @@ class TennisBcHubScrapper {
           const date = (day.Date || "").split("T")[0];
           const sessions = day.Sessions || [];
           for (const session of sessions) {
-            if (session.Name.includes('All court times & fees') ||
-                session.Name.includes('Default'))
-            bookings.push({
-              clubName: this.locationInfo[locKey].displayName,
-              courtNumber,
-              date,
-              startHour: minutesToTime(date, Math.floor(session.StartTime / 60) * 60),
-              startTime: minutesToTime(date, session.StartTime),
-              endTime: minutesToTime(date, session.EndTime),
-              bookable: makeBookableValue(date, session.StartTime),
-              // Pass needed parameters to construct the URL:
-              courtBookingLink: makecourtBookingLink(locKey, courtNumber, this.locationInfo),
-              location: this.locationInfo[locKey].location
-            });
+            if (
+              session.Name.includes("All court times & fees") ||
+              session.Name.includes("Default")
+            )
+              bookings.push({
+                clubName: this.locationInfo[locKey].displayName,
+                courtNumber,
+                date,
+                startHour: minutesToTime(
+                  date,
+                  Math.floor(session.StartTime / 60) * 60
+                ),
+                startTime: minutesToTime(date, session.StartTime),
+                endTime: minutesToTime(date, session.EndTime),
+                bookable: makeBookableValue(date, session.StartTime),
+                // Pass needed parameters to construct the URL:
+                courtBookingLink: makecourtBookingLink(
+                  locKey,
+                  courtNumber,
+                  this.locationInfo
+                ),
+                location: this.locationInfo[locKey].location,
+              });
           }
         }
       }
     }
 
-    console.log(`TennisBCScrapper took ${(new Date().getTime() - now.getTime())/1000} seconds.`)
+    console.log(
+      `TennisBCScrapper took ${
+        (new Date().getTime() - now.getTime()) / 1000
+      } seconds.`
+    );
     return bookings;
   }
 
@@ -110,7 +129,7 @@ class TennisBcHubScrapper {
         targetUrl: parsedUrl.toString(),
         roleId: extractTailNumber(targetUrl),
         startDate: startDateStr,
-        endDate: formatDate(endDate)
+        endDate: formatDate(endDate),
       };
     }
     return results;
@@ -124,6 +143,9 @@ class TennisBcHubScrapper {
 async function scrape(endpoint_pattern, resource_fingerprint) {
   const browser = await launch({ headless: true });
   const page = await browser.newPage();
+  await page.setUserAgent(
+    "NonProfitFriendlyBot/1.0 (Contact: francishuang.lawtech@gmail.com; Purpose: UBC CS student project for tennis court availability, no commercial use.)"
+  );
 
   await page.setRequestInterception(true);
 
@@ -138,7 +160,7 @@ async function scrape(endpoint_pattern, resource_fingerprint) {
       const regEx = new RegExp(endpoint_pattern);
       if (regEx.test(url)) {
         found = true;
-        console.log("Target Request URL:", url);
+        // console.log("Target Request URL:", url);
         resolve(url);
       }
       request.continue();
@@ -156,7 +178,7 @@ async function scrape(endpoint_pattern, resource_fingerprint) {
       targetPromise,
       new Promise((_, reject) =>
         setTimeout(() => reject(new Error("Target request not found")), 1000)
-      )
+      ),
     ]);
   } catch (error) {
     await browser.close();
@@ -187,21 +209,21 @@ function makeBookableValue(dateString, minutes) {
   // Create a Date object based on dateString and set time to midnight.
   const sessionTime = new Date(dateString);
   sessionTime.setHours(0, 0, 0, 0);
-  
+
   // Round down the provided minutes to the nearest 30.
   const roundedMinutes = Math.floor(minutes / 30) * 30;
   sessionTime.setMinutes(roundedMinutes);
 
   // Get current time.
   const now = new Date();
-  
+
   // Calculate the difference in milliseconds and convert to hours.
   const distanceMs = sessionTime.getTime() - now.getTime();
   const distanceHours = distanceMs / (1000 * 60 * 60);
-  
+
   // Define 7 days in hours.
   const sevenDaysHours = 7 * 24;
-  
+
   // If the session is more than seven days in the future, return the hours difference; otherwise return 0.
   return distanceHours > sevenDaysHours ? distanceHours : 0;
 }

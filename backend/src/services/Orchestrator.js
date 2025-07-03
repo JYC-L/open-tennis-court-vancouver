@@ -1,31 +1,34 @@
 const {
-  TennisBcHubScrapper
+  TennisBcHubScrapper,
 } = require("./TennisBcHubScrapper/TennisBcHubScrapper.js");
 const UbcTennisCenterScrapper = require("./ubc-scrapper.js");
 const {
-  UeTennisScrapper
+  UeTennisScrapper,
 } = require("../../dist/services/UeTennisCourtScrapper/UeTennisWebScrapper");
 const {
-  saveAvailabilityToJSON
+  saveAvailabilityToJSON,
 } = require("./TennisBcHubScrapper/runScraper.js");
 const {
-  CourtScheduleRepository
+  CourtScheduleRepository,
 } = require("../../dist/db/CourtScheduleRepository");
 const { error } = require("console");
 
 class Orchestrator {
   constructor() {
-    try {      
+    try {
       this.scrapers = [
         new TennisBcHubScrapper(),
         new UbcTennisCenterScrapper(),
-        new UeTennisScrapper()
+        new UeTennisScrapper(),
       ];
       this.courtScheduleRepository = new CourtScheduleRepository();
       this.lastUpdated = null;
       this.records = null;
     } catch (error) {
-      throw new Error("Orchestrator.constructor: Error when initializing fields in the orchestrator;", {cause:error});
+      throw new Error(
+        "Orchestrator.constructor: Error when initializing fields in the orchestrator;",
+        { cause: error }
+      );
     }
     this.scheduledUpdate();
   }
@@ -45,7 +48,7 @@ class Orchestrator {
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking().catch((error) => {
         throw new Error("Orchestrator.onDemandUpdate: a scraper failed;", {
-          cause: error
+          cause: error,
         });
       })
     );
@@ -75,16 +78,15 @@ class Orchestrator {
           hour12: false,
           hour: "2-digit",
           minute: "2-digit",
-          timeZoneName:"short"
+          timeZoneName: "short",
         })
       );
     } catch (err) {
       throw new Error("Orchestrator.saveData: Error saving data;", {
-        cause: err
+        cause: err,
       });
     }
   }
-
 
   // Schedules onDemandUpdate at minutes 01 and 45 of each hour in Pacific Time
   async scheduledUpdate(onUpdateCallback) {
@@ -96,7 +98,7 @@ class Orchestrator {
         timeZone: "America/Vancouver",
         hour12: false,
         hour: "2-digit",
-        minute: "2-digit"
+        minute: "2-digit",
       });
       const [pacificHour, pacificMinute] = pacificTimeString
         .split(":")
