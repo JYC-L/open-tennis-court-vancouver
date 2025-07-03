@@ -80,7 +80,7 @@ export class UeTennisScrapper {
         const token = request.headers()["authorization"];
         if (token && !this.authToken) {
           this.authToken = token;
-          console.log("Captured auth token:", this.authToken);
+          // console.log("Captured auth token:", this.authToken);
         }
       }
     });

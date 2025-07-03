@@ -12,6 +12,8 @@ const {
   CourtScheduleRepository,
 } = require("../../dist/db/CourtScheduleRepository");
 const { error } = require("console");
+const fs = require("fs");
+const path = require("path");
 
 class Orchestrator {
   constructor() {
@@ -45,6 +47,26 @@ class Orchestrator {
     // console.log("pushing data to db...");
     // console.log("Writing availability to all_availabilities.json");
     // return;
+
+    const now = new Date();
+    const vancouverDate = now.toLocaleDateString("en-CA", {
+      timeZone: "America/Vancouver",
+    });
+    const logDir = path.join(__dirname, "../../logs");
+    if (!fs.existsSync(logDir)) {
+      fs.mkdirSync(logDir, { recursive: true });
+    }
+    const logFile = path.join(logDir, `${vancouverDate}.txt`);
+
+    try {
+      const logMsg = `[${now.toLocaleString("en-CA", {
+        timeZone: "America/Vancouver",
+      })}] Orchestrator.onDemandUpdate Started.\n`;
+      fs.appendFileSync(logFile, logMsg, "utf8");
+    } catch (logErr) {
+      console.error("Log Write Error:", logErr);
+    }
+
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking().catch((error) => {
         throw new Error("Orchestrator.onDemandUpdate: a scraper failed;", {
@@ -185,6 +207,26 @@ class Orchestrator {
           const endDate = new Date(
             startDate.getTime() + 7 * 24 * 60 * 60 * 1000
           );
+
+          const now = new Date();
+          const vancouverDate = now.toLocaleDateString("en-CA", {
+            timeZone: "America/Vancouver",
+          });
+          const logDir = path.join(__dirname, "../../logs");
+          if (!fs.existsSync(logDir)) {
+            fs.mkdirSync(logDir, { recursive: true });
+          }
+          const logFile = path.join(logDir, `${vancouverDate}.txt`);
+
+          try {
+            const logMsg = `[${now.toLocaleString("en-CA", {
+              timeZone: "America/Vancouver",
+            })}] Scheduled Orchestrator.onDemandUpdate Started.\n`;
+            fs.appendFileSync(logFile, logMsg, "utf8");
+          } catch (logErr) {
+            console.error("Log Write Error:", logErr);
+          }
+
           console.log("Running scheduled onDemandUpdate...");
           await this.onDemandUpdate(requestedAt, startDate, endDate);
           if (onUpdateCallback) onUpdateCallback(new Date());

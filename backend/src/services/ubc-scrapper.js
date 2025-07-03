@@ -92,7 +92,7 @@ class UbcTennisCenterScrapper {
 
       htmlData.push({ html, dateLabel: arrivalDate.slice(0, 10) });
 
-      await page.waitForTimeout(1000);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
     return htmlData;
