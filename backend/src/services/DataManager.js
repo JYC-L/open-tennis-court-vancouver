@@ -1,5 +1,5 @@
 const {
-  CourtScheduleRepository
+  CourtScheduleRepository,
 } = require("../../dist/db/CourtScheduleRepository");
 const { Orchestrator } = require("./Orchestrator");
 
@@ -16,7 +16,10 @@ class AvailabilityManager {
       this.orchestrator = new Orchestrator();
       this.freshnessCutoffMinutes = freshnessCutoffMinutes;
     } catch (error) {
-      throw new Error("AvailablityManager.constructor: error when initializing fields;",{cause:error});
+      throw new Error(
+        "AvailablityManager.constructor: error when initializing fields;",
+        { cause: error }
+      );
     }
   }
 
@@ -60,12 +63,13 @@ class AvailabilityManager {
     let lastUpdated = null;
     let isFresh = false;
     const orchestratorLastUpdated = this.orchestrator.lastUpdated;
-    const dbLastUpdated = await this.courtScheduleRepository.getLastUpdatedTimestamp();
+    const dbLastUpdated =
+      await this.courtScheduleRepository.getLastUpdatedTimestamp();
     if (orchestratorLastUpdated) {
       lastUpdated = orchestratorLastUpdated;
     } else if (dbLastUpdated) {
       lastUpdated = dbLastUpdated;
-    } 
+    }
 
     isFresh = this.isFresh(lastUpdated, requestedAt);
 
@@ -74,7 +78,7 @@ class AvailabilityManager {
       // Return cached data from orchestrator if fresh and available
       try {
         records = this.orchestrator.records;
-        return records;
+        return { data: records, updated_at: lastUpdated };
       } catch (err) {
         throw new Error(
           "DataManager.getAvailability: Error when accessing cached data from orchestrator;",
@@ -85,9 +89,9 @@ class AvailabilityManager {
 
     if (isFresh) {
       try {
-        records = await this.courtScheduleRepository.getAllAvailabilityAsArr()
+        records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
         this.orchestrator.records = records;
-        return records
+        return { data: records, updated_at: requestedAt };
       } catch (err) {
         throw new Error(
           "DataManager.getAvailability: Error when accessing db data using orchestrator;",
@@ -112,7 +116,7 @@ class AvailabilityManager {
     }
 
     // 3. Return orchestrator data
-    return records;
+    return { data: records, updated_at: requestedAt };
   }
 
   /**
@@ -141,7 +145,7 @@ class AvailabilityManager {
     });
     return Promise.race([
       promise.finally(() => clearTimeout(timeout)),
-      timeoutPromise
+      timeoutPromise,
     ]);
   }
 }

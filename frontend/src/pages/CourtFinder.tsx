@@ -36,14 +36,6 @@ const API_URL = `http://127.0.0.1:4325/api/availability?court=UBC-Court-1&start_
   Date.now() + 7 * 24 * 60 * 60 * 1000
 ).toISOString()}&requested_at=${new Date().toISOString()}`;
 
-// return gridRow based on time
-function getGridRow(time: string, duration: number = 60): string {
-  const [h] = time.split(":").map(Number);
-  // 6AM = the first row
-  const start = h - 6 + 1;
-  return `${start} / span 1`;
-}
-
 function getDaysForMonth(
   year: number,
   month: number,
@@ -231,23 +223,31 @@ function transformApiResponseToEventsMap(apiResponse: any[]): EventsMap {
 }
 
 // API Call & Cleaning: Call the API and transform the response into EventsMap
-async function fetchAndTransformEvents(): Promise<EventsMap> {
+async function fetchAndTransformEvents(): Promise<{
+  data: EventsMap;
+  updated_at: Date;
+}> {
   try {
-    // const response = await fetch(API_URL);
-    // if (!response.ok) {
-    //   throw new Error(`Failed to fetch data: ${response.statusText}`);
-    // }
-    // const apiData: any = await response.json();
-    // const apiResponse: any[] = apiData.results;
-    // console.log("API Response:", apiResponse);
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.statusText}`);
+    }
+    const apiData: any = await response.json();
+    const apiResponse: any[] = apiData.data;
+    const updatedAt: Date = apiData.updated_at;
+    console.log("API Response:", apiResponse);
+    console.log("Data updated at:", updatedAt);
 
-    const apiResponse: any[] = sampleAPIResponse;
+    // const apiResponse: any[] = sampleAPIResponse;
 
     // Transder API response into EventsMap
-    return transformApiResponseToEventsMap(apiResponse);
+    return {
+      data: transformApiResponseToEventsMap(apiResponse),
+      updated_at: updatedAt,
+    };
   } catch (error) {
     console.error("Error fetching or transforming data:", error);
-    return {};
+    return { data: {}, updated_at: new Date() };
   }
 }
 
@@ -319,6 +319,8 @@ export default function CourtFinder() {
     ).UE
   );
 
+  const [updatedAt, setUpdatedAt] = useState(new Date());
+
   const dispatch = useDispatch();
 
   const container = useRef();
@@ -328,12 +330,13 @@ export default function CourtFinder() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetchAndTransformEvents();
+        const { data, updated_at } = await fetchAndTransformEvents();
+        setUpdatedAt(updated_at);
         dispatch(deleteOldEventsMap());
         dispatch(moveNewEventsMapToOld());
-        dispatch(addNewEventsMap(response));
+        dispatch(addNewEventsMap(data));
         let { UBC, HubRichmond, HubStanleyPark, UE } =
-          splitEventsMapByClub(response);
+          splitEventsMapByClub(data);
         UBC = Object.fromEntries(
           Object.entries(UBC).map(([date, events]) => [
             date,
@@ -670,8 +673,23 @@ export default function CourtFinder() {
               })}
             </time>
           </h1>
-          <p className="mt-1 text-sm text-gray-500">
-            {getWeekday(selectedDate)}
+          <p className="mt-1 text-xs text-gray-500">
+            {getWeekday(selectedDate)}&nbsp;
+            <time className="inline sm:hidden text-gray-400">
+              (Updated at&nbsp;
+              {updatedAt
+                .toLocaleString("en-US", {
+                  timeZone: "America/Vancouver",
+                })
+                .slice(10, 14)}
+              &nbsp;
+              {updatedAt
+                .toLocaleString("en-US", {
+                  timeZone: "America/Vancouver",
+                })
+                .slice(18, 20)}
+              )
+            </time>
           </p>
         </div>
         <div className="flex items-center">
@@ -1260,6 +1278,22 @@ export default function CourtFinder() {
             >
               Go to today
             </button>
+          </div>
+          <div className="flex justify-center mt-4 text-xs text-gray-400">
+            <time>
+              Last updated at today&nbsp;
+              {updatedAt
+                .toLocaleString("en-US", {
+                  timeZone: "America/Vancouver",
+                })
+                .slice(10, 14)}
+              &nbsp;
+              {updatedAt
+                .toLocaleString("en-US", {
+                  timeZone: "America/Vancouver",
+                })
+                .slice(18, 20)}
+            </time>
           </div>
         </div>
       </div>

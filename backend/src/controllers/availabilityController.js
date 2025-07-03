@@ -29,13 +29,7 @@ exports.getAvailability = async (req, res) => {
       requestedAt
     );
 
-    res.status(200).json({
-      court,
-      start_date,
-      end_date,
-      requested_at,
-      results,
-    });
+    res.status(200).json(results);
   } catch (err) {
     console.error("Controller Error:", err);
     res.status(500).json({ error: "Internal server error." });
