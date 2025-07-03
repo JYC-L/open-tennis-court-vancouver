@@ -22,7 +22,7 @@
     "**/*.spec.ts",
     "**/*.test.js",
     "**/*.spec.js",
-    "**/*.d.ts",
+    "**/*.d.ts"
   ],
   "ts-node": {
     "esm": false,
