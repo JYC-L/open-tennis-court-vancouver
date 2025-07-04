@@ -257,8 +257,25 @@ function splitEventsMapByClub(eventsMap: EventsMap) {
   const HubStanleyPark: EventsMap = {};
   const UE: EventsMap = {};
 
+  const now = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "America/Vancouver" })
+  );
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(now.getDate()).padStart(2, "0")}`;
+  const currentTimeStr = now.toTimeString().slice(0, 5); // "HH:MM"
+
   Object.entries(eventsMap).forEach(([date, events]) => {
-    events.forEach((event) => {
+    if (date < todayStr) return;
+
+    const filteredEvents = events.filter((event) => {
+      if (date > todayStr) return true;
+
+      return event.time >= currentTimeStr;
+    });
+
+    filteredEvents.forEach((event) => {
       event.clubDetails.forEach((club) => {
         let targetMap: EventsMap | null = null;
         if (club.clubName === "UBC Tennis Center") targetMap = UBC;
@@ -271,7 +288,6 @@ function splitEventsMapByClub(eventsMap: EventsMap) {
 
         if (!targetMap[date]) targetMap[date] = [];
 
-        // 查找是否已有该时间的 event
         let targetEvent = targetMap[date].find((e) => e.time === event.time);
         if (!targetEvent) {
           targetEvent = {
@@ -280,7 +296,7 @@ function splitEventsMapByClub(eventsMap: EventsMap) {
           };
           targetMap[date].push(targetEvent);
         }
-        // 合并 clubDetails
+
         targetEvent.clubDetails.push(club);
       });
     });

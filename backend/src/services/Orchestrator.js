@@ -19,9 +19,9 @@ class Orchestrator {
   constructor() {
     try {
       this.scrapers = [
+        new UeTennisScrapper(),
         new TennisBcHubScrapper(),
         new UbcTennisCenterScrapper(),
-        new UeTennisScrapper(),
       ];
       this.courtScheduleRepository = new CourtScheduleRepository();
       this.lastUpdated = null;

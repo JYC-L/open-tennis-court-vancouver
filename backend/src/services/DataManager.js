@@ -150,7 +150,7 @@ class AvailabilityManager {
     }
     return {
       data: this.orchestrator.records,
-      updated_at: this.orchestrator.lastUpdated || new Date(),
+      updated_at: this.orchestrator.lastUpdated,
     };
   }
 
