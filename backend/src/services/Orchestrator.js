@@ -19,9 +19,9 @@ class Orchestrator {
   constructor() {
     try {
       this.scrapers = [
+        new UeTennisScrapper(),
         new TennisBcHubScrapper(),
         new UbcTennisCenterScrapper(),
-        new UeTennisScrapper(),
       ];
       this.courtScheduleRepository = new CourtScheduleRepository();
       this.lastUpdated = null;
@@ -52,7 +52,7 @@ class Orchestrator {
     const vancouverDate = now.toLocaleDateString("en-CA", {
       timeZone: "America/Vancouver",
     });
-    const logDir = path.join(__dirname, "../../logs");
+    const logDir = path.join(__dirname, "logs");
     if (!fs.existsSync(logDir)) {
       fs.mkdirSync(logDir, { recursive: true });
     }
@@ -69,13 +69,12 @@ class Orchestrator {
 
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking().catch((error) => {
-        throw new Error("Orchestrator.onDemandUpdate: a scraper failed;", {
-          cause: error,
-        });
+        console.error("Orchestrator.onDemandUpdate: a scraper failed;", error);
+        return null;
       })
     );
     let results = await Promise.all(promises);
-    results = results.flat();
+    results = results.filter(Boolean).flat();
     try {
       await this.saveData(results);
     } catch (e) {
@@ -212,7 +211,7 @@ class Orchestrator {
           const vancouverDate = now.toLocaleDateString("en-CA", {
             timeZone: "America/Vancouver",
           });
-          const logDir = path.join(__dirname, "../../logs");
+          const logDir = path.join(__dirname, "logs");
           if (!fs.existsSync(logDir)) {
             fs.mkdirSync(logDir, { recursive: true });
           }

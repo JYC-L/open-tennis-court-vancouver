@@ -15,9 +15,10 @@ class AvailabilityManager {
       this.courtScheduleRepository = new CourtScheduleRepository();
       this.orchestrator = new Orchestrator();
       this.freshnessCutoffMinutes = freshnessCutoffMinutes;
+      this.updatePromise = null;
     } catch (error) {
       throw new Error(
-        "AvailablityManager.constructor: error when initializing fields;",
+        "AvailabilityManager.constructor: error when initializing fields;",
         { cause: error }
       );
     }
@@ -90,14 +91,15 @@ class AvailabilityManager {
       }
     }
 
-    if (isFresh) {
+    if (isFresh && !this.orchestrator.records) {
       try {
         console.log(
           "DataManager.getAvailability: Data is fresh, using db data."
         );
         records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
         this.orchestrator.records = records;
-        return { data: records, updated_at: requestedAt };
+        this.orchestrator.lastUpdated = dbLastUpdated;
+        return { data: records, updated_at: dbLastUpdated };
       } catch (err) {
         throw new Error(
           "DataManager.getAvailability: Error when accessing db data using orchestrator;",
@@ -106,26 +108,50 @@ class AvailabilityManager {
       }
     }
 
-    // 2. If missing/stale, call orchestrator (with timeout)
-    const timeoutWindow = 600000; // 10 minutes
-    try {
+    if (!isFresh && !this.updatePromise) {
+      const timeoutWindow = 600000; // 10 minutes
       console.log(
         "DataManager.getAvailability: Data is stale, invoking onDemand Parsing for fresh data."
       );
-      records = await this._withTimeout(
+      this.updatePromise = this._withTimeout(
         this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate),
         timeoutWindow,
         `Orchestrator timed out after ${timeoutWindow / 1000} seconds.`
-      );
-    } catch (err) {
-      throw new Error(
-        "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;",
-        { cause: err }
-      );
+      )
+        .catch((err) => {
+          console.error(
+            "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;"
+          );
+          console.error("Caused by:", err);
+          throw new Error(
+            "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;",
+            { cause: err }
+          );
+        })
+        .finally(() => {
+          this.updatePromise = null;
+        });
     }
 
-    // 3. Return orchestrator data
-    return { data: records, updated_at: requestedAt };
+    console.log(
+      "DataManager.getAvailability: Update in progress, returning stale cached data."
+    );
+
+    if (!this.orchestrator.records) {
+      try {
+        this.orchestrator.records =
+          await this.courtScheduleRepository.getAllAvailabilityAsArr();
+      } catch (error) {
+        throw new Error(
+          "DataManager.getAvailability: error when data stale and getting availability from db;",
+          { cause: error }
+        );
+      }
+    }
+    return {
+      data: this.orchestrator.records,
+      updated_at: this.orchestrator.lastUpdated,
+    };
   }
 
   /**
