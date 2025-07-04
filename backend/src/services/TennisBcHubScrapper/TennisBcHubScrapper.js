@@ -31,7 +31,7 @@ class TennisBcHubScrapper {
         const url = params.targetUrl;
         const headers = {
           "User-Agent":
-            "NonProfitFriendlyBot/1.0 (Contact: francishuang.lawtech@gmail.com; Purpose: UBC CS student project for tennis court availability, no commercial use.)",
+            "NonProfitFriendlyBot/1.0 (Purpose: UBC CS student project for tennis court availability, no commercial use.)",
         };
         try {
           const response = await fetch(url, { headers });
@@ -144,7 +144,7 @@ async function scrape(endpoint_pattern, resource_fingerprint) {
   const browser = await launch({ headless: true });
   const page = await browser.newPage();
   await page.setUserAgent(
-    "NonProfitFriendlyBot/1.0 (Contact: francishuang.lawtech@gmail.com; Purpose: UBC CS student project for tennis court availability, no commercial use.)"
+    "NonProfitFriendlyBot/1.0 (Purpose: UBC CS student project for tennis court availability, no commercial use.)"
   );
 
   await page.setRequestInterception(true);

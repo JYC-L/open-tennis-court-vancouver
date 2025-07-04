@@ -19,3 +19,5 @@ Caused by: TypeError: page.waitForTimeout is not a function
     at async AvailabilityManager.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/DataManager.js:115:17)
     at async exports.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/controllers/availabilityController.js:36:21)
 [2025-07-03, 4:50:27 p.m.] Orchestrator.onDemandUpdate Started.
+[2025-07-03, 5:01:22 p.m.] Scheduled Orchestrator.onDemandUpdate Started.
+[2025-07-03, 5:01:22 p.m.] Orchestrator.onDemandUpdate Started.

@@ -156,7 +156,7 @@ class UbcTennisCenterScrapper {
     for (const court of this.courts) {
       const page = await browser.newPage();
       await page.setUserAgent(
-        "NonProfitFriendlyBot/1.0 (Contact: francishuang.lawtech@gmail.com; Purpose: UBC CS student project for tennis court availability, no commercial use.)"
+        "NonProfitFriendlyBot/1.0 (Purpose: UBC CS student project for tennis court availability, no commercial use.)"
       );
       const htmlData = await this.fetchHtmlForCourt(page, court.id);
       const results = this.extractSchedule(htmlData, court.label, court.id);
