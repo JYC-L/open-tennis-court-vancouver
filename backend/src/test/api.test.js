@@ -73,7 +73,3 @@ describe('Availability Controller', () => {
     });
   });
 });
-
-after(() => {
-  process.exit(0);
-});
