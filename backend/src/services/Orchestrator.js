@@ -69,13 +69,12 @@ class Orchestrator {
 
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking().catch((error) => {
-        throw new Error("Orchestrator.onDemandUpdate: a scraper failed;", {
-          cause: error,
-        });
+        console.error("Orchestrator.onDemandUpdate: a scraper failed;", error);
+        return null;
       })
     );
     let results = await Promise.all(promises);
-    results = results.flat();
+    results = results.filter(Boolean).flat();
     try {
       await this.saveData(results);
     } catch (e) {
