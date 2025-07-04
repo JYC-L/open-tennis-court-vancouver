@@ -637,7 +637,7 @@ export default function CourtFinder() {
   const hours = Array.from({ length: 17 }, (_, i) => 6 + i); // 6AM ~ 22PM
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-screen flex-col">
       <CourtsDetail
         open={modalOpen}
         event={selectedEvent}
@@ -927,7 +927,7 @@ export default function CourtFinder() {
                 ))}
               </div>
             </div>
-            {/* Event Column */}
+            {/* Event Columns */}
             {ubcCourtsTable.length !== 0 && (
               <div className="flex-1">
                 <ol
