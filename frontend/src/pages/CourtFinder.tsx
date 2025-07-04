@@ -257,8 +257,25 @@ function splitEventsMapByClub(eventsMap: EventsMap) {
   const HubStanleyPark: EventsMap = {};
   const UE: EventsMap = {};
 
+  const now = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "America/Vancouver" })
+  );
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(now.getDate()).padStart(2, "0")}`;
+  const currentTimeStr = now.toTimeString().slice(0, 5); // "HH:MM"
+
   Object.entries(eventsMap).forEach(([date, events]) => {
-    events.forEach((event) => {
+    if (date < todayStr) return;
+
+    const filteredEvents = events.filter((event) => {
+      if (date > todayStr) return true;
+
+      return event.time >= currentTimeStr;
+    });
+
+    filteredEvents.forEach((event) => {
       event.clubDetails.forEach((club) => {
         let targetMap: EventsMap | null = null;
         if (club.clubName === "UBC Tennis Center") targetMap = UBC;
@@ -271,7 +288,6 @@ function splitEventsMapByClub(eventsMap: EventsMap) {
 
         if (!targetMap[date]) targetMap[date] = [];
 
-        // 查找是否已有该时间的 event
         let targetEvent = targetMap[date].find((e) => e.time === event.time);
         if (!targetEvent) {
           targetEvent = {
@@ -280,7 +296,7 @@ function splitEventsMapByClub(eventsMap: EventsMap) {
           };
           targetMap[date].push(targetEvent);
         }
-        // 合并 clubDetails
+
         targetEvent.clubDetails.push(club);
       });
     });
@@ -679,17 +695,12 @@ export default function CourtFinder() {
             {getWeekday(selectedDate)}&nbsp;
             <time className="inline sm:hidden text-gray-400">
               (Updated at&nbsp;
-              {new Date(updatedAt)
-                .toLocaleString("en-US", {
-                  timeZone: "America/Vancouver",
-                })
-                .slice(10, 14)}
-              &nbsp;
-              {new Date(updatedAt)
-                .toLocaleString("en-US", {
-                  timeZone: "America/Vancouver",
-                })
-                .slice(18, 20)}
+              {new Date(updatedAt).toLocaleTimeString("en-US", {
+                timeZone: "America/Vancouver",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
               )
             </time>
           </p>
@@ -953,7 +964,7 @@ export default function CourtFinder() {
                             className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
                           >
                             <p
-                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm`}
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
                             >
                               {event.clubDetails
                                 .map((club) => {
@@ -976,9 +987,39 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 UBC${
+                                  return `🎾 UBC ${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 UBC | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
                                 })
                                 .join(" | ")}
                             </p>
@@ -1015,7 +1056,7 @@ export default function CourtFinder() {
                             className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
                           >
                             <p
-                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm`}
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
                             >
                               {event.clubDetails
                                 .map((club) => {
@@ -1038,9 +1079,39 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 BC Hub @ SP${
+                                  return `🎾 BC Hub @ SP ${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 BC Hub @ SP | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
                                 })
                                 .join(" | ")}
                             </p>
@@ -1077,7 +1148,7 @@ export default function CourtFinder() {
                             className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
                           >
                             <p
-                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm`}
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
                             >
                               {event.clubDetails
                                 .map((club) => {
@@ -1100,9 +1171,39 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 BC Hub @ RMD${
+                                  return `🎾 BC Hub @ RMD ${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 BC Hub @ RMD | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
                                 })
                                 .join(" | ")}
                             </p>
@@ -1139,7 +1240,7 @@ export default function CourtFinder() {
                             className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
                           >
                             <p
-                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm`}
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
                             >
                               {event.clubDetails
                                 .map((club) => {
@@ -1162,9 +1263,39 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 UE${
+                                  return `🎾 UE | ${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 UE | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
                                 })
                                 .join(" | ")}
                             </p>
@@ -1284,17 +1415,12 @@ export default function CourtFinder() {
           <div className="flex justify-center mt-4 text-xs text-gray-400">
             <time>
               Last updated at today&nbsp;
-              {new Date(updatedAt)
-                .toLocaleString("en-US", {
-                  timeZone: "America/Vancouver",
-                })
-                .slice(10, 14)}
-              &nbsp;
-              {new Date(updatedAt)
-                .toLocaleString("en-US", {
-                  timeZone: "America/Vancouver",
-                })
-                .slice(18, 20)}
+              {new Date(updatedAt).toLocaleTimeString("en-US", {
+                timeZone: "America/Vancouver",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
             </time>
           </div>
         </div>
