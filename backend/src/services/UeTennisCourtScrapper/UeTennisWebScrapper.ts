@@ -40,11 +40,12 @@ export class UeTennisScrapper {
   private readonly clubName = "UE Tennis";
 
   public async getCourtBooking() {
+    console.log("UE Tennis Scrapper Started.");
     const scrappingStartTime = new Date().toISOString();
-    console.log(
-      "Starting UE Tennis court booking scrapper...",
-      scrappingStartTime
-    );
+    // console.log(
+    //   "Starting UE Tennis court booking scrapper...",
+    //   scrappingStartTime
+    // );
     this.browser = await puppeteer.launch({ headless: true });
     this.page = await this.browser.newPage();
     // Capture authorization token from network requests
@@ -64,11 +65,11 @@ export class UeTennisScrapper {
 
     await this.queryAvailability();
     const scrappingEndTime = new Date().toISOString();
-    console.log("web scrapping finished.", scrappingEndTime);
+    // console.log("UE Tennis Web Scrapping finished.", scrappingEndTime);
     const durationMs =
       new Date(scrappingEndTime).getTime() -
       new Date(scrappingStartTime).getTime();
-    console.log(`Scrapping takes ${durationMs} ms`);
+    console.log(`UE Tennis Scrapper took ${durationMs / 1000} seconds`);
     await this.browser.close();
     return this.allAvailability;
   }
@@ -79,7 +80,7 @@ export class UeTennisScrapper {
         const token = request.headers()["authorization"];
         if (token && !this.authToken) {
           this.authToken = token;
-          console.log("Captured auth token:", this.authToken);
+          // console.log("Captured auth token:", this.authToken);
         }
       }
     });
@@ -90,7 +91,7 @@ export class UeTennisScrapper {
       await this.page.goto(this.bookingOnlineUrl, {
         waitUntil: "networkidle2",
       });
-      console.log("Navigated to booking online page.");
+      // console.log("Navigated to booking online page.");
     } catch (error) {
       throw new Error(
         `Failed to navigate to booking online page: ${error.message}`
@@ -103,7 +104,7 @@ export class UeTennisScrapper {
       await this.page.goto(this.bookingCalendar1Url, {
         waitUntil: "networkidle2",
       });
-      console.log("Navigated to booking calendar page for court 1.");
+      // console.log("Navigated to booking calendar page for court 1.");
     } catch (error) {
       throw new Error(
         `Failed to navigate to booking online page: ${error.message}`
@@ -173,9 +174,7 @@ export class UeTennisScrapper {
     }
   }
 
-  private async writeAvailabilityDataToMem(
-    EntriesResponseArr
-  ) {
+  private async writeAvailabilityDataToMem(EntriesResponseArr) {
     if (!EntriesResponseArr || EntriesResponseArr.length === 0) {
       console.warn("No availability entries found.");
       return;
@@ -216,11 +215,7 @@ export class UeTennisScrapper {
    * @param endDate
    * @returns
    */
-  private async sendPostRequestsForAvailability(
-    serviceId,
-    startDate,
-    endDate
-  ) {
+  private async sendPostRequestsForAvailability(serviceId, startDate, endDate) {
     try {
       const response = await axios.post(
         "https://www.uetennis.com/_api/availability-calendar/v1/availability/query",

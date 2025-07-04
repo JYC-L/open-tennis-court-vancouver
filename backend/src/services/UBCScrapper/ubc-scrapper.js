@@ -91,6 +91,8 @@ class UbcTennisCenterScrapper {
       }
 
       htmlData.push({ html, dateLabel: arrivalDate.slice(0, 10) });
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
     return htmlData;
@@ -146,12 +148,16 @@ class UbcTennisCenterScrapper {
   }
 
   async getCourtBooking() {
+    console.log("UBC Tennis Centre Scrapper Started.");
     const now = new Date();
     const browser = await puppeteer.launch({ headless: true });
     const allResults = [];
 
     for (const court of this.courts) {
       const page = await browser.newPage();
+      await page.setUserAgent(
+        "NonProfitFriendlyBot/1.0 (Purpose: UBC CS student project for tennis court availability, no commercial use.)"
+      );
       const htmlData = await this.fetchHtmlForCourt(page, court.id);
       const results = this.extractSchedule(htmlData, court.label, court.id);
       allResults.push(...results);
@@ -159,7 +165,11 @@ class UbcTennisCenterScrapper {
     }
 
     await browser.close();
-    console.log(`UBC scrapping took ${(new Date().getTime() -  now)/1000} seconds.`)
+    console.log(
+      `UBC Tennis Centre Scrapper took ${
+        (new Date().getTime() - now) / 1000
+      } seconds.`
+    );
     return allResults;
   }
 }

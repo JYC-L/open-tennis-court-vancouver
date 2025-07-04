@@ -1,0 +1,23 @@
+[2025-07-03, 4:48:15 p.m.] Orchestrator.onDemandUpdate Started.
+[2025-07-03, 4:48:20 p.m.] Error: DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;
+    at AvailabilityManager.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/DataManager.js:121:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async exports.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/controllers/availabilityController.js:36:21)
+Caused by: Error: Orchestrator.onDemandUpdate: a scraper failed;
+    at /Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/Orchestrator.js:72:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Promise.all (index 1)
+    at async Orchestrator.onDemandUpdate (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/Orchestrator.js:77:19)
+    at async AvailabilityManager.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/DataManager.js:115:17)
+    at async exports.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/controllers/availabilityController.js:36:21)
+Caused by: TypeError: page.waitForTimeout is not a function
+    at UbcTennisCenterScrapper.fetchHtmlForCourt (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/ubc-scrapper.js:95:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async UbcTennisCenterScrapper.getCourtBooking (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/ubc-scrapper.js:161:24)
+    at async Promise.all (index 1)
+    at async Orchestrator.onDemandUpdate (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/Orchestrator.js:77:19)
+    at async AvailabilityManager.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/services/DataManager.js:115:17)
+    at async exports.getAvailability (/Users/francishuang/CS/school_projects/CPSC_455/team16/backend/src/controllers/availabilityController.js:36:21)
+[2025-07-03, 4:50:27 p.m.] Orchestrator.onDemandUpdate Started.
+[2025-07-03, 5:01:22 p.m.] Scheduled Orchestrator.onDemandUpdate Started.
+[2025-07-03, 5:01:22 p.m.] Orchestrator.onDemandUpdate Started.
