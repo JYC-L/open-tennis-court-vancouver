@@ -62,11 +62,9 @@ describe('Availability Controller', () => {
           return res;
         },
         json: (data) => {
-          expect(data).to.have.property('court');
-          expect(data).to.have.property('start_date');
-          expect(data).to.have.property('end_date');
-          expect(data).to.have.property('requested_at');
-          expect(data).to.have.property('results');
+          expect(data).to.have.property('data');
+          expect(data).to.have.property('updated_at');
+          expect(data.data).to.be.an('array');
           done();
         }
       };

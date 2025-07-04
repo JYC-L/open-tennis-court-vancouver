@@ -21,3 +21,7 @@ Caused by: TypeError: page.waitForTimeout is not a function
 [2025-07-03, 4:50:27 p.m.] Orchestrator.onDemandUpdate Started.
 [2025-07-03, 5:01:22 p.m.] Scheduled Orchestrator.onDemandUpdate Started.
 [2025-07-03, 5:01:22 p.m.] Orchestrator.onDemandUpdate Started.
+[2025-07-03, 10:40:07 p.m.] AssertionError: expected { data: [ { …(10) }, …(1107) ], …(1) } to have property 'court'
+    at Object.json (C:\Users\96364\OneDrive - UNBC\CPSC 455\ubc-tennis-scraper\backend\src\test\availability.test.js:65:32)
+    at exports.getAvailability (C:\Users\96364\OneDrive - UNBC\CPSC 455\ubc-tennis-scraper\backend\src\controllers\availabilityController.js:44:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
