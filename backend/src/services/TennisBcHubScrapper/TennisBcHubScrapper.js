@@ -141,7 +141,17 @@ class TennisBcHubScrapper {
 }
 
 async function scrape(endpoint_pattern, resource_fingerprint) {
-  const browser = await launch({ headless: true });
+  const browser = await launch({
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--single-process",
+      "--no-zygote",
+    ],
+  });
   const page = await browser.newPage();
   await page.setUserAgent(
     "NonProfitFriendlyBot/1.0 (Purpose: UBC CS student project for tennis court availability, no commercial use.)"

@@ -1,5 +1,5 @@
 const {
-  CourtScheduleRepository
+  CourtScheduleRepository,
 } = require("../../dist/db/CourtScheduleRepository");
 const { Orchestrator } = require("./Orchestrator");
 
@@ -99,7 +99,7 @@ class AvailabilityManager {
         records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
         this.orchestrator.records = records;
         this.orchestrator.lastUpdated = dbLastUpdated;
-        return { data: records, updated_at: dbLastUpdated};
+        return { data: records, updated_at: dbLastUpdated };
       } catch (err) {
         throw new Error(
           "DataManager.getAvailability: Error when accessing db data using orchestrator;",
@@ -123,6 +123,10 @@ class AvailabilityManager {
             "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;"
           );
           console.error("Caused by:", err);
+          throw new Error(
+            "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;",
+            { cause: err }
+          );
         })
         .finally(() => {
           this.updatePromise = null;
@@ -146,7 +150,7 @@ class AvailabilityManager {
     }
     return {
       data: this.orchestrator.records,
-      updated_at: this.orchestrator.lastUpdated || new Date()
+      updated_at: this.orchestrator.lastUpdated || new Date(),
     };
   }
 
@@ -176,7 +180,7 @@ class AvailabilityManager {
     });
     return Promise.race([
       promise.finally(() => clearTimeout(timeout)),
-      timeoutPromise
+      timeoutPromise,
     ]);
   }
 }
