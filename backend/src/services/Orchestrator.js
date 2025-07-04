@@ -1,7 +1,7 @@
 const {
   TennisBcHubScrapper,
 } = require("./TennisBcHubScrapper/TennisBcHubScrapper.js");
-const UbcTennisCenterScrapper = require("./ubc-scrapper.js");
+const UbcTennisCenterScrapper = require("./UBCScrapper/ubc-scrapper.js");
 const {
   UeTennisScrapper,
 } = require("../../dist/services/UeTennisCourtScrapper/UeTennisWebScrapper");

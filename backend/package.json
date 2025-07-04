@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "mocha -r ts-node/register src/services/*.spec.js",
+    "test": "mocha src/test/**/*.test.js --reporter mochawesome",
     "test:orchestrator": "mocha -r ts-node/register src/services/Ochestrator.spec.js",
     "test:datamanager": "mocha -r ts-node/register src/services/DataManager.spec.js"
   },
@@ -28,6 +28,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^16.18.126",
     "chai": "^5.2.0",
+    "chai-http": "^5.1.2",
     "jest": "^29.7.0",
     "mocha": "^11.7.0",
     "sinon": "^21.0.0",
