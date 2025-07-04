@@ -86,3 +86,33 @@ Back-end design diagram
 - Integrated MongoDB into the project for data persistance
   - The database interface (CourtScheduleRepository and MongoConnection) provides functions to retrieve availability data, insert new data into the database, and query data based on various parameters such as date, start hour, club name, court number, and location.
   - The database layer also includes mechanisms to ensure data integrity. Each availability document contains a synthetic primary key (composed of clubName, courtNumber, startTime, and date), which is used to perform upserts, deduplicate records, and ensure the most recent data is preserved during bulk updates.
+
+### Milestone 3
+
+#### Frontend Update
+
+
+#### Backend Update
+##### API Test Suite
+
+Our API is thoroughly tested using Mocha and Chai. You can run the test suite via the command line and generate an HTML report of the results.
+
+
+**To run the tests and generate HTML output:**
+
+1. **Install dependencies** (if you haven’t already):
+   ```bash
+   cd backend
+   npm install
+   ```
+
+2. **Run the test suite and generate an HTML report:**
+    ```bash
+    npm test
+    ```
+   This will create a `mochawesome-report` folder in the `backend` directory. Open `mochawesome-report/mochawesome.html` in your browser to view the test results.
+
+###### Test Suite Location
+
+- All tests are located in:  
+  [`backend/src/test/api.test.js`](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/tree/Milestone3/backend/src/test/api.test.js)
