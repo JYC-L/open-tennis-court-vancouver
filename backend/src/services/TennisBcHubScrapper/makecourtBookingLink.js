@@ -5,7 +5,7 @@
  * @param {Object} locationInfo - An object mapping locKey to its info (including resourceFingerprint).
  * @returns {string} The constructed booking URL.
  */
-export function makecourtBookingLink(locKey, courtNumberStr, locationInfo) {
+function makecourtBookingLink(locKey, courtNumberStr, locationInfo) {
   // Use the resourceFingerprint for the location
   const fingerprint = locationInfo[locKey].resourceFingerprint;
   
@@ -39,3 +39,5 @@ export function makecourtBookingLink(locKey, courtNumberStr, locationInfo) {
   
   return bookingUrl;
 }
+
+module.exports = { makecourtBookingLink };

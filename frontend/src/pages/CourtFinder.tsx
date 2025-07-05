@@ -32,18 +32,9 @@ type Day = {
   isSelected: boolean;
 };
 
-const API_URL =
-  "http://127.0.0.1:4325/api/availability?court=UBC-Court-1&start_date=2025-06-20T08:00:00Z&end_date=2025-06-20T18:00:00Z&requested_at=2025-06-20T08:33:00Z";
-
-// return gridRow based on time
-function getGridRow(time: string, duration: number = 60): string {
-  // time: "HH:mm"，duration: calculated in minutes
-  const [h, m] = time.split(":").map(Number);
-  // 6AM=0，1 hr=12 unitt，1 unit=5 mins
-  const start = (h - 6) * 12 + Math.floor(m / 5) + 2; // +2 is to align with the style
-  const span = Math.max(1, Math.floor(duration / 5));
-  return `${start} / span ${span}`;
-}
+const API_URL = `http://127.0.0.1:4325/api/availability?court=UBC-Court-1&start_date=${new Date().toISOString()}&end_date=${new Date(
+  Date.now() + 7 * 24 * 60 * 60 * 1000
+).toISOString()}&requested_at=${new Date().toISOString()}`;
 
 function getDaysForMonth(
   year: number,
@@ -115,6 +106,7 @@ function getDaysForMonth(
   return days;
 }
 
+// Convert selected date string to Vancouver local date in "YYYY-MM-DD" format
 function getVancouverDateFromSelected(selectedDate: string): Date {
   // selectedDate: "YYYY-MM-DD"
   const [year, month, day] = selectedDate.split("-").map(Number);
@@ -129,6 +121,7 @@ function getVancouverDateFromSelected(selectedDate: string): Date {
   );
 }
 
+// Get Vancouver's current date in "YYYY-MM-DD" format
 function getVancouverTodayString(): string {
   const vancouverNow = new Date(
     new Date().toLocaleString("en-US", { timeZone: "America/Vancouver" })
@@ -143,6 +136,7 @@ function classNames(...classes: (string | false | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
+// Data Cleaning: Transform API response to EventsMap
 function transformApiResponseToEventsMap(apiResponse: any[]): EventsMap {
   const eventsMap: EventsMap = {};
 
@@ -228,55 +222,173 @@ function transformApiResponseToEventsMap(apiResponse: any[]): EventsMap {
   return eventsMap;
 }
 
-async function fetchAndTransformEvents(): Promise<EventsMap> {
-  console.log("Reached:");
+// API Call & Cleaning: Call the API and transform the response into EventsMap
+async function fetchAndTransformEvents(): Promise<{
+  data: EventsMap;
+  updated_at: Date;
+}> {
   try {
     const response = await fetch(API_URL);
     if (!response.ok) {
       throw new Error(`Failed to fetch data: ${response.statusText}`);
     }
     const apiData: any = await response.json();
-    const apiResponse: any[] = apiData.results;
+    const apiResponse: any[] = apiData.data;
+    const updatedAt: Date = apiData.updated_at;
     console.log("API Response:", apiResponse);
+    console.log("Data updated at:", updatedAt);
 
     // const apiResponse: any[] = sampleAPIResponse;
 
     // Transder API response into EventsMap
-    return transformApiResponseToEventsMap(apiResponse);
+    return {
+      data: transformApiResponseToEventsMap(apiResponse),
+      updated_at: updatedAt,
+    };
   } catch (error) {
     console.error("Error fetching or transforming data:", error);
-    return {};
+    return { data: {}, updated_at: new Date() };
   }
 }
 
-export default function CourtFinder() {
-  // Get the latest court availability data from the server
-  const [courtsTable, setCourtsTable] = useState(
-    useSelector(
-      (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
-    )
+function splitEventsMapByClub(eventsMap: EventsMap) {
+  const UBC: EventsMap = {};
+  const HubRichmond: EventsMap = {};
+  const HubStanleyPark: EventsMap = {};
+  const UE: EventsMap = {};
+
+  const now = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "America/Vancouver" })
   );
-  console.log("Courts Table:", courtsTable);
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(now.getDate()).padStart(2, "0")}`;
+  const currentTimeStr = now.toTimeString().slice(0, 5); // "HH:MM"
+
+  Object.entries(eventsMap).forEach(([date, events]) => {
+    if (date < todayStr) return;
+
+    const filteredEvents = events.filter((event) => {
+      if (date > todayStr) return true;
+
+      return event.time >= currentTimeStr;
+    });
+
+    filteredEvents.forEach((event) => {
+      event.clubDetails.forEach((club) => {
+        let targetMap: EventsMap | null = null;
+        if (club.clubName === "UBC Tennis Center") targetMap = UBC;
+        else if (club.clubName === "Tennis BC Hub @ Richmond")
+          targetMap = HubRichmond;
+        else if (club.clubName === "Tennis BC Hub @ Stanley Park")
+          targetMap = HubStanleyPark;
+        else if (club.clubName === "UE Tennis") targetMap = UE;
+        else return;
+
+        if (!targetMap[date]) targetMap[date] = [];
+
+        let targetEvent = targetMap[date].find((e) => e.time === event.time);
+        if (!targetEvent) {
+          targetEvent = {
+            ...event,
+            clubDetails: [],
+          };
+          targetMap[date].push(targetEvent);
+        }
+
+        targetEvent.clubDetails.push(club);
+      });
+    });
+  });
+
+  return { UBC, HubRichmond, HubStanleyPark, UE };
+}
+
+export default function CourtFinder() {
+  const [ubcCourtsData, setUbcCourtsData] = useState(
+    splitEventsMapByClub(
+      useSelector(
+        (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
+      )
+    ).UBC
+  );
+  const [hubRichmondCourtsData, setHubRichmondCourtsData] = useState(
+    splitEventsMapByClub(
+      useSelector(
+        (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
+      )
+    ).HubRichmond
+  );
+  const [hubStanleyCourtsData, setHubStanleyCourtsData] = useState(
+    splitEventsMapByClub(
+      useSelector(
+        (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
+      )
+    ).HubStanleyPark
+  );
+  const [ueTennisCourtsData, setUeTennisCourtsData] = useState(
+    splitEventsMapByClub(
+      useSelector(
+        (state: any) => state.eventsMapStore.new || state.eventsMapStore.old
+      )
+    ).UE
+  );
+
+  const [updatedAt, setUpdatedAt] = useState(
+    new Date().toLocaleString("en-US", { timeZone: "America/Vancouver" })
+  );
+
   const dispatch = useDispatch();
+
+  const container = useRef();
+  const containerNav = useRef();
+  const containerOffset = useRef();
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetchAndTransformEvents();
+        const { data, updated_at } = await fetchAndTransformEvents();
+        setUpdatedAt(updated_at);
         dispatch(deleteOldEventsMap());
         dispatch(moveNewEventsMapToOld());
-        dispatch(addNewEventsMap(response));
-        setCourtsTable(response);
+        dispatch(addNewEventsMap(data));
+        let { UBC, HubRichmond, HubStanleyPark, UE } =
+          splitEventsMapByClub(data);
+        UBC = Object.fromEntries(
+          Object.entries(UBC).map(([date, events]) => [
+            date,
+            assignColor(events, "UBC Tennis Center"),
+          ])
+        );
+        HubRichmond = Object.fromEntries(
+          Object.entries(HubRichmond).map(([date, events]) => [
+            date,
+            assignColor(events, "Tennis BC Hub @ Richmond"),
+          ])
+        );
+        HubStanleyPark = Object.fromEntries(
+          Object.entries(HubStanleyPark).map(([date, events]) => [
+            date,
+            assignColor(events, "Tennis BC Hub @ Stanley Park"),
+          ])
+        );
+        UE = Object.fromEntries(
+          Object.entries(UE).map(([date, events]) => [
+            date,
+            assignColor(events, "UE Tennis"),
+          ])
+        );
+        setUbcCourtsData(UBC);
+        setHubRichmondCourtsData(HubRichmond);
+        setHubStanleyCourtsData(HubStanleyPark);
+        setUeTennisCourtsData(UE);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
     }
     fetchData();
   }, [dispatch]);
-
-  const container = useRef();
-  const containerNav = useRef();
-  const containerOffset = useRef();
 
   // Get Vancouver Local Date
   const vancouverNow = new Date(
@@ -327,38 +439,8 @@ export default function CourtFinder() {
     }
   }, []);
 
-  useEffect(() => {
-    updateDayButtonStatus();
-  }, [selectedDate]);
-
-  // Switch to the previous week
-  function handlePrev(): void {
-    // Mobile, switch to the previous week
-    const start = new Date(selectedDate);
-    // check if the screen is large or small
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      start.setDate(start.getDate() - 1);
-    } else {
-      start.setDate(start.getDate() - 7);
-    }
-    setSelectedDate(start.toISOString().slice(0, 10));
-  }
-
-  // Switch to the next week
-  function handleNext(): void {
-    const start = new Date(selectedDate);
-    // check if the screen is large or small
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      start.setDate(start.getDate() + 1);
-    } else {
-      start.setDate(start.getDate() + 7);
-    }
-    setSelectedDate(start.toISOString().slice(0, 10));
-    updateDayButtonStatus();
-  }
-
   // Update the DayButtonStatus
-  function updateDayButtonStatus() {
+  const updateDayButtonStatus = React.useCallback(() => {
     const today = getVancouverTodayString(); // "YYYY-MM-DD"
     const [ty, tm, td] = today.split("-").map(Number);
     const [sy, sm, sd] = selectedDate.split("-").map(Number);
@@ -379,6 +461,43 @@ export default function CourtFinder() {
     } else {
       setDayButtonStatus(selectedDate.split("-").slice(1).join("-")); // MM-DD
     }
+  }, [selectedDate]);
+
+  useEffect(() => {
+    updateDayButtonStatus();
+  }, [selectedDate, updateDayButtonStatus]);
+
+  // Handle the previous button on the date switcher
+  function handlePrev(): void {
+    // check if the screen is large or small
+    const current = new Date(selectedDate);
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      current.setDate(current.getDate() - 1);
+    } else {
+      current.setDate(current.getDate() - 7);
+    }
+    // Shall not select a date before today
+    const todayStr = getVancouverTodayString();
+    if (current < new Date(todayStr)) {
+      setSelectedDate(todayStr);
+      updateDayButtonStatus();
+    } else {
+      setSelectedDate(current.toISOString().slice(0, 10));
+      updateDayButtonStatus();
+    }
+  }
+
+  // Handle the next button on the date switcher
+  function handleNext(): void {
+    const start = new Date(selectedDate);
+    // check if the screen is large or small
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      start.setDate(start.getDate() + 1);
+    } else {
+      start.setDate(start.getDate() + 7);
+    }
+    setSelectedDate(start.toISOString().slice(0, 10));
+    updateDayButtonStatus();
   }
 
   function getWeekday(dateString) {
@@ -387,6 +506,7 @@ export default function CourtFinder() {
     return date.toLocaleDateString("en-US", { weekday: "long" });
   }
 
+  // Handle the click on a previous month button on the mini calendar
   function handlePrevMonth() {
     if (calendarMonth === 0) {
       setCalendarMonth(11);
@@ -396,6 +516,7 @@ export default function CourtFinder() {
     }
   }
 
+  // Handle the click on a next month button on the mini calendar
   function handleNextMonth() {
     if (calendarMonth === 11) {
       setCalendarMonth(0);
@@ -405,52 +526,134 @@ export default function CourtFinder() {
     }
   }
 
-  let filteredEvents = (courtsTable[selectedDate] || [])
-    .map((event) => {
-      const filteredClubs =
-        locationFilter === "All Locations"
-          ? event.clubDetails
-          : event.clubDetails.filter(
-              (club) => club.location === locationFilter
-            );
-      return { ...event, clubDetails: filteredClubs };
-    })
-    .filter((event) => event.clubDetails.length > 0);
+  // Assign colors to events based on club name
+  function assignColor(events: Event[], clubName: string) {
+    return events.map((event) => {
+      let bookNowColor = "bg-emerald-500";
+      let bookNowHoverColor = "bg-emerald-400";
+      let bookNowTextColor = "text-white";
+      let bookableColor = "bg-yellow-300";
+      let bookableHoverColor = "bg-yellow-200";
+      let bookableTextColor = "text-emerald-800";
 
-  filteredEvents = filteredEvents.map((event) => {
-    let color = "bg-emerald-200";
-    let hoverColor = "bg-emerald-100";
-    let textColor = "text-gray-900";
-    const hourGroup = [
-      "06:00",
-      "08:00",
-      "10:00",
-      "12:00",
-      "14:00",
-      "16:00",
-      "18:00",
-      "20:00",
-      "22:00",
-    ];
-    if (hourGroup.includes(event.time)) {
-      color = "bg-emerald-500";
-      hoverColor = "bg-emerald-400";
-      textColor = "text-white";
-    } else {
-      color = "bg-yellow-300";
-      hoverColor = "bg-yellow-200";
-      textColor = "text-emerald-800";
-    }
-    return {
-      ...event,
-      color: color,
-      hoverColor: hoverColor,
-      textColor: textColor,
-    };
-  });
+      if (clubName === "UBC Tennis Center") {
+        bookNowColor = "bg-blue-500";
+        bookNowHoverColor = "bg-blue-400";
+        bookNowTextColor = "text-white";
+        bookableColor = "bg-blue-300";
+        bookableHoverColor = "bg-blue-200";
+        bookableTextColor = "text-white";
+      } else if (clubName === "Tennis BC Hub @ Richmond") {
+        bookNowColor = "bg-yellow-300";
+        bookNowHoverColor = "bg-yellow-200";
+        bookNowTextColor = "text-emerald-800";
+        bookableColor = "bg-yellow-200";
+        bookableHoverColor = "bg-yellow-100";
+        bookableTextColor = "text-emerald-800";
+      } else if (clubName === "Tennis BC Hub @ Stanley Park") {
+        bookNowColor = "bg-emerald-500";
+        bookNowHoverColor = "bg-emerald-400";
+        bookNowTextColor = "text-white";
+        bookableColor = "bg-emerald-300";
+        bookableHoverColor = "bg-emerald-200";
+        bookableTextColor = "text-white";
+      } else {
+        bookNowColor = "bg-indigo-500";
+        bookNowHoverColor = "bg-indigo-400";
+        bookNowTextColor = "text-white";
+        bookableColor = "bg-indigo-300";
+        bookableHoverColor = "bg-indigo-200";
+        bookableTextColor = "text-white";
+      }
+
+      const hasBookNow = event.clubDetails.some((club) =>
+        club.courtsDetails.some((court) => court.bookable === "Book Now")
+      );
+
+      const color = hasBookNow ? bookNowColor : bookableColor;
+      const hoverColor = hasBookNow ? bookNowHoverColor : bookableHoverColor;
+      const textColor = hasBookNow ? bookNowTextColor : bookableTextColor;
+
+      return {
+        ...event,
+        color: color,
+        hoverColor: hoverColor,
+        textColor: textColor,
+      };
+    });
+  }
+
+  let ubcCourtsTable = ubcCourtsData[selectedDate] || [];
+  let hubRichmondCourtsTable = hubRichmondCourtsData[selectedDate] || [];
+  let hubStanleyCourtsTable = hubStanleyCourtsData[selectedDate] || [];
+  let ueTennisCourtsTable = ueTennisCourtsData[selectedDate] || [];
+  if (locationFilter === "UBC") {
+    hubRichmondCourtsTable = [];
+    hubStanleyCourtsTable = [];
+    ueTennisCourtsTable = [];
+  } else if (locationFilter === "Richmond") {
+    ubcCourtsTable = [];
+    hubStanleyCourtsTable = [];
+  } else if (locationFilter === "Vancouver DT") {
+    ubcCourtsTable = [];
+    hubRichmondCourtsTable = [];
+    ueTennisCourtsTable = [];
+  } else {
+    // All Locations
+    ubcCourtsTable = ubcCourtsData[selectedDate] || [];
+    hubRichmondCourtsTable = hubRichmondCourtsData[selectedDate] || [];
+    hubStanleyCourtsTable = hubStanleyCourtsData[selectedDate] || [];
+    ueTennisCourtsTable = ueTennisCourtsData[selectedDate] || [];
+  }
+
+  // let filteredEvents = (ubcCourtsTable[selectedDate] || [])
+  //   .map((event) => {
+  //     const filteredClubs =
+  //       locationFilter === "All Locations"
+  //         ? event.clubDetails
+  //         : event.clubDetails.filter(
+  //             (club) => club.location === locationFilter
+  //           );
+  //     return { ...event, clubDetails: filteredClubs };
+  //   })
+  //   .filter((event) => event.clubDetails.length > 0);
+
+  // filteredEvents = filteredEvents.map((event) => {
+  //   let color = "bg-emerald-200";
+  //   let hoverColor = "bg-emerald-100";
+  //   let textColor = "text-gray-900";
+  //   const hourGroup = [
+  //     "06:00",
+  //     "08:00",
+  //     "10:00",
+  //     "12:00",
+  //     "14:00",
+  //     "16:00",
+  //     "18:00",
+  //     "20:00",
+  //     "22:00",
+  //   ];
+  //   if (hourGroup.includes(event.time)) {
+  //     color = "bg-emerald-500";
+  //     hoverColor = "bg-emerald-400";
+  //     textColor = "text-white";
+  //   } else {
+  //     color = "bg-yellow-300";
+  //     hoverColor = "bg-yellow-200";
+  //     textColor = "text-emerald-800";
+  //   }
+  //   return {
+  //     ...event,
+  //     color: color,
+  //     hoverColor: hoverColor,
+  //     textColor: textColor,
+  //   };
+  // });
+
+  const hours = Array.from({ length: 17 }, (_, i) => 6 + i); // 6AM ~ 22PM
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-screen flex-col">
       <CourtsDetail
         open={modalOpen}
         event={selectedEvent}
@@ -488,8 +691,18 @@ export default function CourtFinder() {
               })}
             </time>
           </h1>
-          <p className="mt-1 text-sm text-gray-500">
-            {getWeekday(selectedDate)}
+          <p className="mt-1 text-xs text-gray-500">
+            {getWeekday(selectedDate)}&nbsp;
+            <time className="inline sm:hidden text-gray-400">
+              (Updated at&nbsp;
+              {new Date(updatedAt).toLocaleTimeString("en-US", {
+                timeZone: "America/Vancouver",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+              )
+            </time>
           </p>
         </div>
         <div className="flex items-center">
@@ -660,126 +873,440 @@ export default function CourtFinder() {
               const weekDays = days.slice(weekStartIdx, weekStartIdx + 7);
               // mark title of the week
               const weekTitles = ["M", "T", "W", "T", "F", "S", "S"];
-              return weekDays.map((day, i) => (
-                <button
-                  key={day.date}
-                  type="button"
-                  onClick={() => setSelectedDate(day.date)}
-                  className="flex flex-col items-center pb-1.5 pt-3"
-                >
-                  <span>{weekTitles[i]}</span>
-                  <span
+              const todayStr = getVancouverTodayString();
+              return weekDays.map((day, i) => {
+                const isPast = day.date < todayStr;
+                return (
+                  <button
+                    key={day.date}
+                    type="button"
+                    onClick={() => {
+                      if (!isPast) setSelectedDate(day.date);
+                    }}
+                    disabled={isPast}
                     className={classNames(
-                      "mt-3 flex size-8 items-center justify-center rounded-full text-base font-semibold",
-                      day.isSelected &&
-                        day.isToday &&
-                        "bg-indigo-600 text-white",
-                      day.isSelected &&
-                        !day.isToday &&
-                        "bg-emerald-600 text-white",
-                      !day.isSelected && day.isToday && "text-indigo-600",
-                      !day.isSelected && !day.isToday && "text-gray-900"
+                      "flex flex-col items-center pb-1.5 pt-3",
+                      isPast && "cursor-not-allowed"
                     )}
                   >
-                    {parseInt(day.date.split("-")[2], 10)}
-                  </span>
-                </button>
-              ));
+                    <span>{weekTitles[i]}</span>
+                    <span
+                      className={classNames(
+                        "mt-3 flex size-8 items-center justify-center rounded-full text-base font-semibold",
+                        day.isSelected &&
+                          day.isToday &&
+                          "bg-indigo-600 text-white",
+                        day.isSelected &&
+                          !day.isToday &&
+                          "bg-emerald-600 text-white",
+                        !day.isSelected && day.isToday && "text-indigo-600",
+                        !day.isSelected &&
+                          !day.isToday &&
+                          !isPast &&
+                          "text-gray-900",
+                        isPast && "text-gray-400"
+                      )}
+                    >
+                      {parseInt(day.date.split("-")[2], 10)}
+                    </span>
+                  </button>
+                );
+              });
             })()}
           </div>
           <div className="flex w-full flex-auto">
-            <div className="w-14 flex-none bg-white ring-1 ring-gray-100" />
-            <div className="grid flex-auto grid-cols-1 grid-rows-1">
-              {/* Horizontal lines */}
+            {/* Hour Captions Column*/}
+            <div className="flex flex-col w-14 flex-none bg-white mt-4">
               <div
-                className="col-start-1 col-end-2 row-start-1 grid divide-y divide-gray-100 "
-                style={{ gridTemplateRows: "repeat(17, minmax(4.5rem, 1fr))" }} // 17*2=34
+                className="grid"
+                style={{ gridTemplateRows: "repeat(17, 4.5rem)" }} // must match the event area
               >
-                <div ref={containerOffset} className="row-end-1 h-7 "></div>
                 {Array.from({ length: 17 }).map((_, i) => (
-                  <div key={i * 2}>
-                    <div className="sticky left-0 -ml-14 -mt-2.5 w-14 pr-2 text-right text-xs/5 text-gray-400">
-                      {i === 0
-                        ? "6AM"
-                        : i < 6
-                        ? `${i + 6}AM`
-                        : i === 6
-                        ? "12PM"
-                        : `${i - 6}PM`}
-                    </div>
+                  <div
+                    key={i}
+                    className="flex items-center justify-end pr-2 text-xs text-gray-400 h-full"
+                    style={{ height: "2rem" }} // Ensure each row has a fixed height
+                  >
+                    {i === 0
+                      ? "6AM"
+                      : i < 6
+                      ? `${i + 6}AM`
+                      : i === 6
+                      ? "12PM"
+                      : `${i - 6}PM`}
                   </div>
                 ))}
-                {Array.from({ length: 17 }).map((_, i) => (
-                  <div key={i * 2 + 1} />
-                ))}
               </div>
-
-              {/* Events */}
-              <ol
-                className="col-start-1 col-end-2 row-start-1 grid grid-cols-1"
-                style={{
-                  gridTemplateRows: "repeat(204, minmax(0, 1fr))", // 17*12=204
-                }}
-              >
-                {filteredEvents.map((event, idx) => {
-                  const gridRow = getGridRow(event.time);
-                  const dynamicTitle = event.clubDetails
-                    .map((club) => {
-                      const courtCountEmoji = club.courtsDetails
-                        ? [...club.courtsDetails.length.toString()]
-                            .map((digit) => {
-                              const emojiMap = {
-                                "0": "0️⃣",
-                                "1": "1️⃣",
-                                "2": "2️⃣",
-                                "3": "3️⃣",
-                                "4": "4️⃣",
-                                "5": "5️⃣",
-                                "6": "6️⃣",
-                                "7": "7️⃣",
-                                "8": "8️⃣",
-                                "9": "9️⃣",
-                              };
-                              return emojiMap[digit];
-                            })
-                            .join("")
-                        : "";
-                      return `​🎾​​ ${club.clubName}${
-                        courtCountEmoji ? " " + courtCountEmoji : ""
-                      }`;
-                    })
-                    .join(" | ");
-
-                  return (
-                    <li
-                      key={event.time}
-                      className="relative mt-px flex"
-                      style={{ gridRow }}
-                    >
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setSelectedEvent(event);
-                          setModalOpen(true);
-                        }}
-                        className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[56px]`}
-                      >
-                        <p
-                          className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm`}
-                        >
-                          {dynamicTitle}
-                        </p>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ol>
-              <div
-                className="bg-white hidden lg:flex"
-                aria-hidden
-                style={{ minHeight: "48px" }}
-              />
             </div>
+            {/* Event Columns */}
+            {ubcCourtsTable.length !== 0 && (
+              <div className="flex-1">
+                <ol
+                  className="grid divide-y divide-gray-100 border-t mt-8"
+                  style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
+                >
+                  {hours.map((hour, idx) => {
+                    // change format into "HH:00"
+                    const hourStr = hour.toString().padStart(2, "0") + ":00";
+                    const event = ubcCourtsTable.find(
+                      (e) => e.time === hourStr
+                    );
+
+                    return (
+                      <li key={hourStr} className="relative flex">
+                        {event ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedEvent(event);
+                              setModalOpen(true);
+                            }}
+                            className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
+                          >
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 UBC ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 UBC | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
+                                })
+                                .join(" | ")}
+                            </p>
+                          </button>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
+            {hubStanleyCourtsTable.length !== 0 && (
+              <div className="flex-1">
+                <ol
+                  className="grid divide-y divide-gray-100 border-t mt-8"
+                  style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
+                >
+                  {hours.map((hour, idx) => {
+                    // change format into "HH:00"
+                    const hourStr = hour.toString().padStart(2, "0") + ":00";
+                    const event = hubStanleyCourtsTable.find(
+                      (e) => e.time === hourStr
+                    );
+
+                    return (
+                      <li key={hourStr} className="relative flex">
+                        {event ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedEvent(event);
+                              setModalOpen(true);
+                            }}
+                            className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
+                          >
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 BC Hub @ SP ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 BC Hub @ SP | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
+                                })
+                                .join(" | ")}
+                            </p>
+                          </button>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
+            {hubRichmondCourtsTable.length !== 0 && (
+              <div className="flex-1">
+                <ol
+                  className="grid divide-y divide-gray-100 border-t mt-8"
+                  style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
+                >
+                  {hours.map((hour, idx) => {
+                    // change format into "HH:00"
+                    const hourStr = hour.toString().padStart(2, "0") + ":00";
+                    const event = hubRichmondCourtsTable.find(
+                      (e) => e.time === hourStr
+                    );
+
+                    return (
+                      <li key={hourStr} className="relative flex">
+                        {event ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedEvent(event);
+                              setModalOpen(true);
+                            }}
+                            className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
+                          >
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 BC Hub @ RMD ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 BC Hub @ RMD | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
+                                })
+                                .join(" | ")}
+                            </p>
+                          </button>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
+            {ueTennisCourtsTable.length !== 0 && (
+              <div className="flex-1">
+                <ol
+                  className="grid divide-y divide-gray-100 border-t mt-8"
+                  style={{ gridTemplateRows: "repeat(17, 4.5rem)" }}
+                >
+                  {hours.map((hour, idx) => {
+                    // change format into "HH:00"
+                    const hourStr = hour.toString().padStart(2, "0") + ":00";
+                    const event = ueTennisCourtsTable.find(
+                      (e) => e.time === hourStr
+                    );
+
+                    return (
+                      <li key={hourStr} className="relative flex">
+                        {event ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedEvent(event);
+                              setModalOpen(true);
+                            }}
+                            className={`group absolute inset-1 flex flex-col overflow-y-auto rounded-lg ${event.color} p-2 text-xs/5 hover:${event.hoverColor} sm:min-h-0 min-h-[10px]`}
+                          >
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm md:hidden`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 UE | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  }`;
+                                })
+                                .join(" | ")}
+                            </p>
+                            <p
+                              className={`order-1 font-semibold ${event.textColor} text-left text-xs lg:text-sm hidden md:block`}
+                            >
+                              {event.clubDetails
+                                .map((club) => {
+                                  const courtCountEmoji = club.courtsDetails
+                                    ? [...club.courtsDetails.length.toString()]
+                                        .map((digit) => {
+                                          const emojiMap = {
+                                            "0": "0️⃣",
+                                            "1": "1️⃣",
+                                            "2": "2️⃣",
+                                            "3": "3️⃣",
+                                            "4": "4️⃣",
+                                            "5": "5️⃣",
+                                            "6": "6️⃣",
+                                            "7": "7️⃣",
+                                            "8": "8️⃣",
+                                            "9": "9️⃣",
+                                          };
+                                          return emojiMap[digit];
+                                        })
+                                        .join("")
+                                    : "";
+                                  return `🎾 UE | ${
+                                    courtCountEmoji ? " " + courtCountEmoji : ""
+                                  } courts`;
+                                })
+                                .join(" | ")}
+                            </p>
+                          </button>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
           </div>
         </div>
 
@@ -817,7 +1344,7 @@ export default function CourtFinder() {
             <div>S</div>
             <div>S</div>
           </div>
-
+          {/* Mini Calendar */}
           <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
             {monthDays.map((day, dayIdx) => {
               // Check whether is the past data
@@ -884,6 +1411,17 @@ export default function CourtFinder() {
             >
               Go to today
             </button>
+          </div>
+          <div className="flex justify-center mt-4 text-xs text-gray-400">
+            <time>
+              Last updated at today&nbsp;
+              {new Date(updatedAt).toLocaleTimeString("en-US", {
+                timeZone: "America/Vancouver",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+            </time>
           </div>
         </div>
       </div>

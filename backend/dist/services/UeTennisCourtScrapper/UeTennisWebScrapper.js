@@ -1,45 +1,31 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UeTennisScrapper = void 0;
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const axios = require("axios");
 const path = require("path");
-import { time, timeStamp } from "console";
-import { request } from "http";
-import { start } from "repl";
-
-export type CourtAvailability = {
-  clubName: string;
-  courtNumber: string;
-  date: string;
-  startHour: string;
-  startTime: string;
-  endTime: string;
-  bookable: number;
-  courtBookingLink: string;
-  location: string;
-};
-
-export class UeTennisScrapper {
-  private browser: any;
-  private page: any;
-  private authToken: string | null = null;
-  private serviceIds: Record<number, string> = {};
-  private allAvailability: CourtAvailability[] = [];
-  private readonly baseUrl = "https://www.uetennis.com";
-  private readonly bookingOnlineUrl = `${this.baseUrl}/book-online`;
-  private readonly bookingCalendar1Url = `https://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget`;
-  private readonly bookingLinks: Record<string, string> = {
-    "Court 1":
-      "http://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget",
-    "Court 2":
-      "http://www.uetennis.com/booking-calendar/court-2?referral=service_list_widget",
-    "Court 3":
-      "http://www.uetennis.com/booking-calendar/court-3?referral=service_list_widget",
-    "Court 5":
-      "http://www.uetennis.com/booking-calendar/court-5?referral=service_list_widget",
-  };
-  private readonly clubName = "UE Tennis";
-
-  public async getCourtBooking() {
+class UeTennisScrapper {
+  constructor() {
+    this.authToken = null;
+    this.serviceIds = {};
+    this.allAvailability = [];
+    this.baseUrl = "https://www.uetennis.com";
+    this.bookingOnlineUrl = `${this.baseUrl}/book-online`;
+    this.bookingCalendar1Url = `https://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget`;
+    this.bookingLinks = {
+      "Court 1":
+        "http://www.uetennis.com/booking-calendar/court-1?referral=service_list_widget",
+      "Court 2":
+        "http://www.uetennis.com/booking-calendar/court-2?referral=service_list_widget",
+      "Court 3":
+        "http://www.uetennis.com/booking-calendar/court-3?referral=service_list_widget",
+      "Court 5":
+        "http://www.uetennis.com/booking-calendar/court-5?referral=service_list_widget",
+    };
+    this.clubName = "UE Tennis";
+  }
+  async getCourtBooking() {
     console.log("UE Tennis Scrapper Started.");
     const scrappingStartTime = new Date().toISOString();
     // console.log(
@@ -69,13 +55,11 @@ export class UeTennisScrapper {
       );
     });
     await this.goToBookingOnlinePage();
-
     // // Extract serviceIds dynamically (replace selector accordingly)
     await this.extractAndSetServiceIds();
-
     await this.queryAvailability();
     const scrappingEndTime = new Date().toISOString();
-    // console.log("UE Tennis Web Scrapping finished.", scrappingEndTime);
+    // console.log("UE Tennis Web Scrapping Finished.", scrappingEndTime);
     const durationMs =
       new Date(scrappingEndTime).getTime() -
       new Date(scrappingStartTime).getTime();
@@ -83,8 +67,7 @@ export class UeTennisScrapper {
     await this.browser.close();
     return this.allAvailability;
   }
-
-  private async captureAuthToken() {
+  async captureAuthToken() {
     this.page.on("request", (request) => {
       if (request.url().includes("/availability/query")) {
         const token = request.headers()["authorization"];
@@ -95,13 +78,12 @@ export class UeTennisScrapper {
       }
     });
   }
-
-  private async goToBookingOnlinePage() {
+  async goToBookingOnlinePage() {
     try {
       await this.page.goto(this.bookingOnlineUrl, {
         waitUntil: "networkidle2",
       });
-      // console.log("Navigated to booking online page.");
+      //   console.log("Navigated to booking online page.");
     } catch (error) {
       throw new Error(
         `Failed to navigate to booking online page: ${error.message}`
@@ -109,7 +91,7 @@ export class UeTennisScrapper {
     }
   }
   //navigate to first court calendar page to trigger the query api to fetch auth token
-  private async goToBookingCalendarPage() {
+  async goToBookingCalendarPage() {
     try {
       await this.page.goto(this.bookingCalendar1Url, {
         waitUntil: "networkidle2",
@@ -121,12 +103,11 @@ export class UeTennisScrapper {
       );
     }
   }
-
   /**
    * Extracts service IDs from the page and sets them to the serviceIds property.
    * This method looks for elements with a specific data attribute and retrieves their IDs.
    */
-  private async extractAndSetServiceIds() {
+  async extractAndSetServiceIds() {
     try {
       const ids = await this.page.evaluate(() => {
         const ids = {};
@@ -156,8 +137,7 @@ export class UeTennisScrapper {
       console.error("Error extracting service IDs:", error);
     }
   }
-
-  private async queryAvailability() {
+  async queryAvailability() {
     if (!this.authToken) {
       throw new Error(
         "Authorization token not found. Cannot query availability."
@@ -168,7 +148,6 @@ export class UeTennisScrapper {
     endDate.setDate(endDate.getDate() + 7); // 7 day window
     const startDateStr = `${startDate.toISOString().split("T")[0]}T00:00:00`;
     const endDateStr = `${endDate.toISOString().split("T")[0]}T23:59:59`;
-
     for (const [courtNumber, serviceId] of Object.entries(this.serviceIds)) {
       try {
         const response = await this.sendPostRequestsForAvailability(
@@ -183,8 +162,7 @@ export class UeTennisScrapper {
       }
     }
   }
-
-  private async writeAvailabilityDataToMem(EntriesResponseArr) {
+  async writeAvailabilityDataToMem(EntriesResponseArr) {
     if (!EntriesResponseArr || EntriesResponseArr.length === 0) {
       console.warn("No availability entries found.");
       return;
@@ -217,7 +195,6 @@ export class UeTennisScrapper {
       });
     });
   }
-
   /**
    * sends a POST request to the availability API for a specific service ID and date time range.
    * @param serviceId
@@ -225,7 +202,7 @@ export class UeTennisScrapper {
    * @param endDate
    * @returns
    */
-  private async sendPostRequestsForAvailability(serviceId, startDate, endDate) {
+  async sendPostRequestsForAvailability(serviceId, startDate, endDate) {
     try {
       const response = await axios.post(
         "https://www.uetennis.com/_api/availability-calendar/v1/availability/query",
@@ -259,12 +236,11 @@ export class UeTennisScrapper {
       throw error;
     }
   }
-
   /**
    *
    * @param {string} filename - The name of the CSV file to write.
    */
-  private writeToCSV(filename = "UE_tennis_court_availability.csv") {
+  writeToCSV(filename = "UE_tennis_court_availability.csv") {
     console.log(
       "Writing availability data to CSV...",
       new Date().toISOString()
@@ -273,7 +249,6 @@ export class UeTennisScrapper {
       console.warn("No data provided. CSV file not created.");
       return;
     }
-
     const headers = [
       "Club Name",
       "Court Number",
@@ -285,7 +260,6 @@ export class UeTennisScrapper {
       "Court Booking Link",
       "Location",
     ];
-
     const rows = this.allAvailability.map((entry) => [
       entry.clubName,
       entry.courtNumber,
@@ -297,20 +271,16 @@ export class UeTennisScrapper {
       entry.courtBookingLink,
       entry.location,
     ]);
-
     const csvContent = [
       headers.join(","),
       ...rows.map((row) =>
         row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(",")
       ),
     ].join("\n");
-
     const filePath = path.join(__dirname, filename);
     fs.writeFileSync(filePath, csvContent, "utf8");
-
     console.log(`CSV file saved at ${filePath}`, new Date().toISOString());
   }
-
   /**
    * Writes a JSON array to a file in the uetennis directory.
    * @param data The JSON array to write
@@ -318,21 +288,17 @@ export class UeTennisScrapper {
    */
   async writeJsonToDisk(filename = "availability.json") {
     const folderPath = path.join(__dirname, "..", "uetennis");
-
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath, { recursive: true });
     }
-
     const filePath = path.join(folderPath, filename);
-
     fs.writeFileSync(
       filePath,
       JSON.stringify(this.allAvailability, null, 2),
       "utf8"
     );
-
     console.log(`✅ JSON data saved to: ${filePath}`);
   }
 }
-
+exports.UeTennisScrapper = UeTennisScrapper;
 module.exports = { UeTennisScrapper };

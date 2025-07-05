@@ -66,8 +66,7 @@ Please only go to http://localhost:8080 to try our frontend.
 #### Backend Update
 
 Back-end design diagram
-[Blank diagram.pdf](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/files/1059/Blank.diagram.pdf)
-
+[Blank diagram.pdf](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/files/1058/Blank.diagram.pdf)
 
 - Designed and exposed backend court availability data to the frontend via RESTful API endpoints.
 - Built an Express server with well-structured route handlers for retrieving court availability.
@@ -86,3 +85,64 @@ Back-end design diagram
 - Integrated MongoDB into the project for data persistance
   - The database interface (CourtScheduleRepository and MongoConnection) provides functions to retrieve availability data, insert new data into the database, and query data based on various parameters such as date, start hour, club name, court number, and location.
   - The database layer also includes mechanisms to ensure data integrity. Each availability document contains a synthetic primary key (composed of clubName, courtNumber, startTime, and date), which is used to perform upserts, deduplicate records, and ensure the most recent data is preserved during bulk updates.
+
+### Milestone 3
+
+#### Frontend Update
+
+- Fixed all the previous date bugs (User may junp to past day by clicking on prev buttons)
+- Data Update time is shown on both PC view and mobile view
+- Court events are split into different columns. Each column stands for one club which is a more friendly UI.
+- Now only the schedule part is scrollable. The top panel and side mini calendar will remain still when user scrolling the court schedule.
+- Now the color of event indicates the status of court. The dark color means there are at least a court in the 'book now' status. The light color meas all the courts in this event are in the 'bookable' but not ready for book status.
+
+#### Backend Update
+
+##### Logging System
+
+All the important system scrapping activity will be recorded into a series of logs. Error messages will also be recorded for the future debugging during production.
+
+##### API Test Suite
+
+Our API is thoroughly tested using Mocha and Chai. You can run the test suite via the command line and generate an HTML report of the results.
+
+**To run the tests and generate HTML output:**
+
+1. **Install dependencies** (if you haven’t already):
+
+   ```bash
+   cd backend
+   npm install
+   ```
+
+2. **Run the test suite and generate an HTML report:**
+   ```bash
+   npm test
+   ```
+   This will create a `mochawesome-report` folder in the `backend` directory. Open `mochawesome-report/mochawesome.html` in your browser to view the test results.
+
+###### Test Suite Location
+
+- All tests are located in:  
+  [`backend/src/test/api.test.js`](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/tree/Milestone3/backend/src/test/api.test.js)
+
+##### Orchestrator Module
+
+- **Unified timezone handling**: Standardized all time calculations to PST for consistency
+- **In-memory caching**: Stores scraped data to serve repeated requests without re-scraping
+- **Smart scheduling**: Scrapes at 1st and 45th minutes hourly (5 AM-10 PM) based on user demand patterns
+- **Concurrency protection**: Returns cached data when scraping is in progress to prevent resource conflicts
+- **Structured logging**: Added Class.method format for easier debugging
+
+To test Orchestrator: navigate to `backend/src/services`, run `npx mocha Orchestrator.spec.js`.
+
+In other words: `cd backend/src/services && npx mocha Orchestrator.spec.js`.
+
+##### DataManager Module
+
+- **Tiered data retrieval**: Prioritizes fresh cached data, falls back to database when cache is unavailable
+- **Enhanced error handling**: Consistent logging format for better system monitoring
+
+To test DataManager: navigate to `backend/src/services`, run `npx mocha DataManager.spec.js`.
+
+In other words: `cd backend/src/services && npx mocha DataManager.spec.js`.

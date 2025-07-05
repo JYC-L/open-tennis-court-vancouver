@@ -1,6 +1,6 @@
-import fs from "fs";
+const fs = require("fs");
 
-export function saveBookingsToCSV(bookings, filePath = "bookings.csv") {
+function saveBookingsToCSV(bookings, filePath = "bookings.csv") {
   // Define the CSV headers (order must match booking object keys)
   const headers = [
     "clubName",
@@ -31,3 +31,5 @@ export function saveBookingsToCSV(bookings, filePath = "bookings.csv") {
   fs.writeFileSync(filePath, headerLine + rows, "utf8");
   console.log(`Bookings saved to ${filePath}`);
 }
+
+module.exports = { saveBookingsToCSV };
