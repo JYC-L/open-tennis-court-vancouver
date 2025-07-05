@@ -68,7 +68,6 @@ Please only go to http://localhost:8080 to try our frontend.
 Back-end design diagram
 [Blank diagram.pdf](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/files/1058/Blank.diagram.pdf)
 
-
 - Designed and exposed backend court availability data to the frontend via RESTful API endpoints.
 - Built an Express server with well-structured route handlers for retrieving court availability.
 - Implemented `GET /api/availability` endpoint with support for filtering by:
@@ -91,25 +90,35 @@ Back-end design diagram
 
 #### Frontend Update
 
+- Fixed all the previous date bugs (User may junp to past day by clicking on prev buttons)
+- Data Update time is shown on both PC view and mobile view
+- Court events are split into different columns. Each column stands for one club which is a more friendly UI.
+- Now only the schedule part is scrollable. The top panel and side mini calendar will remain still when user scrolling the court schedule.
+- Now the color of event indicates the status of court. The dark color means there are at least a court in the 'book now' status. The light color meas all the courts in this event are in the 'bookable' but not ready for book status.
 
 #### Backend Update
+
+##### Logging System
+
+All the important system scrapping activity will be recorded into a series of logs. Error messages will also be recorded for the future debugging during production.
+
 ##### API Test Suite
 
 Our API is thoroughly tested using Mocha and Chai. You can run the test suite via the command line and generate an HTML report of the results.
 
-
 **To run the tests and generate HTML output:**
 
 1. **Install dependencies** (if you haven’t already):
+
    ```bash
    cd backend
    npm install
    ```
 
 2. **Run the test suite and generate an HTML report:**
-    ```bash
-    npm test
-    ```
+   ```bash
+   npm test
+   ```
    This will create a `mochawesome-report` folder in the `backend` directory. Open `mochawesome-report/mochawesome.html` in your browser to view the test results.
 
 ###### Test Suite Location
