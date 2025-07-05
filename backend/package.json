@@ -29,6 +29,7 @@
     "@types/cors": "^2.8.18",
     "@types/express": "^4.17.22",
     "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^16.18.126",
     "chai": "^5.2.0",
     "chai-http": "^5.1.2",

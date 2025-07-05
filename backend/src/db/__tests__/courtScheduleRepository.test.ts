@@ -3,6 +3,15 @@ import { CourtScheduleEntry } from "../../models/CourtScheduleEntry";
 import { CourtScheduleRepository } from "../CourtScheduleRepository";
 import { MongoConnection } from "../MongoCollection";
 
+import {
+  expect,
+  beforeAll,
+  afterAll,
+  describe,
+  it,
+  afterEach,
+  beforeEach,
+} from "@jest/globals";
 describe("CourtScheduleRepository", () => {
   let repository: CourtScheduleRepository;
   let collection: Collection<CourtScheduleEntry>;
@@ -26,8 +35,6 @@ describe("CourtScheduleRepository", () => {
     // Optional: cleanup again after test (extra safety)
     await collection.deleteMany({});
   });
-
-  it("should throw an error if ");
 
   it("should insert and retrieve availability", async () => {
     const testEntry = {
