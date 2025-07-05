@@ -27,6 +27,8 @@ describe("CourtScheduleRepository", () => {
     await collection.deleteMany({});
   });
 
+  it("should throw an error if ");
+
   it("should insert and retrieve availability", async () => {
     const testEntry = {
       clubName: "Test Club",
