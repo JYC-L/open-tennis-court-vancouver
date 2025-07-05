@@ -8,7 +8,7 @@ const { expect } = chai;
 import AvailabilityManager from "./DataManager.js";
 
 describe("AvailabilityManager", () => {
-  let manager, fakeOrchestrator, testData;
+  let manager, fakeOrchestrator, fakeRepository, testData;
 
   before(() => {
     try {
@@ -22,17 +22,34 @@ describe("AvailabilityManager", () => {
     }
   });
 
+  after(() => {
+    // Force exit to prevent hanging from background promises
+    setTimeout(() => process.exit(0), 100);
+  });
+
   beforeEach(() => {
     fakeOrchestrator = {
       onDemandUpdate: sinon.stub().resolves(testData),
       lastUpdated: null,
-      records: testData
+      records: testData,
     };
-    manager = new AvailabilityManager(20);
-    manager.orchestrator = fakeOrchestrator;
+
+    fakeRepository = {
+      getLastUpdatedTimestamp: sinon.stub().resolves(null),
+      getAllAvailabilityAsArr: sinon.stub().resolves(testData),
+    };
+
+    manager = new AvailabilityManager(20, fakeOrchestrator, fakeRepository);
   });
 
   afterEach(() => {
+    if (manager && manager.updatePromise) {
+      // Cancel the background promise to prevent hanging
+      if (typeof manager.updatePromise.cancel === "function") {
+        manager.updatePromise.cancel();
+      }
+      manager.updatePromise = null;
+    }
     sinon.restore();
   });
 
@@ -55,7 +72,8 @@ describe("AvailabilityManager", () => {
     );
 
     expect(fakeOrchestrator.onDemandUpdate.called).to.be.false;
-    expect(result).to.equal(testData);
+    expect(result.data).to.deep.equal(testData);
+    expect(result.updated_at).to.exist;
   });
 
   it("should trigger update when data is 20+ minutes old (stale)", async function () {
@@ -78,30 +96,30 @@ describe("AvailabilityManager", () => {
     expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
   });
 
-  it("should throw proper error when orchestrator fails", async function () {
+  it("should return stale data when orchestrator fails in background", async function () {
     this.timeout(30000);
     const now = new Date();
     fakeOrchestrator.lastUpdated = new Date(now.getTime() - 30 * 60 * 1000);
     fakeOrchestrator.onDemandUpdate.rejects(new Error("Mock failure"));
 
-    try {
-      await manager.getAvailability("test", "2025-06-19", now, now, now);
-      expect.fail("Should have thrown");
-    } catch (error) {
-      expect(error.message).to.include("DataManager.getAvailability");
-    }
+    // Should return stale data, not throw
+    const result = await manager.getAvailability(
+      "test",
+      "2025-06-19",
+      now,
+      now,
+      now
+    );
+
+    expect(result.data).to.deep.equal(testData);
+    expect(result.updated_at).to.exist;
+    expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
   });
 
-  it("should handle 5-minute parsing time", async function () {
-    this.timeout(10000); // 10 seconds
+  it("should return stale data immediately while parsing in background", async function () {
+    this.timeout(5000);
     const now = new Date();
     fakeOrchestrator.lastUpdated = new Date(now.getTime() - 30 * 60 * 1000);
-    // Simulate 5-minute parsing with much shorter actual wait
-    fakeOrchestrator.onDemandUpdate.returns(
-      new Promise(
-        (resolve) => setTimeout(() => resolve(testData), 2000) // 2 seconds instead of 5 minutes
-      )
-    );
 
     const start = Date.now();
     const result = await manager.getAvailability(
@@ -113,9 +131,11 @@ describe("AvailabilityManager", () => {
     );
     const duration = Date.now() - start;
 
-    expect(result).to.be.an("array");
-    expect(duration).to.be.greaterThan(1500); // At least 1.5 seconds
-    console.log(`✅ Simulated 5-minute parsing completed in ${duration}ms`);
+    // Should return immediately with stale data
+    expect(duration).to.be.lessThan(100); // Very fast
+    expect(result.data).to.deep.equal(testData);
+    expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
+    console.log(`✅ Returned stale data immediately in ${duration}ms`);
   });
 
   it("should timeout after 10 minutes", async function () {
@@ -125,6 +145,8 @@ describe("AvailabilityManager", () => {
 
     // Override the timeout method to use shorter timeout for testing
     const originalTimeout = manager._withTimeout;
+    let longRunningTimeout;
+
     manager._withTimeout = async function (promise, ms, timeoutMsg) {
       let timeout;
       const timeoutPromise = new Promise((_, reject) => {
@@ -132,14 +154,15 @@ describe("AvailabilityManager", () => {
       });
       return Promise.race([
         promise.finally(() => clearTimeout(timeout)),
-        timeoutPromise
+        timeoutPromise,
       ]);
     };
 
     fakeOrchestrator.onDemandUpdate.returns(
-      new Promise(
-        (resolve) => setTimeout(() => resolve(testData), 5000) // 5 seconds - longer than 3-second timeout
-      )
+      new Promise((resolve) => {
+        longRunningTimeout = setTimeout(() => resolve(testData), 5000); // Store timeout reference
+        return longRunningTimeout;
+      })
     );
 
     try {
@@ -149,6 +172,10 @@ describe("AvailabilityManager", () => {
       expect(error.message).to.include("timed out");
       console.log(`✅ Timeout test completed: ${error.message}`);
     } finally {
+      // Clean up the hanging timeout
+      if (longRunningTimeout) {
+        clearTimeout(longRunningTimeout);
+      }
       manager._withTimeout = originalTimeout;
     }
   });
