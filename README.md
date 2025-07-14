@@ -125,3 +125,24 @@ Our API is thoroughly tested using Mocha and Chai. You can run the test suite vi
 
 - All tests are located in:  
   [`backend/src/test/api.test.js`](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/tree/Milestone3/backend/src/test/api.test.js)
+
+##### Orchestrator Module
+
+- **Unified timezone handling**: Standardized all time calculations to PST for consistency
+- **In-memory caching**: Stores scraped data to serve repeated requests without re-scraping
+- **Smart scheduling**: Scrapes at 1st and 45th minutes hourly (5 AM-10 PM) based on user demand patterns
+- **Concurrency protection**: Returns cached data when scraping is in progress to prevent resource conflicts
+- **Structured logging**: Added Class.method format for easier debugging
+
+To test Orchestrator: navigate to `backend/src/services`, run `npx mocha Orchestrator.spec.js`.
+
+In other words: `cd backend/src/services && npx mocha Orchestrator.spec.js`.
+
+##### DataManager Module
+
+- **Tiered data retrieval**: Prioritizes fresh cached data, falls back to database when cache is unavailable
+- **Enhanced error handling**: Consistent logging format for better system monitoring
+
+To test DataManager: navigate to `backend/src/services`, run `npx mocha DataManager.spec.js`.
+
+In other words: `cd backend/src/services && npx mocha DataManager.spec.js`.

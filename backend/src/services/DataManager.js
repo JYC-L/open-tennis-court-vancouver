@@ -10,10 +10,15 @@ class AvailabilityManager {
    * @param {object} [options]
    * @param {number} [options.freshnessCutoffMinutes=20] - Freshness window in minutes
    */
-  constructor(freshnessCutoffMinutes = 20) {
+  constructor(
+    freshnessCutoffMinutes = 20,
+    orchestrator = null,
+    courtScheduleRepository = null
+  ) {
     try {
-      this.courtScheduleRepository = new CourtScheduleRepository();
-      this.orchestrator = new Orchestrator();
+      this.courtScheduleRepository =
+        courtScheduleRepository || new CourtScheduleRepository();
+      this.orchestrator = orchestrator || new Orchestrator();
       this.freshnessCutoffMinutes = freshnessCutoffMinutes;
       this.updatePromise = null;
     } catch (error) {
@@ -123,10 +128,6 @@ class AvailabilityManager {
             "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;"
           );
           console.error("Caused by:", err);
-          throw new Error(
-            "DataManager.getAvailability: Error when data not fresh and invoked Orchestrator;",
-            { cause: err }
-          );
         })
         .finally(() => {
           this.updatePromise = null;

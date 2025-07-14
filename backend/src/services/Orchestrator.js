@@ -16,7 +16,7 @@ const fs = require("fs");
 const path = require("path");
 
 class Orchestrator {
-  constructor() {
+  constructor(autoSchedule = true) {
     try {
       this.scrapers = [
         new UeTennisScrapper(),
@@ -26,28 +26,19 @@ class Orchestrator {
       this.courtScheduleRepository = new CourtScheduleRepository();
       this.lastUpdated = null;
       this.records = null;
+      this.scheduledTimeoutID = null;
     } catch (error) {
       throw new Error(
         "Orchestrator.constructor: Error when initializing fields in the orchestrator;",
         { cause: error }
       );
     }
-    this.scheduledUpdate();
+    if (autoSchedule){
+      this.scheduledUpdate();
+    }
   }
 
   async onDemandUpdate(requestedAt, startDate, endDate) {
-    // console.log("Running onDemandUpdate...");
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    // console.log("Getting availabilty for Tennis BC Courts..");
-    // await new Promise(resolve => setTimeout(resolve, 3000));
-    // console.log("Getting availabilty for UE Courts..");
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    // console.log("Getting availabilty for UBC Courts..");
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    // console.log("pushing data to db...");
-    // console.log("Writing availability to all_availabilities.json");
-    // return;
-
     const now = new Date();
     const vancouverDate = now.toLocaleDateString("en-CA", {
       timeZone: "America/Vancouver",
@@ -149,7 +140,7 @@ class Orchestrator {
           `Outside operating window (5:45-22:01 PST). Scheduling for 5:45 AM PST in ${minutesUntil545AM} minutes`
         );
 
-        setTimeout(async () => {
+        this.scheduledTimeoutID = setTimeout(async () => {
           try {
             const requestedAt = new Date();
             const startDate = new Date();
@@ -199,7 +190,7 @@ class Orchestrator {
         )} seconds)`
       );
 
-      setTimeout(async () => {
+      this.scheduledTimeoutID = setTimeout(async () => {
         try {
           const requestedAt = new Date();
           const startDate = new Date();
