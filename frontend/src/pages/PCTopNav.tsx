@@ -5,7 +5,7 @@ export default function PCTopNav() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Bookable Court Finder", href: "/courtfinder" },
-    { name: "Court Map", href: "/" },
+    { name: "Court Map", href: "/court-map" },
   ];
 
   return (
