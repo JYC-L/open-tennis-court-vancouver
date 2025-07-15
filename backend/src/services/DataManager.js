@@ -144,6 +144,7 @@ class AvailabilityManager {
     const timeDiffMs = requestedAt.getTime() - lastUpdated.getTime();
     const timeDiffMinutes = timeDiffMs / (1000 * 60);
 
+    console.log(`Last updated at:${lastUpdated}`)
     return timeDiffMinutes < this.freshnessCutoffMinutes;
   }
 

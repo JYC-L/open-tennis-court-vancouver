@@ -11,6 +11,7 @@ const {
 const {
   CourtScheduleRepository,
 } = require("../../dist/db/CourtScheduleRepository");
+const { saveBookingsToCSV } = require("./TennisBcHubScrapper/saveBookingsToCSV.js");
 const { error } = require("console");
 const fs = require("fs");
 const path = require("path");
@@ -58,6 +59,7 @@ class Orchestrator {
       console.error("Log Write Error:", logErr);
     }
 
+    const promiseStart = Date.now()
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking().catch((error) => {
         console.error("Orchestrator.onDemandUpdate: a scraper failed;", error);
@@ -65,6 +67,7 @@ class Orchestrator {
       })
     );
     let results = await Promise.all(promises);
+    console.log(`all promise resolved in ${Date.now()-promiseStart} ms.`)
     results = results.filter(Boolean).flat();
     try {
       await this.saveData(results);
@@ -79,10 +82,13 @@ class Orchestrator {
 
   async saveData(results) {
     try {
+      const databaseUpdateStart = Date.now();
+      console.log("Pushing to database...");
       // saveAvailabilityToJSON(results, "all_availabilities.json");
       await this.courtScheduleRepository.saveAvailabilityByArr(results);
-      this.lastUpdated = new Date();
-      this.records = results;
+      console.log(`Pushing data took ${Date.now() - databaseUpdateStart} ms.`)
+      this.lastUpdated = Date(this.courtScheduleRepository.getLastUpdatedTimestamp());
+      this.records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
       console.log(
         "Pushed results to DB at ",
         this.lastUpdated.toLocaleString("en-US", {
@@ -93,6 +99,7 @@ class Orchestrator {
           timeZoneName: "short",
         })
       );
+      saveBookingsToCSV(results);
     } catch (err) {
       throw new Error("Orchestrator.saveData: Error saving data;", {
         cause: err,

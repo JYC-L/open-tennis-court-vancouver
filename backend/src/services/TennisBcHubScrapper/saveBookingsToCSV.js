@@ -20,7 +20,7 @@ function saveBookingsToCSV(bookings, filePath = "bookings.csv") {
   const rows = bookings.map(booking => {
     return headers
       .map(field => {
-        const value = booking[field] || "";
+        const value = booking[field] != null ? booking[field] : "";
         // Escape double quotes by replacing with two double quotes
         return `"${String(value).replace(/"/g, '""')}"`;
       })
