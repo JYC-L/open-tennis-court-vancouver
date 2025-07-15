@@ -66,48 +66,36 @@ class AvailabilityManager {
     // // Return mocked availability data
     // return results
     // 1. Check freshness using orchestrator's cached timestamp
-    let lastUpdated = null;
     let isFresh = false;
     const orchestratorLastUpdated = this.orchestrator.lastUpdated;
     const dbLastUpdated =
       await this.courtScheduleRepository.getLastUpdatedTimestamp();
-    if (orchestratorLastUpdated) {
-      lastUpdated = orchestratorLastUpdated;
-    } else if (dbLastUpdated) {
-      lastUpdated = dbLastUpdated;
-    }
-
-    isFresh = this.isFresh(lastUpdated, requestedAt);
-
-    let records = [];
-    if (isFresh && this.orchestrator.records) {
-      // Return cached data from orchestrator if fresh and available
+    if (!orchestratorLastUpdated || orchestratorLastUpdated < dbLastUpdated) {
+      console.log("Cache missing or older than db data.");
       try {
-        console.log(
-          "DataManager.getAvailability: Data is fresh, using cached orchestrator data."
-        );
-        records = this.orchestrator.records;
-        return { data: records, updated_at: lastUpdated };
-      } catch (err) {
+        await this._cacheFromDB();
+      } catch (error) {
         throw new Error(
-          "DataManager.getAvailability: Error when accessing cached data from orchestrator;",
-          { cause: err }
+          "DataManager.getAvailability: error when updating cache because it's missing or older than DB",
+          { cause: error }
         );
       }
     }
 
-    if (isFresh && !this.orchestrator.records) {
+    isFresh = this.isFresh(this.orchestrator.lastUpdated, requestedAt);
+
+    if (isFresh) {
       try {
         console.log(
-          "DataManager.getAvailability: Data is fresh, using db data."
+          "DataManager.getAvailability: Data is fresh, using cached orchestrator data."
         );
-        records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
-        this.orchestrator.records = records;
-        this.orchestrator.lastUpdated = dbLastUpdated;
-        return { data: records, updated_at: dbLastUpdated };
+        return {
+          data: this.orchestrator.records,
+          updated_at: this.orchestrator.lastUpdated,
+        };
       } catch (err) {
         throw new Error(
-          "DataManager.getAvailability: Error when accessing db data using orchestrator;",
+          "DataManager.getAvailability: Error when accessing cached data from orchestrator;",
           { cause: err }
         );
       }
@@ -138,17 +126,6 @@ class AvailabilityManager {
       "DataManager.getAvailability: Update in progress, returning stale cached data."
     );
 
-    if (!this.orchestrator.records) {
-      try {
-        this.orchestrator.records =
-          await this.courtScheduleRepository.getAllAvailabilityAsArr();
-      } catch (error) {
-        throw new Error(
-          "DataManager.getAvailability: error when data stale and getting availability from db;",
-          { cause: error }
-        );
-      }
-    }
     return {
       data: this.orchestrator.records,
       updated_at: this.orchestrator.lastUpdated,
@@ -183,6 +160,14 @@ class AvailabilityManager {
       promise.finally(() => clearTimeout(timeout)),
       timeoutPromise,
     ]);
+  }
+
+  async _cacheFromDB() {
+    this.orchestrator.records =
+      await this.courtScheduleRepository.getAllAvailabilityAsArr();
+    this.orchestrator.lastUpdated =
+      await this.courtScheduleRepository.getLastUpdatedTimestamp();
+    console.log("Updating cache with data from DB.");
   }
 }
 

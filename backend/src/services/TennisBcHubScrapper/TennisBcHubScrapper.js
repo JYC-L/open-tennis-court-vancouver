@@ -179,7 +179,7 @@ async function scrape(endpoint_pattern, resource_fingerprint) {
 
   await page.goto(
     `https://clubspark.ca/${resource_fingerprint}/Booking/bookbycourt`,
-    { waitUntil: "networkidle2" }
+    { waitUntil: "domcontentloaded" }
   );
 
   let targetUrl;
