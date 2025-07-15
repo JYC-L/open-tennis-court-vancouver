@@ -7,21 +7,44 @@ const COURTS = [
     name: "Tennis BC Hub @ Richmond",
     address: "10251 St Edwards Dr, Richmond, BC V6X 2M9",
     position: { lat: 49.1806, lng: -123.0976 },
+    type: "club",
   },
   {
     name: "UBC Tennis Centre",
     address: "6160 Thunderbird Blvd, Vancouver, BC V6T 1Z3",
     position: { lat: 49.2531, lng: -123.2417 },
+    type: "club",
   },
   {
     name: "UE Tennis",
     address: "3691 Viking Wy Unit 14, Richmond, BC V6V 2J5",
     position: { lat: 49.1942, lng: -123.0662 },
+    type: "club",
   },
   {
     name: "Tennis BC Hub @ Stanley Park",
     address: "8901 Stanley Park Dr, Vancouver, BC V6G 3E2",
     position: { lat: 49.2997, lng: -123.1417 },
+    type: "club",
+  },
+  // Public courts
+  {
+    name: "Public Tennis Courts - Queen Elizabeth Park Tennis Courts",
+    address: "37 Avenue West, Vancouver, BC V5Y 3X3",
+    position: { lat: 49.2372, lng: -123.1126 },
+    type: "public",
+  },
+  {
+    name: "Public Tennis Courts - Winona Park Tennis Courts",
+    address: "Vancouver, BC V5X 4V8",
+    position: { lat: 49.2142, lng: -123.1232 },
+    type: "public",
+  },
+  {
+    name: "Public Tennis Courts - Marpole Park Tennis Courts",
+    address: "950 W 71st Ave, Vancouver, BC V6P 6H4",
+    position: { lat: 49.2131, lng: -123.1307 },
+    type: "public",
   },
 ];
 
@@ -72,6 +95,13 @@ function MapComponent({ activeIdx, setActiveIdx }: { activeIdx: number | null; s
         position: court.position,
         map,
         title: court.name,
+        icon: court.type === "public"
+          ? {
+              url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+              // @ts-ignore
+              scaledSize: new window.google.maps.Size(40, 40),
+            }
+          : undefined,
       });
       const content = `
         <div style='min-width:200px'>
