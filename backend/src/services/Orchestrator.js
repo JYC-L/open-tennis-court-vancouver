@@ -70,7 +70,7 @@ class Orchestrator {
     console.log(`all promise resolved in ${Date.now()-promiseStart} ms.`)
     results = results.filter(Boolean).flat();
     try {
-      await this.saveData(results);
+      await this.pushDataToDBandLoadFromDB(results);
     } catch (e) {
       throw new Error(
         "Orchestrator.onDemandUpdate: Error in orchestrator on demand update push step;",
@@ -80,7 +80,7 @@ class Orchestrator {
     return results;
   }
 
-  async saveData(results) {
+  async pushDataToDBAndCacheFromDB(results) {
     try {
       const databaseUpdateStart = Date.now();
       console.log("Pushing to database...");
