@@ -987,7 +987,7 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 UBC ${
+                                  return `🎾 UBC | ${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
                                 })
@@ -1079,7 +1079,7 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 BC Hub @ SP ${
+                                  return `🎾 BC Hub @ SP | ${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
                                 })
@@ -1171,7 +1171,7 @@ export default function CourtFinder() {
                                         })
                                         .join("")
                                     : "";
-                                  return `🎾 BC Hub @ RMD ${
+                                  return `🎾 BC Hub @ RMD | ${
                                     courtCountEmoji ? " " + courtCountEmoji : ""
                                   }`;
                                 })
