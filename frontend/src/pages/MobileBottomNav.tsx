@@ -32,7 +32,7 @@ function CourtMapButton() {
     >
       <Link
         key="Court Map"
-        to="/"
+        to="/court-map"
         className="inline-flex flex-col items-center"
       >
         <svg

@@ -2,3 +2,4 @@
 /dist
 backend/src/services/TennisBcHubScrapper/all_availabilities.json
 backend/logs
+team16.code-workspace

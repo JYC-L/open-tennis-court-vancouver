@@ -1,0 +1,4 @@
+{
+  "spec": "src/services/**/*.spec.js",
+  "recursive": true
+}
