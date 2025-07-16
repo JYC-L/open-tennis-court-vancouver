@@ -34,7 +34,7 @@ class Orchestrator {
         { cause: error }
       );
     }
-    if (autoSchedule){
+    if (autoSchedule) {
       this.scheduledUpdate();
     }
   }
@@ -59,7 +59,7 @@ class Orchestrator {
       console.error("Log Write Error:", logErr);
     }
 
-    const promiseStart = Date.now()
+    const promiseStart = Date.now();
     const promises = this.scrapers.map((scraper) =>
       scraper.getCourtBooking().catch((error) => {
         console.error("Orchestrator.onDemandUpdate: a scraper failed;", error);
@@ -67,7 +67,7 @@ class Orchestrator {
       })
     );
     let results = await Promise.all(promises);
-    console.log(`all promise resolved in ${Date.now()-promiseStart} ms.`)
+    console.log(`all promise resolved in ${Date.now() - promiseStart} ms.`);
     results = results.filter(Boolean).flat();
     try {
       await this.pushDataToDBandLoadFromDB(results);
@@ -80,15 +80,16 @@ class Orchestrator {
     return results;
   }
 
-  async pushDataToDBAndCacheFromDB(results) {
+  async pushDataToDBandLoadFromDB(results) {
     try {
       const databaseUpdateStart = Date.now();
       console.log("Pushing to database...");
       // saveAvailabilityToJSON(results, "all_availabilities.json");
       await this.courtScheduleRepository.saveAvailabilityByArr(results);
-      console.log(`Pushing data took ${Date.now() - databaseUpdateStart} ms.`)
-      this.lastUpdated = Date(this.courtScheduleRepository.getLastUpdatedTimestamp());
-      this.records = await this.courtScheduleRepository.getAllAvailabilityAsArr();
+      console.log(`Pushing data took ${Date.now() - databaseUpdateStart} ms.`);
+      this.lastUpdated = await this.courtScheduleRepository.getLastUpdatedTimestamp();
+      this.records =
+        await this.courtScheduleRepository.getAllAvailabilityAsArr();
       console.log(
         "Pushed results to DB at ",
         this.lastUpdated.toLocaleString("en-US", {
