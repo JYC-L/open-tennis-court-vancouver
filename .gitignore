@@ -4,3 +4,6 @@ backend/src/services/TennisBcHubScrapper/all_availabilities.json
 backend/logs
 team16.code-workspace
 backend/src/services/TennisBcHubScrapper/availability.json
+backend/bookings.csv
+backend/src/services/TennisBcHubScrapper/bookings.csv
+backend/src/services/TennisBcHubScrapper/test_interface.ipynb
