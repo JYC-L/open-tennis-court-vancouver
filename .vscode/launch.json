@@ -19,7 +19,7 @@
       "request": "launch",
       "cwd": "${workspaceFolder}/backend",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["start"],
+      "runtimeArgs": ["run", "debug"],
       "env": {
         "NODE_ENV": "development"
       },

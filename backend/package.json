@@ -5,6 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
+    "debug": "node --inspect=0.0.0.0:9229 src/app.js",
     "test": "mocha src/test/**/*.test.js --reporter mochawesome",
     "test:orchestrator": "mocha -r ts-node/register src/services/Ochestrator.spec.js",
     "test:datamanager": "mocha -r ts-node/register src/services/DataManager.spec.js"

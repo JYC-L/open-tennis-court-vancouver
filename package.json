@@ -19,6 +19,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "concurrently \"cd frontend && npm start\" \"cd backend && npm start\""
+    "start": "concurrently \"cd frontend && npm start\" \"cd backend && npm start\"",
+    "debug": "concurrently \"cd frontend && npm start\" \"cd backend && npm run debug\""
   }
 }
