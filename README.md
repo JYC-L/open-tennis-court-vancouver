@@ -1,163 +1,89 @@
 # Team 16 - CourtFinder
 
-## Team Members
+## App Summary
+VancouverTennis is a comprehensive web platform designed for local tennis enthusiasts who want to book tennis courts without expensive club memberships. The application aggregates real-time availability data from multiple tennis facilities across Metro Vancouver through automated web scraping, presenting users with a unified calendar interface and interactive map to easily discover and book available courts.
 
-- Yiping (Francis) Huang
-- Lewis Li
-- Shu (Charlie) Chen
-- Jonathan (Tong) Liu
+## Standard Goals
+All standard goals have been completed:
 
-## Project Description
+**Minimum Requirements:**
+- Interactive and dynamic PC UI for home page - **Completed**
+- Robust web scrapers for targeted court booking websites - **Completed** (Enhanced beyond requirements - all scrapers now make direct API calls and parse JSON)
+- Backend database supporting basic court availability operations - **Completed** (Full functionality with concurrent request handling and stale data management)
 
-We are building a website called VancouverTennis for local tennis lovers who want to book exclusive tennis court sections without paying expensive tennis club membership fees. This website will provide a joined calendar which helps users to easily explore the availability of bookable tennis courts in Metro Vancouver. We would collect these availability data and redirect users to their target booking webpage without the tedious process of checking the availability website by website and page by page. In addition, we expect to include local tennis court map and local tennis events into this website.
+**Standard Requirements:**
+- Automated scraping and data updating pipeline - **Completed** (Smart scheduling with orchestrator system)
+- Interactive and dynamic mobile UI for home page - **Completed** (Both PC and mobile views implemented and improved based on user feedback)
+- Google Maps integration with nearby tennis courts and photos - **Completed**
 
-## Notice
+## Stretch Goals
+The following stretch goals will **not** be implemented by M5:
 
-At this milestone, although we have finished the backend scraper development, backend framework is not runnable yet. Therefore, please only refer to our frontend.
-Please only go to http://localhost:8080 to try our frontend.
+- Multi-page tennis lessons directory with filtering - **Dropped** (Scope too large for remaining timeline)
+- Multi-page tennis events directory with filtering - **Dropped** (Scope too large for remaining timeline)  
+- Google OAuth user authentication and profiles - **Dropped** (Scope too large for remaining timeline)
 
-## Instructions
+## Non-Trivial Elements
 
-- docker-compose down
-- docker-compose up --build
-- visit http://localhost:8080
+| Element | Stage of Completion |
+|---------|-------------------|
+| Web Scraping Orchestrator with Smart Scheduling | **Completed** |
+| UBC Tennis Centre Advanced API Scraper | **Completed** |
+| MongoDB Integration with Synthetic Primary Keys | **Completed** |
+| Real-time Data Caching and Freshness Validation | **Completed** |
+| Concurrent Request Handling and Rate Limiting | **Completed** |
+| Tiered Data Retrieval Strategy | **Completed** |
+| Google Maps API Integration with Interactive Court Visualization | **Completed** |
+| Comprehensive API Test Suite | **Completed** |
+| Unified Timezone Handling (PST) | **Completed** |
 
----
+## XSS Security Assessment
 
-## Milestones
+**Input Points Tested:**
+- API endpoint parameters: `/api/availability` with `start_date`, `end_date`, and `court` parameters
+- URL query strings and parameters
 
-### Milestone 1
+**Tests Attempted:**
+- Injected script tags in date parameters: `GET /api/availability?start_date=<script>alert('xss')</script>`
+- Injected malicious image tags in court parameters: `GET /api/availability?court=<img src=x onerror=alert('XSS')>`
+- Tested various XSS payloads in API parameters
 
-#### Project Setup
+**Results:**
+- **Secure**: No malicious payloads were reflected in API responses
+- Backend consistently returned proper JSON arrays of availability data regardless of input
+- No JavaScript execution occurred in the browser
+- API parameters are properly handled without interpretation of HTML/JavaScript content
 
-- Develope the complete frontend UI for the MVP features with sample data.
-- Build a list of web scraper for the main feature, but backend does no have to be completed at this point.
+**Identified Risk:**
+- Potential vulnerability exists if scraped websites inject malicious JSON data that could affect server processing
 
-#### Component Structure
+**Mitigation Measures:**
+- Implemented rate limiting and caching strategy to prevent scraper abuse
+- Backend input handling is agnostic to parameter content beyond timestamp validation
+- No direct reflection of user input in responses
 
-- CourtFinder (main component)
-- CourtsDetail (sub-component of CourtFinder)
-- Home (home page)
-- MobileBottomNav (Nav UI component)
-- PCtopNav (Nav UI component)
+## M4 Highlights
 
-#### UI Progress
+**Major Changes Since Milestone 3:**
 
-- Applied effective styling to the main component and supporting components.
-- Completed a key piece of the UI prototype for the event and court display.
+**Backend Improvements:**
+- **UBC Tennis Centre Scraper Enhancement**: Completely rebuilt the UBC scraper to work in Docker environments by implementing sophisticated cookie handling and dynamic header composition to access UBC's backend API directly
+- **Enhanced Test Coverage**: Added comprehensive test cases for Orchestrator and DataManager modules, including data retrieval strategy validation and operational window testing
+- **Improved Error Handling**: Implemented robust error handling and logging throughout the scraping pipeline
 
-#### Progress Toward Goals
+**Frontend Enhancements:**
+- **Google Maps API Integration**: Implemented interactive map visualization displaying all tennis courts with clickable pins
+- **Enhanced Court Information**: Added court location pins with information bubbles containing direct links to Google Maps pages for easy navigation
 
-- Demonstrated progress toward the minimal goal of displaying and filtering tennis court events by location and date. The court calendar (CourtFinder) also has a series of intuitive UI features that improve user experience.
+**Development Experience Improvements:**
+- **Root-level npm start**: Configured project to run from root directory with single command
+- **Debug Configuration**: Set up debugging console to stop at breakpoints in backend files
+- **Enhanced Developer Workflow**: Streamlined development process for better team productivity
 
-### Milestone 2
+**System Reliability:**
+- **Stale Data Prevention**: Resolved issues where DataManager returned outdated information despite database updates
+- **Orchestrator Stability**: Added complete operational window testing and enhanced scheduling reliability
+- **Production Readiness**: Improved logging and monitoring for stable production deployment
 
-#### Frontend Update
-
-- Explore Page changed into Home Page with corresponding buttons.
-- Past dates on the calendar become unclickable with a different UI style
-- Filtering Dropdown table becomes dynamic
-- Date controler button becomes dynamic
-- Weekday indicator becomes dynamic
-- Hourly time slot UI improvement
-- Reduce Slice EventsMapStore Implemented with deleteOldEventsMap(), moveNewEventsMapToOld(), and addNewEventsMap()
-- API Response Data cleaning and manipulation implemented
-
-#### Backend Update
-
-Back-end design diagram
-[Blank diagram.pdf](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/files/1058/Blank.diagram.pdf)
-
-- Designed and exposed backend court availability data to the frontend via RESTful API endpoints.
-- Built an Express server with well-structured route handlers for retrieving court availability.
-- Implemented `GET /api/availability` endpoint with support for filtering by:
-  - `court` (court name or ID),
-  - `start_date`, `end_date` (ISO date range), and
-  - `requested_at` (client time for freshness validation).
-- Added input validation and sanitization for incoming requests.
-- Implemented a basic `PUT` route for updating schedules using the DataManager.
-- Added an orchestrator that's responsible for all scrappers.
-  - Ochestrator conducts a scheduled scrape at an 30 min interval with +- 10 min interval. (This can be dynamically set).
-  - Ochestrator conducts a on-demand update when frontend requests so.
-- Added an availability manager that handles data pulling logic.
-  - Availability manager ensures the freshness of data. It checks the timestamp of the last updated information. If the users's demand is getting staled data, it will order the orchestrator to do an on-demand update.
-  - To avoid overwhelming update requests, the manager will deliver data within a cutoff threshold. It's currently set to 5 min.
-- Integrated MongoDB into the project for data persistance
-  - The database interface (CourtScheduleRepository and MongoConnection) provides functions to retrieve availability data, insert new data into the database, and query data based on various parameters such as date, start hour, club name, court number, and location.
-  - The database layer also includes mechanisms to ensure data integrity. Each availability document contains a synthetic primary key (composed of clubName, courtNumber, startTime, and date), which is used to perform upserts, deduplicate records, and ensure the most recent data is preserved during bulk updates.
-
-### Milestone 3
-
-#### Frontend Update
-
-- Fixed all the previous date bugs (User may junp to past day by clicking on prev buttons)
-- Data Update time is shown on both PC view and mobile view
-- Court events are split into different columns. Each column stands for one club which is a more friendly UI.
-- Now only the schedule part is scrollable. The top panel and side mini calendar will remain still when user scrolling the court schedule.
-- Now the color of event indicates the status of court. The dark color means there are at least a court in the 'book now' status. The light color meas all the courts in this event are in the 'bookable' but not ready for book status.
-
-#### Backend Update
-
-##### Logging System
-
-All the important system scrapping activity will be recorded into a series of logs. Error messages will also be recorded for the future debugging during production.
-
-##### API Test Suite
-
-Our API is thoroughly tested using Mocha and Chai. You can run the test suite via the command line and generate an HTML report of the results.
-
-**To run the tests and generate HTML output:**
-
-1. **Install dependencies** (if you haven’t already):
-
-   ```bash
-   cd backend
-   npm install
-   ```
-
-2. **Run the test suite and generate an HTML report:**
-   ```bash
-   npm test
-   ```
-   This will create a `mochawesome-report` folder in the `backend` directory. Open `mochawesome-report/mochawesome.html` in your browser to view the test results.
-
-###### Test Suite Location
-
-- All tests are located in:  
-  [`backend/src/test/api.test.js`](https://github.students.cs.ubc.ca/CPSC455-2025S/team16/tree/Milestone3/backend/src/test/api.test.js)
-
-##### Orchestrator Module
-
-- **Unified timezone handling**: Standardized all time calculations to PST for consistency
-- **In-memory caching**: Stores scraped data to serve repeated requests without re-scraping
-- **Smart scheduling**: Scrapes at 1st and 45th minutes hourly (5 AM-10 PM) based on user demand patterns
-- **Concurrency protection**: Returns cached data when scraping is in progress to prevent resource conflicts
-- **Structured logging**: Added Class.method format for easier debugging
-
-To test Orchestrator: navigate to `backend/src/services`, run `npx mocha Orchestrator.spec.js`.
-
-In other words: `cd backend/src/services && npx mocha Orchestrator.spec.js`.
-
-##### DataManager Module
-
-- **Tiered data retrieval**: Prioritizes fresh cached data, falls back to database when cache is unavailable
-- **Enhanced error handling**: Consistent logging format for better system monitoring
-
-To test DataManager: navigate to `backend/src/services`, run `npx mocha DataManager.spec.js`.
-
-In other words: `cd backend/src/services && npx mocha DataManager.spec.js`.
-
-### Milestone 4
-
-#### Backend Update
-
-##### UBC Tennis Centre Scrapper Improved
-
-Previous UBC scrapper can only work on local environment. It is rejected by UBC website when it is run in the docker. So we applied a very delicated new approach to parse the data. By getting the cookie data from previous web page and all the hashed dynamic data from the initial HTML file, we are finally able to compose a complete request header and payload to get the availability JSON from UBC backend API.
-
-### Orchestrator and DataManager Test cases update
-Previously there are some issue where the data manager returned staled data even though it's updated in database. Some more test cases are add of the new data retrieval strategy.
-
-Similarly, the orchestrator now has a complete operation window test error handling testand data update test. These tests ensures a stable and robust operational performance, and render future maintainance more confident.
-
-Additionally, there are some more configurations did on the project. Now the project can run npm start from the root folder, the debug console is configured to stop at the break points on backend files. All these makes developer experience more enjoyable. 
+**Bug List Location:**
+Bug tracking is maintained in GitHub Issues with P0-P5 priority labeling system.
