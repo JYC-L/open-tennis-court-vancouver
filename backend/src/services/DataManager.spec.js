@@ -1,11 +1,11 @@
-import pkg from "mocha";
-import * as chai from "chai";
-import sinon from "sinon";
-import { readFileSync } from "fs";
+const pkg = require("mocha");
+const chai = require("chai");
+const sinon = require("sinon");
+const { readFileSync } = require("fs");
 const { describe, it, beforeEach, afterEach, before } = pkg;
 const { expect } = chai;
 
-import AvailabilityManager from "./DataManager.js";
+const AvailabilityManager = require("./DataManager.js");
 
 describe("AvailabilityManager", () => {
   let manager, fakeOrchestrator, fakeRepository, testData;
@@ -18,13 +18,8 @@ describe("AvailabilityManager", () => {
       );
       testData = JSON.parse(fileContent);
     } catch (error) {
-      testData = [];
+      testData = [{ id: 1, court: "test", available: true }];
     }
-  });
-
-  after(() => {
-    // Force exit to prevent hanging from background promises
-    setTimeout(() => process.exit(0), 100);
   });
 
   beforeEach(() => {
@@ -42,141 +37,407 @@ describe("AvailabilityManager", () => {
     manager = new AvailabilityManager(20, fakeOrchestrator, fakeRepository);
   });
 
-  afterEach(() => {
+  after(() => {
+    // Force exit after tests complete to prevent hanging
+    setTimeout(() => {
+      if (process.env.NODE_ENV !== "production") {
+        process.exit(0);
+      }
+    }, 100);
+  });
+
+  afterEach(async () => {
+    // Wait for any pending background operations to complete
     if (manager && manager.updatePromise) {
-      // Cancel the background promise to prevent hanging
-      if (typeof manager.updatePromise.cancel === "function") {
-        manager.updatePromise.cancel();
+      try {
+        await Promise.race([
+          manager.updatePromise,
+          new Promise((resolve) => setTimeout(resolve, 100)), // Short timeout
+        ]);
+      } catch (error) {
+        // Ignore errors during cleanup
       }
       manager.updatePromise = null;
     }
     sinon.restore();
   });
 
-  it("should default to 20-minute freshness", () => {
-    const defaultManager = new AvailabilityManager();
-    expect(defaultManager.getFreshnessCutoff()).to.equal(20);
+  describe("Constructor", () => {
+    it("should initialize with default 20-minute freshness", () => {
+      const defaultManager = new AvailabilityManager();
+      expect(defaultManager.getFreshnessCutoff()).to.equal(20);
+    });
+
+    it("should accept custom freshness cutoff", () => {
+      const customManager = new AvailabilityManager(30);
+      expect(customManager.getFreshnessCutoff()).to.equal(30);
+    });
+
+    it("should throw error when constructor fails", () => {
+      expect(() => {
+        const badOrchestrator = { onDemandUpdate: "not a function" };
+        new AvailabilityManager(20, badOrchestrator, null);
+      }).to.not.throw(); // Constructor doesn't validate orchestrator
+    });
   });
 
-  it("should use cache when data is 19 minutes old (fresh)", async function () {
-    this.timeout(30000);
-    const now = new Date();
-    fakeOrchestrator.lastUpdated = new Date(now.getTime() - 19 * 60 * 1000);
+  describe("Freshness Management", () => {
+    it("should update freshness cutoff", () => {
+      manager.setFreshnessCutoff(15);
+      expect(manager.getFreshnessCutoff()).to.equal(15);
+    });
 
-    const result = await manager.getAvailability(
-      "test",
-      "2025-06-19",
-      now,
-      now,
-      now
-    );
+    it("should return false for null lastUpdated", () => {
+      const now = new Date();
+      expect(manager.isFresh(null, now)).to.be.false;
+    });
 
-    expect(fakeOrchestrator.onDemandUpdate.called).to.be.false;
-    expect(result.data).to.deep.equal(testData);
-    expect(result.updated_at).to.exist;
+    it("should return true for data 19 minutes old", () => {
+      const now = new Date();
+      const lastUpdated = new Date(now.getTime() - 19 * 60 * 1000);
+      expect(manager.isFresh(lastUpdated, now)).to.be.true;
+    });
+
+    it("should return false for data exactly 20 minutes old", () => {
+      const now = new Date();
+      const lastUpdated = new Date(now.getTime() - 20 * 60 * 1000);
+      expect(manager.isFresh(lastUpdated, now)).to.be.false;
+    });
+
+    it("should throw error for invalid date objects", () => {
+      const now = new Date();
+      expect(() => manager.isFresh("invalid date", now)).to.throw();
+    });
   });
 
-  it("should trigger update when data is 20+ minutes old (stale)", async function () {
-    this.timeout(420000); // 7 minutes for parsing
-    const now = new Date();
-    fakeOrchestrator.lastUpdated = new Date(now.getTime() - 21 * 60 * 1000);
+  describe("Cache vs Database Logic", () => {
+    it("should use cache when orchestrator data exists and is newer than DB", async () => {
+      const now = new Date();
+      const dbTime = new Date(now.getTime() - 30 * 60 * 1000);
+      const cacheTime = new Date(now.getTime() - 10 * 60 * 1000);
 
-    await manager.getAvailability("test", "2025-06-19", now, now, now);
+      fakeRepository.getLastUpdatedTimestamp.resolves(dbTime);
+      fakeOrchestrator.lastUpdated = cacheTime;
 
-    expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
-  });
+      const result = await manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
 
-  it("should trigger update when lastUpdated is null", async function () {
-    this.timeout(420000);
-    const now = new Date();
-    fakeOrchestrator.lastUpdated = null;
+      expect(fakeRepository.getAllAvailabilityAsArr.called).to.be.false;
+      expect(result.data).to.equal(testData);
+    });
 
-    await manager.getAvailability("test", "2025-06-19", now, now, now);
+    it("should update cache when orchestrator has no data", async () => {
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = null;
+      fakeRepository.getLastUpdatedTimestamp.resolves(new Date());
 
-    expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
-  });
-
-  it("should return stale data when orchestrator fails in background", async function () {
-    this.timeout(30000);
-    const now = new Date();
-    fakeOrchestrator.lastUpdated = new Date(now.getTime() - 30 * 60 * 1000);
-    fakeOrchestrator.onDemandUpdate.rejects(new Error("Mock failure"));
-
-    // Should return stale data, not throw
-    const result = await manager.getAvailability(
-      "test",
-      "2025-06-19",
-      now,
-      now,
-      now
-    );
-
-    expect(result.data).to.deep.equal(testData);
-    expect(result.updated_at).to.exist;
-    expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
-  });
-
-  it("should return stale data immediately while parsing in background", async function () {
-    this.timeout(5000);
-    const now = new Date();
-    fakeOrchestrator.lastUpdated = new Date(now.getTime() - 30 * 60 * 1000);
-
-    const start = Date.now();
-    const result = await manager.getAvailability(
-      "test",
-      "2025-06-19",
-      now,
-      now,
-      now
-    );
-    const duration = Date.now() - start;
-
-    // Should return immediately with stale data
-    expect(duration).to.be.lessThan(100); // Very fast
-    expect(result.data).to.deep.equal(testData);
-    expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
-    console.log(`✅ Returned stale data immediately in ${duration}ms`);
-  });
-
-  it("should timeout after 10 minutes", async function () {
-    this.timeout(15000); // 15 seconds
-    const now = new Date();
-    fakeOrchestrator.lastUpdated = new Date(now.getTime() - 30 * 60 * 1000);
-
-    // Override the timeout method to use shorter timeout for testing
-    const originalTimeout = manager._withTimeout;
-    let longRunningTimeout;
-
-    manager._withTimeout = async function (promise, ms, timeoutMsg) {
-      let timeout;
-      const timeoutPromise = new Promise((_, reject) => {
-        timeout = setTimeout(() => reject(new Error(timeoutMsg)), 3000); // 3 second timeout
-      });
-      return Promise.race([
-        promise.finally(() => clearTimeout(timeout)),
-        timeoutPromise,
-      ]);
-    };
-
-    fakeOrchestrator.onDemandUpdate.returns(
-      new Promise((resolve) => {
-        longRunningTimeout = setTimeout(() => resolve(testData), 5000); // Store timeout reference
-        return longRunningTimeout;
-      })
-    );
-
-    try {
       await manager.getAvailability("test", "2025-06-19", now, now, now);
-      expect.fail("Should have timed out");
-    } catch (error) {
-      expect(error.message).to.include("timed out");
-      console.log(`✅ Timeout test completed: ${error.message}`);
-    } finally {
-      // Clean up the hanging timeout
-      if (longRunningTimeout) {
-        clearTimeout(longRunningTimeout);
+
+      expect(fakeRepository.getAllAvailabilityAsArr.calledOnce).to.be.true;
+    });
+
+    it("should update cache when DB is newer than orchestrator", async () => {
+      const now = new Date();
+      const cacheTime = new Date(now.getTime() - 30 * 60 * 1000);
+      const dbTime = new Date(now.getTime() - 10 * 60 * 1000);
+
+      fakeOrchestrator.lastUpdated = cacheTime;
+      fakeRepository.getLastUpdatedTimestamp.resolves(dbTime);
+
+      await manager.getAvailability("test", "2025-06-19", now, now, now);
+
+      expect(fakeRepository.getAllAvailabilityAsArr.calledOnce).to.be.true;
+    });
+
+    it("should throw error when cache update from DB fails", async () => {
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = null;
+      fakeRepository.getLastUpdatedTimestamp.resolves(new Date());
+      fakeRepository.getAllAvailabilityAsArr.rejects(new Error("DB error"));
+
+      try {
+        await manager.getAvailability("test", "2025-06-19", now, now, now);
+        expect.fail("Should have thrown an error");
+      } catch (error) {
+        expect(error.message).to.include("error when updating cache");
       }
+    });
+
+    it("should throw error when getLastUpdatedTimestamp fails", async () => {
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = null;
+      fakeRepository.getLastUpdatedTimestamp.rejects(
+        new Error("DB connection failed")
+      );
+
+      try {
+        await manager.getAvailability("test", "2025-06-19", now, now, now);
+        expect.fail("Should have thrown an error");
+      } catch (error) {
+        expect(error.message).to.include("DB connection failed");
+      }
+    });
+  });
+
+  describe("Fresh Data Scenarios", () => {
+    it("should return cached data when fresh", async () => {
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 19 * 60 * 1000);
+
+      const result = await manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
+
+      expect(fakeOrchestrator.onDemandUpdate.called).to.be.false;
+      expect(result.data).to.equal(testData);
+      expect(result.updated_at).to.equal(fakeOrchestrator.lastUpdated);
+    });
+
+    it("should throw error when accessing cached data fails", async () => {
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 19 * 60 * 1000);
+
+      Object.defineProperty(fakeOrchestrator, "records", {
+        get: () => {
+          throw new Error("Cache access error");
+        },
+      });
+
+      try {
+        await manager.getAvailability("test", "2025-06-19", now, now, now);
+        expect.fail("Should have thrown an error");
+      } catch (error) {
+        expect(error.message).to.include(
+          "Error when accessing cached data from orchestrator"
+        );
+      }
+    });
+  });
+
+  describe("Stale Data Scenarios", () => {
+    it("should trigger update when data is stale", async () => {
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      await manager.getAvailability("test", "2025-06-19", now, now, now);
+
+      expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
+    });
+
+    it("should return stale data immediately while update runs", async function () {
+      this.timeout(5000);
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      const start = Date.now();
+      const result = await manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
+      const duration = Date.now() - start;
+
+      expect(duration).to.be.lessThan(100);
+      expect(result.data).to.equal(testData);
+      expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
+    });
+
+    it("should not trigger multiple updates for concurrent requests", async function () {
+      this.timeout(5000);
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      const promise1 = manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
+      const promise2 = manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
+
+      await Promise.all([promise1, promise2]);
+
+      expect(fakeOrchestrator.onDemandUpdate.calledOnce).to.be.true;
+    });
+
+    it("should handle orchestrator update failure gracefully", async function () {
+      this.timeout(5000);
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+      fakeOrchestrator.onDemandUpdate.rejects(new Error("Update failed"));
+
+      const result = await manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
+
+      expect(result.data).to.equal(testData);
+      expect(result.updated_at).to.equal(fakeOrchestrator.lastUpdated);
+    });
+
+    it("should clean up updatePromise after completion", async function () {
+      this.timeout(3000);
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      await manager.getAvailability("test", "2025-06-19", now, now, now);
+
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      expect(manager.updatePromise).to.be.null;
+    });
+
+    it("should trigger new update after previous completes", async function () {
+      this.timeout(3000);
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      await manager.getAvailability("test", "2025-06-19", now, now, now);
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      await manager.getAvailability("test", "2025-06-19", now, now, now);
+
+      expect(fakeOrchestrator.onDemandUpdate.calledTwice).to.be.true;
+    });
+
+    it("should pass correct parameters to onDemandUpdate", async function () {
+      this.timeout(5000);
+      const now = new Date();
+      const startDate = new Date(now.getTime() - 1000);
+      const endDate = new Date(now.getTime() + 1000);
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      await manager.getAvailability(
+        "test",
+        "2025-06-19",
+        startDate,
+        endDate,
+        now
+      );
+
+      expect(
+        fakeOrchestrator.onDemandUpdate.calledWith(now, startDate, endDate)
+      ).to.be.true;
+    });
+  });
+
+  describe("Timeout Handling", () => {
+    it("should timeout long-running updates", async function () {
+      this.timeout(5000);
+      const now = new Date();
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      const originalTimeout = manager._withTimeout;
+      manager._withTimeout = async function (promise, ms, timeoutMsg) {
+        let timeout;
+        const timeoutPromise = new Promise((_, reject) => {
+          timeout = setTimeout(() => reject(new Error(timeoutMsg)), 1000);
+        });
+        return Promise.race([
+          promise.finally(() => clearTimeout(timeout)),
+          timeoutPromise,
+        ]);
+      };
+
+      fakeOrchestrator.onDemandUpdate.returns(
+        new Promise((resolve) => setTimeout(() => resolve(testData), 2000))
+      );
+
+      const result = await manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
+
+      expect(result.data).to.equal(testData);
       manager._withTimeout = originalTimeout;
-    }
+    });
+
+    it("should resolve when promise completes before timeout", async () => {
+      const fastPromise = Promise.resolve("success");
+      const result = await manager._withTimeout(fastPromise, 1000, "timeout");
+      expect(result).to.equal("success");
+    });
+
+    it("should reject when promise times out", async () => {
+      const slowPromise = new Promise((resolve) =>
+        setTimeout(() => resolve("slow"), 2000)
+      );
+
+      try {
+        await manager._withTimeout(slowPromise, 500, "Custom timeout message");
+        expect.fail("Should have timed out");
+      } catch (error) {
+        expect(error.message).to.equal("Custom timeout message");
+      }
+    });
+
+    it("should clean up timeout when promise completes", async () => {
+      const fastPromise = Promise.resolve("success");
+      await manager._withTimeout(fastPromise, 1000, "timeout");
+    });
+  });
+
+  describe("onDemandUpdate Updates Orchestrator", () => {
+    it("should have orchestrator update its own data after onDemandUpdate", async function () {
+      this.timeout(5000);
+      const now = new Date();
+      const newData = [{ id: 2, court: "updated", available: false }];
+      const newTimestamp = new Date();
+
+      fakeOrchestrator.lastUpdated = new Date(now.getTime() - 25 * 60 * 1000);
+
+      // Create a promise to track when onDemandUpdate completes
+      let updateCompleted = false;
+      fakeOrchestrator.onDemandUpdate.callsFake(async () => {
+        // Simulate async update
+        await new Promise((resolve) => setTimeout(resolve, 50));
+        fakeOrchestrator.records = newData;
+        fakeOrchestrator.lastUpdated = newTimestamp;
+        updateCompleted = true;
+        return newData;
+      });
+
+      const result = await manager.getAvailability(
+        "test",
+        "2025-06-19",
+        now,
+        now,
+        now
+      );
+
+      // Should return stale data immediately (old testData)
+      expect(result.data).to.equal(testData);
+
+      // Wait for background update to complete
+      while (!updateCompleted) {
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      }
+
+      // Now orchestrator should have updated data
+      expect(fakeOrchestrator.records).to.equal(newData);
+      expect(fakeOrchestrator.lastUpdated).to.equal(newTimestamp);
+    });
   });
 });

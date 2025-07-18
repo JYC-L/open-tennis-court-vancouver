@@ -147,10 +147,17 @@ To test DataManager: navigate to `backend/src/services`, run `npx mocha DataMana
 
 In other words: `cd backend/src/services && npx mocha DataManager.spec.js`.
 
-### Milestone 3
+### Milestone 4
 
 #### Backend Update
 
 ##### UBC Tennis Centre Scrapper Improved
 
 Previous UBC scrapper can only work on local environment. It is rejected by UBC website when it is run in the docker. So we applied a very delicated new approach to parse the data. By getting the cookie data from previous web page and all the hashed dynamic data from the initial HTML file, we are finally able to compose a complete request header and payload to get the availability JSON from UBC backend API.
+
+### Orchestrator and DataManager Test cases update
+Previously there are some issue where the data manager returned staled data even though it's updated in database. Some more test cases are add of the new data retrieval strategy.
+
+Similarly, the orchestrator now has a complete operation window test error handling testand data update test. These tests ensures a stable and robust operational performance, and render future maintainance more confident.
+
+Additionally, there are some more configurations did on the project. Now the project can run npm start from the root folder, the debug console is configured to stop at the break points on backend files. All these makes developer experience more enjoyable. 
