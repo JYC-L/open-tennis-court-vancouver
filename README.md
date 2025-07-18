@@ -146,3 +146,11 @@ In other words: `cd backend/src/services && npx mocha Orchestrator.spec.js`.
 To test DataManager: navigate to `backend/src/services`, run `npx mocha DataManager.spec.js`.
 
 In other words: `cd backend/src/services && npx mocha DataManager.spec.js`.
+
+### Milestone 3
+
+#### Backend Update
+
+##### UBC Tennis Centre Scrapper Improved
+
+Previous UBC scrapper can only work on local environment. It is rejected by UBC website when it is run in the docker. So we applied a very delicated new approach to parse the data. By getting the cookie data from previous web page and all the hashed dynamic data from the initial HTML file, we are finally able to compose a complete request header and payload to get the availability JSON from UBC backend API.
