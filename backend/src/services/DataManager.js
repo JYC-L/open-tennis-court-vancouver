@@ -138,12 +138,17 @@ class AvailabilityManager {
    */
   isFresh(lastUpdated, now) {
     if (!lastUpdated) {
+      console.log("No data in DB yet, data is stale by default.")
       return false; // No data means not fresh
     }
     const timeDiffMs = now.getTime() - lastUpdated.getTime();
     const timeDiffMinutes = timeDiffMs / (1000 * 60);
-
-    console.log(`Last updated at:${lastUpdated}`);
+    console.log(
+      `Last updated at:${lastUpdated.toLocaleString("en-CA", {
+        timeZone: "America/Vancouver",
+        timeZoneName: "short",
+      })}`
+    );
     return timeDiffMinutes < this.freshnessCutoffMinutes;
   }
 
