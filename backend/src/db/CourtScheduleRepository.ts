@@ -54,7 +54,7 @@ export class CourtScheduleRepository {
   ): Promise<void> {
     try {
       const collection = await this.getAllAvailability();
-      const lastUpdated = toZonedTime(new Date(), "America/Vancouver");
+      const lastUpdated = new Date();
       for (const entry of entries) {
         const pk = this.computePrimaryKey(entry);
         await collection.updateOne(
@@ -80,7 +80,7 @@ export class CourtScheduleRepository {
   public async fullOverwrite(entries: CourtScheduleEntry[]) {
     try {
       const collection = await MongoConnection.getCollection();
-      const lastUpdated = toZonedTime(new Date(), "America/Vancouver");
+      const lastUpdated = new Date(); // Store UTC time
       await collection.deleteMany({});
       const bulkEntries = entries.map((entry) => ({
         ...entry,
@@ -243,21 +243,22 @@ export class CourtScheduleRepository {
   }
 
   /**
-   * Gets the most recent lastUpdated timestamp from the database
-   * @returns The most recent lastUpdated timestamp as a Date object, or null if no documents exist
+   * Gets the most recent lastUpdated timestamp from the database as UTC
+   * @returns The most recent lastUpdated timestamp as a UTC Date object, or null if no documents exist
    */
-  public async getLastUpdatedTimestamp(): Promise<Date | null> {
+  public async getUTCDateLastUpdated(): Promise<Date | null> {
     const collection = await this.getAllAvailability();
     const mostRecentDoc = await collection
       .find({ lastUpdated: { $exists: true } })
       .sort({ lastUpdated: -1 })
       .limit(1)
       .toArray();
-    
+
     if (mostRecentDoc.length === 0) {
       return null;
     }
-    
+
+    // Return the UTC Date object directly from MongoDB
     return mostRecentDoc[0].lastUpdated as Date;
   }
 }

@@ -69,7 +69,7 @@ class AvailabilityManager {
     let isFresh = false;
     const orchestratorLastUpdated = this.orchestrator.lastUpdated;
     const dbLastUpdated =
-      await this.courtScheduleRepository.getLastUpdatedTimestamp();
+      await this.courtScheduleRepository.getUTCDateLastUpdated();
     if (!orchestratorLastUpdated || orchestratorLastUpdated < dbLastUpdated) {
       console.log("Cache missing or older than db data.");
       try {
@@ -81,8 +81,8 @@ class AvailabilityManager {
         );
       }
     }
-
-    isFresh = this.isFresh(this.orchestrator.lastUpdated, requestedAt);
+    const now = new Date();
+    isFresh = this.isFresh(this.orchestrator.lastUpdated, now);
 
     if (isFresh) {
       try {
@@ -107,7 +107,7 @@ class AvailabilityManager {
         "DataManager.getAvailability: Data is stale, invoking onDemand Parsing for fresh data."
       );
       this.updatePromise = this._withTimeout(
-        this.orchestrator.onDemandUpdate(requestedAt, startDate, endDate),
+        this.orchestrator.onDemandUpdate(now, startDate, endDate),
         timeoutWindow,
         `Orchestrator timed out after ${timeoutWindow / 1000} seconds.`
       )
@@ -136,12 +136,11 @@ class AvailabilityManager {
    * Check if data is fresh based on lastUpdated timestamp
    * @private
    */
-  isFresh(lastUpdated, requestedAt) {
+  isFresh(lastUpdated, now) {
     if (!lastUpdated) {
       return false; // No data means not fresh
     }
-
-    const timeDiffMs = requestedAt.getTime() - lastUpdated.getTime();
+    const timeDiffMs = now.getTime() - lastUpdated.getTime();
     const timeDiffMinutes = timeDiffMs / (1000 * 60);
 
     console.log(`Last updated at:${lastUpdated}`);
@@ -167,7 +166,7 @@ class AvailabilityManager {
     this.orchestrator.records =
       await this.courtScheduleRepository.getAllAvailabilityAsArr();
     this.orchestrator.lastUpdated =
-      await this.courtScheduleRepository.getLastUpdatedTimestamp();
+      await this.courtScheduleRepository.getUTCDateLastUpdated();
     console.log("Updating cache with data from DB.");
   }
 }

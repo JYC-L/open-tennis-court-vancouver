@@ -4,6 +4,8 @@
   "description": "Backend for the project using Node.js and TypeScript",
   "main": "src/app.js",
   "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
     "start": "node src/app.js",
     "debug": "node --inspect=0.0.0.0:9229 src/app.js",
     "test": "mocha src/test/**/*.test.js --reporter mochawesome",

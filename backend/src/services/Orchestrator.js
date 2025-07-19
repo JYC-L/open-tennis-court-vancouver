@@ -87,7 +87,7 @@ class Orchestrator {
       // saveAvailabilityToJSON(results, "all_availabilities.json");
       await this.courtScheduleRepository.saveAvailabilityByArr(results);
       console.log(`Pushing data took ${Date.now() - databaseUpdateStart} ms.`);
-      this.lastUpdated = await this.courtScheduleRepository.getLastUpdatedTimestamp();
+      this.lastUpdated = await this.courtScheduleRepository.getUTCDateLastUpdated();
       this.records =
         await this.courtScheduleRepository.getAllAvailabilityAsArr();
       console.log(
@@ -95,6 +95,9 @@ class Orchestrator {
         this.lastUpdated.toLocaleString("en-US", {
           timeZone: "America/Vancouver",
           hour12: false,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
           hour: "2-digit",
           minute: "2-digit",
           timeZoneName: "short",

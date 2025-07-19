@@ -21,7 +21,7 @@ describe("Orchestrator", () => {
     ];
     mockRepository = {
       saveAvailabilityByArr: sinon.stub().resolves(),
-      getLastUpdatedTimestamp: sinon.stub().resolves(new Date()),
+      getUTCDateLastUpdated: sinon.stub().resolves(new Date()),
       getAllAvailabilityAsArr: sinon.stub().resolves([{ data: "db_data" }]),
     };
 
@@ -161,7 +161,7 @@ describe("Orchestrator", () => {
       const testTimestamp = new Date();
       const testRecords = [{ data: "db_data" }];
 
-      mockRepository.getLastUpdatedTimestamp.resolves(testTimestamp);
+      mockRepository.getUTCDateLastUpdated.resolves(testTimestamp);
       mockRepository.getAllAvailabilityAsArr.resolves(testRecords);
 
       await orchestrator.onDemandUpdate(new Date(), new Date(), new Date());
@@ -177,7 +177,7 @@ describe("Orchestrator", () => {
       const testTimestamp = new Date();
       const testRecords = [{ data: "db_data" }];
 
-      mockRepository.getLastUpdatedTimestamp.resolves(testTimestamp);
+      mockRepository.getUTCDateLastUpdated.resolves(testTimestamp);
       mockRepository.getAllAvailabilityAsArr.resolves(testRecords);
 
       await orchestrator.pushDataToDBandLoadFromDB(testData);
@@ -186,7 +186,7 @@ describe("Orchestrator", () => {
       expect(orchestrator.records).to.equal(testRecords);
       expect(mockRepository.saveAvailabilityByArr.calledWith(testData)).to.be
         .true;
-      expect(mockRepository.getLastUpdatedTimestamp.calledOnce).to.be.true;
+      expect(mockRepository.getUTCDateLastUpdated.calledOnce).to.be.true;
       expect(mockRepository.getAllAvailabilityAsArr.calledOnce).to.be.true;
     });
 
@@ -203,8 +203,8 @@ describe("Orchestrator", () => {
       }
     });
 
-    it("should throw proper error when getLastUpdatedTimestamp fails", async () => {
-      mockRepository.getLastUpdatedTimestamp.rejects(
+    it("should throw proper error when getUTCDateLastUpdated fails", async () => {
+      mockRepository.getUTCDateLastUpdated.rejects(
         new Error("Timestamp fetch failed")
       );
 

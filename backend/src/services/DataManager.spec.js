@@ -30,7 +30,7 @@ describe("AvailabilityManager", () => {
     };
 
     fakeRepository = {
-      getLastUpdatedTimestamp: sinon.stub().resolves(null),
+      getUTCDateLastUpdated: sinon.stub().resolves(null),
       getAllAvailabilityAsArr: sinon.stub().resolves(testData),
     };
 
@@ -116,7 +116,7 @@ describe("AvailabilityManager", () => {
       const dbTime = new Date(now.getTime() - 30 * 60 * 1000);
       const cacheTime = new Date(now.getTime() - 10 * 60 * 1000);
 
-      fakeRepository.getLastUpdatedTimestamp.resolves(dbTime);
+      fakeRepository.getUTCDateLastUpdated.resolves(dbTime);
       fakeOrchestrator.lastUpdated = cacheTime;
 
       const result = await manager.getAvailability(
@@ -134,7 +134,7 @@ describe("AvailabilityManager", () => {
     it("should update cache when orchestrator has no data", async () => {
       const now = new Date();
       fakeOrchestrator.lastUpdated = null;
-      fakeRepository.getLastUpdatedTimestamp.resolves(new Date());
+      fakeRepository.getUTCDateLastUpdated.resolves(new Date());
 
       await manager.getAvailability("test", "2025-06-19", now, now, now);
 
@@ -147,7 +147,7 @@ describe("AvailabilityManager", () => {
       const dbTime = new Date(now.getTime() - 10 * 60 * 1000);
 
       fakeOrchestrator.lastUpdated = cacheTime;
-      fakeRepository.getLastUpdatedTimestamp.resolves(dbTime);
+      fakeRepository.getUTCDateLastUpdated.resolves(dbTime);
 
       await manager.getAvailability("test", "2025-06-19", now, now, now);
 
@@ -157,7 +157,7 @@ describe("AvailabilityManager", () => {
     it("should throw error when cache update from DB fails", async () => {
       const now = new Date();
       fakeOrchestrator.lastUpdated = null;
-      fakeRepository.getLastUpdatedTimestamp.resolves(new Date());
+      fakeRepository.getUTCDateLastUpdated.resolves(new Date());
       fakeRepository.getAllAvailabilityAsArr.rejects(new Error("DB error"));
 
       try {
@@ -168,10 +168,10 @@ describe("AvailabilityManager", () => {
       }
     });
 
-    it("should throw error when getLastUpdatedTimestamp fails", async () => {
+    it("should throw error when getUTCDateLastUpdated fails", async () => {
       const now = new Date();
       fakeOrchestrator.lastUpdated = null;
-      fakeRepository.getLastUpdatedTimestamp.rejects(
+      fakeRepository.getUTCDateLastUpdated.rejects(
         new Error("DB connection failed")
       );
 

@@ -1,7 +1,6 @@
 import { MongoClient, Collection } from "mongodb";
 import { CourtScheduleEntry } from "../models/CourtScheduleEntry";
 export declare class MongoConnection {
-    static getDb(): void;
     private static client;
     private static dbName;
     private static collectionName;

@@ -17,10 +17,14 @@ export declare class CourtScheduleRepository {
     fetchByClubName(collectionName: string, clubName: string): Promise<CourtScheduleEntry[]>;
     fetchByClubAndCourt(collectionName: string, clubName: string, courtNumber: string): Promise<CourtScheduleEntry[]>;
     private computePrimaryKey;
+    /**
+     *
+     * @returns the timestamp of the last update in the format YYYY-MM-DD HH:mm
+     */
     getCollectionBatchTimestamp(): Promise<string | null>;
     /**
-     * Gets the most recent lastUpdated timestamp from the database
-     * @returns The most recent lastUpdated timestamp as a Date object, or null if no documents exist
+     * Gets the most recent lastUpdated timestamp from the database as UTC
+     * @returns The most recent lastUpdated timestamp as a UTC Date object, or null if no documents exist
      */
-    getLastUpdatedTimestamp(): Promise<Date | null>;
+    getUTCDateLastUpdated(): Promise<Date | null>;
 }
