@@ -77,40 +77,49 @@ function renderStatus(status: Status) {
 export default function CourtMap() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   return (
-    <div className="w-full h-screen flex flex-col">
-      <div className="w-full h-[80vh] flex flex-col items-center justify-center">
-        <div className="flex items-center justify-between w-full max-w-3xl mb-4 ">
-          <h1 className="text-2xl flex-1 font-bold mb-4">
-            Tennis Court Map in Greater Vancouver Area
-          </h1>
+    <div className="flex h-screen flex-col">
+      <header className="hidden lg:flex flex-none items-center justify-between border-b border-gray-200 px-6 py-4">
+        <h1 className="text-base font-semibold text-gray-900">
+          Tennis Court Map in Greater Vancouver Area
+        </h1>
+        <div className="flex items-center">
           <button
-            className="ml-4 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-sm bg-green-400"
-            onClick={() => window.history.back()}
+            type="button"
+            className="rounded-md bg-emerald-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+            onClick={() => (window.location.href = "/")}
           >
-            Go Back
+            Back
           </button>
+          <div className="ml-6 h-6 w-px bg-gray-300" />
         </div>
-        <Paper
-          elevation={6}
-          sx={{
-            width: { xs: "95vw", sm: "80vw", md: "75vw", lg: "65vw" },
-            height: "70vh",
-            minHeight: 400,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: 4,
-            border: "2px solid #10b981",
-            margin: "auto",
-          }}
-        >
-          <Wrapper
-            apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "api_key"}
-            render={renderStatus}
+      </header>
+      <div className="w-full h-px bg-gray-400" />
+
+      <div className="flex-1 w-full h-full flex flex-col">
+        <div className="flex-1 w-full h-full flex items-stretch">
+          <Paper
+            elevation={0}
+            sx={{
+              width: "100vw",
+              height: "100%",
+              minHeight: 0,
+              minWidth: 0,
+              border: "none",
+              borderRadius: 0,
+              margin: 0,
+              padding: 0,
+              display: "flex",
+              flex: 1,
+            }}
           >
-            <MapComponent activeIdx={activeIdx} setActiveIdx={setActiveIdx} />
-          </Wrapper>
-        </Paper>
+            <Wrapper
+              apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "api_key"}
+              render={renderStatus}
+            >
+              <MapComponent activeIdx={activeIdx} setActiveIdx={setActiveIdx} />
+            </Wrapper>
+          </Paper>
+        </div>
       </div>
     </div>
   );
@@ -142,6 +151,8 @@ function MapComponent({
     const markers: any[] = [];
     const infowindows: any[] = [];
     COURTS.forEach((court, idx) => {
+      const emeraldIcon =
+        "data:image/svg+xml;utf8,<svg width='40' height='56' viewBox='0 0 40 56' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20 0C9.05888 0 0 9.05888 0 20.25C0 34.125 18.1818 54.1818 19.0091 55.0909C19.553 55.7015 20.447 55.7015 20.9909 55.0909C21.8182 54.1818 40 34.125 40 20.25C40 9.05888 30.9411 0 20 0Z' fill='%2334d399' stroke='white' stroke-width='4'/><circle cx='20' cy='20' r='8' fill='white'/></svg>";
       const marker = new window.google.maps.Marker({
         position: court.position,
         map,
@@ -149,8 +160,7 @@ function MapComponent({
         icon:
           court.type === "public"
             ? {
-                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
-                // @ts-ignore
+                url: emeraldIcon,
                 scaledSize: new window.google.maps.Size(40, 40),
               }
             : undefined,

@@ -1,0 +1,1133 @@
+{
+  "availabilities": [
+    {
+      "Date": "/Date(1753574400000)/",
+      "BookingGroups": [
+        {
+          "Name": "Morning",
+          "Order": 0,
+          "AvailableSpots": [
+            {
+              "Ticks": 638892072000000000,
+              "Time": {
+                "Hours": 10,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 360000000000,
+                "Days": 0,
+                "TotalDays": 0.41666666666666663,
+                "TotalHours": 10,
+                "TotalMilliseconds": 36000000,
+                "TotalMinutes": 600,
+                "TotalSeconds": 36000
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now"
+            }
+          ]
+        },
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638892180000000000,
+              "Time": {
+                "Hours": 13,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 468000000000,
+                "Days": 0,
+                "TotalDays": 0.5416666666666666,
+                "TotalHours": 13,
+                "TotalMilliseconds": 46800000,
+                "TotalMinutes": 780,
+                "TotalSeconds": 46800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638892216000000000,
+              "Time": {
+                "Hours": 14,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 504000000000,
+                "Days": 0,
+                "TotalDays": 0.5833333333333333,
+                "TotalHours": 14,
+                "TotalMilliseconds": 50400000,
+                "TotalMinutes": 840,
+                "TotalSeconds": 50400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638892252000000000,
+              "Time": {
+                "Hours": 15,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 540000000000,
+                "Days": 0,
+                "TotalDays": 0.625,
+                "TotalHours": 15,
+                "TotalMilliseconds": 54000000,
+                "TotalMinutes": 900,
+                "TotalSeconds": 54000
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638892288000000000,
+              "Time": {
+                "Hours": 16,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 576000000000,
+                "Days": 0,
+                "TotalDays": 0.6666666666666666,
+                "TotalHours": 16,
+                "TotalMilliseconds": 57600000,
+                "TotalMinutes": 960,
+                "TotalSeconds": 57600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638892324000000000,
+              "Time": {
+                "Hours": 17,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 612000000000,
+                "Days": 0,
+                "TotalDays": 0.7083333333333333,
+                "TotalHours": 17,
+                "TotalMilliseconds": 61200000,
+                "TotalMinutes": 1020,
+                "TotalSeconds": 61200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638892360000000000,
+              "Time": {
+                "Hours": 18,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 648000000000,
+                "Days": 0,
+                "TotalDays": 0.75,
+                "TotalHours": 18,
+                "TotalMilliseconds": 64800000,
+                "TotalMinutes": 1080,
+                "TotalSeconds": 64800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638892396000000000,
+              "Time": {
+                "Hours": 19,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 684000000000,
+                "Days": 0,
+                "TotalDays": 0.7916666666666666,
+                "TotalHours": 19,
+                "TotalMilliseconds": 68400000,
+                "TotalMinutes": 1140,
+                "TotalSeconds": 68400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 9,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 324000000000,
+        "Days": 0,
+        "TotalDays": 0.375,
+        "TotalHours": 9,
+        "TotalMilliseconds": 32400000,
+        "TotalMinutes": 540,
+        "TotalSeconds": 32400
+      },
+      "ClosingTime": {
+        "Hours": 20,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 720000000000,
+        "Days": 0,
+        "TotalDays": 0.8333333333333333,
+        "TotalHours": 20,
+        "TotalMilliseconds": 72000000,
+        "TotalMinutes": 1200,
+        "TotalSeconds": 72000
+      }
+    },
+    {
+      "Date": "/Date(1753660800000)/",
+      "BookingGroups": [
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638893152000000000,
+              "Time": {
+                "Hours": 16,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 576000000000,
+                "Days": 0,
+                "TotalDays": 0.6666666666666666,
+                "TotalHours": 16,
+                "TotalMilliseconds": 57600000,
+                "TotalMinutes": 960,
+                "TotalSeconds": 57600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638893188000000000,
+              "Time": {
+                "Hours": 17,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 612000000000,
+                "Days": 0,
+                "TotalDays": 0.7083333333333333,
+                "TotalHours": 17,
+                "TotalMilliseconds": 61200000,
+                "TotalMinutes": 1020,
+                "TotalSeconds": 61200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638893260000000000,
+              "Time": {
+                "Hours": 19,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 684000000000,
+                "Days": 0,
+                "TotalDays": 0.7916666666666666,
+                "TotalHours": 19,
+                "TotalMilliseconds": 68400000,
+                "TotalMinutes": 1140,
+                "TotalSeconds": 68400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 9,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 324000000000,
+        "Days": 0,
+        "TotalDays": 0.375,
+        "TotalHours": 9,
+        "TotalMilliseconds": 32400000,
+        "TotalMinutes": 540,
+        "TotalSeconds": 32400
+      },
+      "ClosingTime": {
+        "Hours": 20,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 720000000000,
+        "Days": 0,
+        "TotalDays": 0.8333333333333333,
+        "TotalHours": 20,
+        "TotalMilliseconds": 72000000,
+        "TotalMinutes": 1200,
+        "TotalSeconds": 72000
+      }
+    },
+    {
+      "Date": "/Date(1753747200000)/",
+      "BookingGroups": [
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638894016000000000,
+              "Time": {
+                "Hours": 16,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 576000000000,
+                "Days": 0,
+                "TotalDays": 0.6666666666666666,
+                "TotalHours": 16,
+                "TotalMilliseconds": 57600000,
+                "TotalMinutes": 960,
+                "TotalSeconds": 57600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638894052000000000,
+              "Time": {
+                "Hours": 17,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 612000000000,
+                "Days": 0,
+                "TotalDays": 0.7083333333333333,
+                "TotalHours": 17,
+                "TotalMilliseconds": 61200000,
+                "TotalMinutes": 1020,
+                "TotalSeconds": 61200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638894088000000000,
+              "Time": {
+                "Hours": 18,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 648000000000,
+                "Days": 0,
+                "TotalDays": 0.75,
+                "TotalHours": 18,
+                "TotalMilliseconds": 64800000,
+                "TotalMinutes": 1080,
+                "TotalSeconds": 64800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638894124000000000,
+              "Time": {
+                "Hours": 19,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 684000000000,
+                "Days": 0,
+                "TotalDays": 0.7916666666666666,
+                "TotalHours": 19,
+                "TotalMilliseconds": 68400000,
+                "TotalMinutes": 1140,
+                "TotalSeconds": 68400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 9,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 324000000000,
+        "Days": 0,
+        "TotalDays": 0.375,
+        "TotalHours": 9,
+        "TotalMilliseconds": 32400000,
+        "TotalMinutes": 540,
+        "TotalSeconds": 32400
+      },
+      "ClosingTime": {
+        "Hours": 20,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 720000000000,
+        "Days": 0,
+        "TotalDays": 0.8333333333333333,
+        "TotalHours": 20,
+        "TotalMilliseconds": 72000000,
+        "TotalMinutes": 1200,
+        "TotalSeconds": 72000
+      }
+    },
+    {
+      "Date": "/Date(1753833600000)/",
+      "BookingGroups": [
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638894880000000000,
+              "Time": {
+                "Hours": 16,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 576000000000,
+                "Days": 0,
+                "TotalDays": 0.6666666666666666,
+                "TotalHours": 16,
+                "TotalMilliseconds": 57600000,
+                "TotalMinutes": 960,
+                "TotalSeconds": 57600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638894916000000000,
+              "Time": {
+                "Hours": 17,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 612000000000,
+                "Days": 0,
+                "TotalDays": 0.7083333333333333,
+                "TotalHours": 17,
+                "TotalMilliseconds": 61200000,
+                "TotalMinutes": 1020,
+                "TotalSeconds": 61200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638894952000000000,
+              "Time": {
+                "Hours": 18,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 648000000000,
+                "Days": 0,
+                "TotalDays": 0.75,
+                "TotalHours": 18,
+                "TotalMilliseconds": 64800000,
+                "TotalMinutes": 1080,
+                "TotalSeconds": 64800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638894988000000000,
+              "Time": {
+                "Hours": 19,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 684000000000,
+                "Days": 0,
+                "TotalDays": 0.7916666666666666,
+                "TotalHours": 19,
+                "TotalMilliseconds": 68400000,
+                "TotalMinutes": 1140,
+                "TotalSeconds": 68400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 9,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 324000000000,
+        "Days": 0,
+        "TotalDays": 0.375,
+        "TotalHours": 9,
+        "TotalMilliseconds": 32400000,
+        "TotalMinutes": 540,
+        "TotalSeconds": 32400
+      },
+      "ClosingTime": {
+        "Hours": 20,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 720000000000,
+        "Days": 0,
+        "TotalDays": 0.8333333333333333,
+        "TotalHours": 20,
+        "TotalMilliseconds": 72000000,
+        "TotalMinutes": 1200,
+        "TotalSeconds": 72000
+      }
+    },
+    {
+      "Date": "/Date(1753920000000)/",
+      "BookingGroups": [
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638895744000000000,
+              "Time": {
+                "Hours": 16,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 576000000000,
+                "Days": 0,
+                "TotalDays": 0.6666666666666666,
+                "TotalHours": 16,
+                "TotalMilliseconds": 57600000,
+                "TotalMinutes": 960,
+                "TotalSeconds": 57600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638895780000000000,
+              "Time": {
+                "Hours": 17,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 612000000000,
+                "Days": 0,
+                "TotalDays": 0.7083333333333333,
+                "TotalHours": 17,
+                "TotalMilliseconds": 61200000,
+                "TotalMinutes": 1020,
+                "TotalSeconds": 61200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638895816000000000,
+              "Time": {
+                "Hours": 18,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 648000000000,
+                "Days": 0,
+                "TotalDays": 0.75,
+                "TotalHours": 18,
+                "TotalMilliseconds": 64800000,
+                "TotalMinutes": 1080,
+                "TotalSeconds": 64800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638895852000000000,
+              "Time": {
+                "Hours": 19,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 684000000000,
+                "Days": 0,
+                "TotalDays": 0.7916666666666666,
+                "TotalHours": 19,
+                "TotalMilliseconds": 68400000,
+                "TotalMinutes": 1140,
+                "TotalSeconds": 68400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 9,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 324000000000,
+        "Days": 0,
+        "TotalDays": 0.375,
+        "TotalHours": 9,
+        "TotalMilliseconds": 32400000,
+        "TotalMinutes": 540,
+        "TotalSeconds": 32400
+      },
+      "ClosingTime": {
+        "Hours": 20,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 720000000000,
+        "Days": 0,
+        "TotalDays": 0.8333333333333333,
+        "TotalHours": 20,
+        "TotalMilliseconds": 72000000,
+        "TotalMinutes": 1200,
+        "TotalSeconds": 72000
+      }
+    },
+    {
+      "Date": "/Date(1754006400000)/",
+      "BookingGroups": [
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638896608000000000,
+              "Time": {
+                "Hours": 16,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 576000000000,
+                "Days": 0,
+                "TotalDays": 0.6666666666666666,
+                "TotalHours": 16,
+                "TotalMilliseconds": 57600000,
+                "TotalMinutes": 960,
+                "TotalSeconds": 57600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638896644000000000,
+              "Time": {
+                "Hours": 17,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 612000000000,
+                "Days": 0,
+                "TotalDays": 0.7083333333333333,
+                "TotalHours": 17,
+                "TotalMilliseconds": 61200000,
+                "TotalMinutes": 1020,
+                "TotalSeconds": 61200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638896680000000000,
+              "Time": {
+                "Hours": 18,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 648000000000,
+                "Days": 0,
+                "TotalDays": 0.75,
+                "TotalHours": 18,
+                "TotalMilliseconds": 64800000,
+                "TotalMinutes": 1080,
+                "TotalSeconds": 64800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            },
+            {
+              "Ticks": 638896716000000000,
+              "Time": {
+                "Hours": 19,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 684000000000,
+                "Days": 0,
+                "TotalDays": 0.7916666666666666,
+                "TotalHours": 19,
+                "TotalMilliseconds": 68400000,
+                "TotalMinutes": 1140,
+                "TotalSeconds": 68400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": true,
+              "Title": "Bookable 24hrs in advance"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 9,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 324000000000,
+        "Days": 0,
+        "TotalDays": 0.375,
+        "TotalHours": 9,
+        "TotalMilliseconds": 32400000,
+        "TotalMinutes": 540,
+        "TotalSeconds": 32400
+      },
+      "ClosingTime": {
+        "Hours": 20,
+        "Minutes": 0,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 720000000000,
+        "Days": 0,
+        "TotalDays": 0.8333333333333333,
+        "TotalHours": 20,
+        "TotalMilliseconds": 72000000,
+        "TotalMinutes": 1200,
+        "TotalSeconds": 72000
+      }
+    }
+  ],
+  "extraDaysInfo": null
+}
