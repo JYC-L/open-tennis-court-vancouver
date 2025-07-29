@@ -342,4 +342,67 @@ describe("CourtScheduleRepository", () => {
     const timeDiff = Math.abs(now.getTime() - lastUpdated!.getTime());
     expect(timeDiff).toBeLessThan(5000); // Should be within 5 seconds of now
   });
+
+  it("should overwirite existing entries with new data", async () => {
+    const oldEntries = [
+      {
+        clubName: "Test Club 1",
+        courtNumber: "Court 1",
+        date: "2025-06-20",
+        startTime: "10:00",
+        endTime: "11:00",
+        location: "location1",
+      },
+      {
+        clubName: "Test Club 2",
+        courtNumber: "Court 2",
+        date: "2025-06-21",
+        startTime: "11:00",
+        endTime: "12:00",
+        location: "location2",
+      },
+    ];
+    const newEntries = [
+      {
+        clubName: "Test Club 3",
+        courtNumber: "Court 1",
+        date: "2025-06-20",
+        startTime: "10:00",
+        endTime: "11:00",
+        location: "newLocation1",
+      },
+      {
+        clubName: "Test Club 4",
+        courtNumber: "Court 1",
+        date: "2025-06-20",
+        startTime: "10:00",
+        endTime: "11:00",
+        location: "newLocation2",
+      },
+      {
+        clubName: "Test Club 5",
+        courtNumber: "Court 2",
+        date: "2025-06-21",
+        startTime: "11:00",
+        endTime: "12:00",
+        location: "newLocation3",
+      },
+    ];
+
+    await repository.saveAvailabilityByArr(oldEntries as any);
+    const results = await MongoConnection.getCollection();
+    const resultsArr = await results.find({}).toArray();
+    expect(resultsArr.length).toEqual(2);
+    expect(resultsArr[0].clubName).toBe("Test Club 1");
+    expect(resultsArr[1].clubName).toBe("Test Club 2");
+    await repository.saveAvailabilityByArr(newEntries as any);
+    const resultsAfterOverwrite = await MongoConnection.getCollection();
+    const resultsAfterOverwriteArr = await resultsAfterOverwrite
+      .find({})
+      .toArray();
+    expect(resultsAfterOverwriteArr.length).toEqual(3);
+    expect(resultsAfterOverwriteArr[0].clubName).toBe("Test Club 3");
+    expect(resultsAfterOverwriteArr[1].clubName).toBe("Test Club 4");
+    expect(resultsAfterOverwriteArr[2].clubName).toBe("Test Club 5");
+  });
 });

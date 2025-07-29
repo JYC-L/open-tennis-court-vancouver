@@ -40,7 +40,7 @@ export class CourtScheduleRepository {
     entries: CourtScheduleEntry[]
   ): Promise<void> {
     try {
-      await this.insertBulkDataWithUpsertStrategy(entries);
+      await this.fullOverwrite(entries);
     } catch (error: any) {
       throw new Error(
         "[CourtScheduleRepository.saveAvailabilityByArr]: " + error.message
