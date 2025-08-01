@@ -1,6 +1,7 @@
 // app.js
 const express = require("express");
 const availabilityRoutes = require("./routes/availabilityRoutes");
+const freedCourtsRoutes = require("./routes/freedCourtsRoutes");
 
 const app = express();
 const PORT = 4325;
@@ -9,6 +10,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 app.use("/api/availability", availabilityRoutes);
+app.use("/api/freed-courts", freedCourtsRoutes);
 
 // Only start server if app.js is run directly (not when required in test)
 if (require.main === module) {
