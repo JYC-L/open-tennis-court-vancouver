@@ -1417,6 +1417,9 @@ export default function CourtFinder() {
               Last updated at&nbsp;
               {new Date(updatedAt).toLocaleTimeString("en-US", {
                 timeZone: "America/Vancouver",
+                year:"numeric",
+                month:"short",
+                day:"2-digit",
                 hour: "2-digit",
                 minute: "2-digit",
                 hour12: true,
