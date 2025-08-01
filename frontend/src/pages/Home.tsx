@@ -22,7 +22,7 @@ export default function Home() {
         }
       } catch (error) {
         console.error("Error checking for freed courts:", error);
-        toast.error("Failed to check for new court availability");
+        // toast.error("Failed to check for new court availability");
       }
     };
 
