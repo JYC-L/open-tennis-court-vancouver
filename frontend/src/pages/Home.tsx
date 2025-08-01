@@ -30,37 +30,6 @@ export default function Home() {
     checkForFreedCourts();
   }, []);
 
-  const mockFreedCourts = () => {
-    // Create mock data that matches the expected API response format
-    const mockResponse = {
-      freed_courts: [
-        {
-          clubName: "UBC Tennis Centre",
-          courtNumber: 3,
-          date: new Date().toISOString().split("T")[0],
-          startTime: "2:00 PM",
-          time: "2:00 PM",
-        },
-        {
-          clubName: "Jericho Tennis Club",
-          courtNumber: 1,
-          date: new Date(Date.now() + 24 * 60 * 60 * 1000)
-            .toISOString()
-            .split("T")[0], // tomorrow
-          startTime: "4:30 PM",
-          time: "4:30 PM",
-        },
-      ],
-      count: 2,
-      generated_at: new Date().toISOString(),
-    };
-
-    const message = formatFreedCourtsMessage(mockResponse);
-    if (message) {
-      toast.success(message);
-    }
-  };
-
   return (
     <div>
       <PCTopNav />
@@ -101,13 +70,6 @@ export default function Home() {
                         aria-hidden="true"
                       />
                     </Link>
-                    <button
-                      onClick={mockFreedCourts}
-                      className="rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 flex items-center"
-                    >
-                      <span>Test Toast</span>
-                      <PlayIcon className="h-5 w-5 ml-1" aria-hidden="true" />
-                    </button>
                   </div>
                 </div>
               </div>
