@@ -1,5 +1,5 @@
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Add google to the Window type for TypeScript
 declare global {
@@ -74,7 +74,10 @@ function renderStatus(status: Status) {
 
 export default function CourtMap() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
-  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [userLocation, setUserLocation] = useState<{
+    lat: number;
+    lng: number;
+  } | null>(null);
   const [isGettingLocation, setIsGettingLocation] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [currentRoute, setCurrentRoute] = useState<{
@@ -106,7 +109,8 @@ export default function CourtMap() {
         let errorMessage = "Unable to retrieve your location.";
         switch (error.code) {
           case error.PERMISSION_DENIED:
-            errorMessage = "Location access was denied. Please allow location access in your browser settings.";
+            errorMessage =
+              "Location access was denied. Please allow location access in your browser settings.";
             break;
           case error.POSITION_UNAVAILABLE:
             errorMessage = "Location information is unavailable.";
@@ -149,7 +153,11 @@ export default function CourtMap() {
             onClick={getUserLocation}
             disabled={isGettingLocation}
           >
-            {isGettingLocation ? "Getting Location..." : userLocation ? "📍 My Location" : "📍 Get My Location"}
+            {isGettingLocation
+              ? "Getting Location..."
+              : userLocation
+              ? "📍 My Location"
+              : "📍 Get My Location"}
           </button>
           {currentRoute && (
             <button
@@ -188,7 +196,11 @@ export default function CourtMap() {
               onClick={getUserLocation}
               disabled={isGettingLocation}
             >
-              {isGettingLocation ? "Getting..." : userLocation ? "📍 My Location" : "📍 My Location"}
+              {isGettingLocation
+                ? "Getting..."
+                : userLocation
+                ? "📍 My Location"
+                : "📍 My Location"}
             </button>
             {currentRoute && (
               <button
@@ -215,8 +227,16 @@ export default function CourtMap() {
         <div className="bg-red-50 border-l-4 border-red-400 p-4">
           <div className="flex">
             <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              <svg
+                className="h-5 w-5 text-red-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                  clipRule="evenodd"
+                />
               </svg>
             </div>
             <div className="ml-3">
@@ -230,8 +250,16 @@ export default function CourtMap() {
                   onClick={() => setLocationError(null)}
                 >
                   <span className="sr-only">Dismiss</span>
-                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </button>
               </div>
@@ -244,8 +272,16 @@ export default function CourtMap() {
         <div className="bg-red-50 border-l-4 border-red-400 p-4">
           <div className="flex">
             <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              <svg
+                className="h-5 w-5 text-red-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                  clipRule="evenodd"
+                />
               </svg>
             </div>
             <div className="ml-3">
@@ -259,8 +295,16 @@ export default function CourtMap() {
                   onClick={() => setRouteError(null)}
                 >
                   <span className="sr-only">Dismiss</span>
-                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </button>
               </div>
@@ -275,8 +319,16 @@ export default function CourtMap() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                <svg
+                  className="h-5 w-5 text-blue-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div className="ml-3">
@@ -295,7 +347,11 @@ export default function CourtMap() {
             >
               <span className="sr-only">Clear route</span>
               <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
               </svg>
             </button>
           </div>
@@ -323,9 +379,9 @@ export default function CourtMap() {
               libraries={["routes", "geometry"]}
               render={renderStatus}
             >
-              <MapComponent 
-                activeIdx={activeIdx} 
-                setActiveIdx={setActiveIdx} 
+              <MapComponent
+                activeIdx={activeIdx}
+                setActiveIdx={setActiveIdx}
                 userLocation={userLocation}
                 currentRoute={currentRoute}
                 setCurrentRoute={setCurrentRoute}
@@ -373,13 +429,17 @@ function MapComponent({
   React.useEffect(() => {
     if (ref.current && !map && window.google && window.google.maps) {
       console.log("Initializing map...");
-      console.log("Available Google Maps APIs on init:", Object.keys(window.google.maps).filter(key => key.includes('Service')));
+      console.log(
+        "Available Google Maps APIs on init:",
+        Object.keys(window.google.maps).filter((key) => key.includes("Service"))
+      );
       console.log("RoutesService on init:", !!window.google.maps.RoutesService);
-      
+
       setMap(
         new window.google.maps.Map(ref.current, {
           center: VANCOUVER_CENTER,
           zoom: 12,
+          mapTypeId: "hybrid",
         })
       );
     }
@@ -394,17 +454,11 @@ function MapComponent({
       userMarker.setMap(null);
     }
 
-    // Create user location marker
-    const userLocationIcon = "data:image/svg+xml;utf8,<svg width='40' height='56' viewBox='0 0 40 56' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20 0C9.05888 0 0 9.05888 0 20.25C0 34.125 18.1818 54.1818 19.0091 55.0909C19.553 55.7015 20.447 55.7015 20.9909 55.0909C21.8182 54.1818 40 34.125 40 20.25C40 9.05888 30.9411 0 20 0Z' fill='%233b82f6' stroke='white' stroke-width='4'/><circle cx='20' cy='20' r='8' fill='white'/></svg>";
-
     const newUserMarker = new window.google.maps.Marker({
       position: userLocation,
       map,
       title: "Your Location",
-      icon: {
-        url: userLocationIcon,
-        scaledSize: new window.google.maps.Size(40, 40),
-      },
+      icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
       zIndex: 1000, // Ensure user marker appears above court markers
     });
 
@@ -437,7 +491,10 @@ function MapComponent({
   }, [map, userLocation]);
 
   // Calculate route function using Routes API
-  const calculateRoute = async (destination: { lat: number; lng: number }, courtName: string) => {
+  const calculateRoute = async (
+    destination: { lat: number; lng: number },
+    courtName: string
+  ) => {
     if (!userLocation || !map || !window.google || !window.google.maps) {
       setRouteError("Please get your location first.");
       return;
@@ -450,17 +507,26 @@ function MapComponent({
       console.log("Starting route calculation...");
       console.log("User location:", userLocation);
       console.log("Destination:", destination);
-      
+
       // Check if RoutesService is available, fallback to DirectionsService
       console.log("Checking available APIs...");
-      console.log("RoutesService available:", !!window.google.maps.RoutesService);
-      console.log("DirectionsService available:", !!window.google.maps.DirectionsService);
-      console.log("Available Google Maps APIs:", Object.keys(window.google.maps).filter(key => key.includes('Service')));
-      
+      console.log(
+        "RoutesService available:",
+        !!window.google.maps.RoutesService
+      );
+      console.log(
+        "DirectionsService available:",
+        !!window.google.maps.DirectionsService
+      );
+      console.log(
+        "Available Google Maps APIs:",
+        Object.keys(window.google.maps).filter((key) => key.includes("Service"))
+      );
+
       if (window.google.maps.RoutesService) {
         console.log("Using Routes API");
         const routesService = new window.google.maps.RoutesService();
-        
+
         const request = {
           origin: userLocation,
           destination: destination,
@@ -473,50 +539,56 @@ function MapComponent({
         routesService.route(request, (result: any, status: any) => {
           console.log("Routes API response status:", status);
           console.log("Routes API response:", result);
-          
+
           setIsCalculatingRoute(false);
-          
+
           if (status === window.google.maps.RoutesStatus.OK) {
             const route = result.routes[0];
             const leg = route.legs[0];
-            
+
             console.log("Route data:", route);
             console.log("Leg data:", leg);
-            
-                         // Create polyline for the route
-             const polyline = new window.google.maps.Polyline({
-               path: route.polyline.encodedPath,
-               geodesic: true,
-               strokeColor: '#3B82F6',
-               strokeOpacity: 0.8,
-               strokeWeight: 4,
-               map: map,
-             });
 
-             // Store polyline reference for cleanup
-             setCurrentPolyline(polyline);
+            // Create polyline for the route
+            const polyline = new window.google.maps.Polyline({
+              path: route.polyline.encodedPath,
+              geodesic: true,
+              strokeColor: "#3B82F6",
+              strokeOpacity: 0.8,
+              strokeWeight: 4,
+              map: map,
+            });
 
-             // Fit map to show entire route
-             const bounds = new window.google.maps.LatLngBounds();
-             bounds.extend(userLocation);
-             bounds.extend(destination);
-             map.fitBounds(bounds);
+            // Store polyline reference for cleanup
+            setCurrentPolyline(polyline);
 
-             setCurrentRoute({
-               courtName: courtName,
-               distance: leg.distanceMeters ? `${Math.round(leg.distanceMeters / 1000 * 10) / 10} km` : 'Unknown',
-               duration: leg.duration ? `${Math.round(leg.duration / 60)} min` : 'Unknown',
-               polyline: polyline,
-             });
+            // Fit map to show entire route
+            const bounds = new window.google.maps.LatLngBounds();
+            bounds.extend(userLocation);
+            bounds.extend(destination);
+            map.fitBounds(bounds);
+
+            setCurrentRoute({
+              courtName: courtName,
+              distance: leg.distanceMeters
+                ? `${Math.round((leg.distanceMeters / 1000) * 10) / 10} km`
+                : "Unknown",
+              duration: leg.duration
+                ? `${Math.round(leg.duration / 60)} min`
+                : "Unknown",
+              polyline: polyline,
+            });
           } else {
             console.error("Routes API error status:", status);
             setRouteError(`Unable to calculate route. Status: ${status}`);
           }
         });
       } else if (window.google.maps.DirectionsService) {
-        console.log("Routes API not available, using Directions API as fallback");
+        console.log(
+          "Routes API not available, using Directions API as fallback"
+        );
         const directionsService = new window.google.maps.DirectionsService();
-        
+
         const request = {
           origin: userLocation,
           destination: destination,
@@ -528,41 +600,41 @@ function MapComponent({
         directionsService.route(request, (result: any, status: any) => {
           console.log("Directions API response status:", status);
           console.log("Directions API response:", result);
-          
+
           setIsCalculatingRoute(false);
-          
+
           if (status === window.google.maps.DirectionsStatus.OK) {
             const route = result.routes[0];
             const leg = route.legs[0];
-            
+
             console.log("Route data:", route);
             console.log("Leg data:", leg);
-            
-                         // Create polyline for the route
-             const polyline = new window.google.maps.Polyline({
-               path: route.overview_path,
-               geodesic: true,
-               strokeColor: '#3B82F6',
-               strokeOpacity: 0.8,
-               strokeWeight: 4,
-               map: map,
-             });
 
-             // Store polyline reference for cleanup
-             setCurrentPolyline(polyline);
+            // Create polyline for the route
+            const polyline = new window.google.maps.Polyline({
+              path: route.overview_path,
+              geodesic: true,
+              strokeColor: "#3B82F6",
+              strokeOpacity: 0.8,
+              strokeWeight: 4,
+              map: map,
+            });
 
-             // Fit map to show entire route
-             const bounds = new window.google.maps.LatLngBounds();
-             bounds.extend(userLocation);
-             bounds.extend(destination);
-             map.fitBounds(bounds);
+            // Store polyline reference for cleanup
+            setCurrentPolyline(polyline);
 
-             setCurrentRoute({
-               courtName: courtName,
-               distance: leg.distance.text,
-               duration: leg.duration.text,
-               polyline: polyline,
-             });
+            // Fit map to show entire route
+            const bounds = new window.google.maps.LatLngBounds();
+            bounds.extend(userLocation);
+            bounds.extend(destination);
+            map.fitBounds(bounds);
+
+            setCurrentRoute({
+              courtName: courtName,
+              distance: leg.distance.text,
+              duration: leg.duration.text,
+              polyline: polyline,
+            });
           } else {
             console.error("Directions API error status:", status);
             setRouteError(`Unable to calculate route. Status: ${status}`);
@@ -570,14 +642,18 @@ function MapComponent({
         });
       } else {
         console.error("Neither RoutesService nor DirectionsService available");
-        setRouteError("Routing APIs not available. Please enable Routes API or Directions API in Google Cloud Console.");
+        setRouteError(
+          "Routing APIs not available. Please enable Routes API or Directions API in Google Cloud Console."
+        );
         setIsCalculatingRoute(false);
         return;
       }
     } catch (error) {
       console.error("Error in calculateRoute:", error);
       setIsCalculatingRoute(false);
-      setRouteError(`Error calculating route: ${error.message || 'Unknown error'}`);
+      setRouteError(
+        `Error calculating route: ${error.message || "Unknown error"}`
+      );
     }
   };
 
@@ -589,10 +665,10 @@ function MapComponent({
         currentPolyline.setMap(null);
         setCurrentPolyline(null);
       }
-      
+
       // Reset map view to show all courts
       const bounds = new window.google.maps.LatLngBounds();
-      COURTS.forEach(court => {
+      COURTS.forEach((court) => {
         bounds.extend(court.position);
       });
       if (userLocation) {
@@ -608,29 +684,26 @@ function MapComponent({
     const markers: any[] = [];
     const infowindows: any[] = [];
     COURTS.forEach((court, idx) => {
-      const emeraldIcon =
-        "data:image/svg+xml;utf8,<svg width='40' height='56' viewBox='0 0 40 56' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20 0C9.05888 0 0 9.05888 0 20.25C0 34.125 18.1818 54.1818 19.0091 55.0909C19.553 55.7015 20.447 55.7015 20.9909 55.0909C21.8182 54.1818 40 34.125 40 20.25C40 9.05888 30.9411 0 20 0Z' fill='%2334d399' stroke='white' stroke-width='4'/><circle cx='20' cy='20' r='8' fill='white'/></svg>";
+      const greenIcon =
+        "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
       const marker = new window.google.maps.Marker({
         position: court.position,
         map,
         title: court.name,
-        icon:
-          court.type === "public"
-            ? {
-                url: emeraldIcon,
-                scaledSize: new window.google.maps.Size(40, 40),
-              }
-            : undefined,
+        icon: court.type === "public" ? greenIcon : undefined,
       });
 
       // Enhanced content with route button and link button
-      const routeButton = userLocation 
+      const routeButton = userLocation
         ? `<button onclick="window.calculateRouteToCourt(${court.position.lat}, ${court.position.lng}, '${court.name}')" style="background: #3B82F6; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-top: 8px; cursor: pointer; font-size: 12px;">🚗 Get Directions</button>`
         : `<p style="color: #6B7280; font-size: 12px; margin-top: 8px;">📍 Get your location first for directions</p>`;
 
-      const linkButton = court.type === "club" 
-        ? `<button onclick="window.openLink('${court.link}')" style="background: #10B981; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-top: 8px; cursor: pointer; font-size: 12px;">🔗 Visit Website</button>`
-        : `<button onclick="window.openLink('https://www.google.com/search?q=${encodeURIComponent(court.name + " " + court.address)}')" style="background: #10B981; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-top: 8px; cursor: pointer; font-size: 12px;">🔍 Search on Google</button>`;
+      const linkButton =
+        court.type === "club"
+          ? `<button onclick="window.openLink('${court.link}')" style="background: #10B981; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-top: 8px; cursor: pointer; font-size: 12px;">🔗 Visit Website</button>`
+          : `<button onclick="window.openLink('https://www.google.com/search?q=${encodeURIComponent(
+              court.name + " " + court.address
+            )}')" style="background: #10B981; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-top: 8px; cursor: pointer; font-size: 12px;">🔍 Search on Google</button>`;
 
       const content = `
         <div style='min-width:200px; display:flex; flex-direction:column; align-items:center; gap:8px;'>
@@ -644,13 +717,13 @@ function MapComponent({
 
       // @ts-ignore
       const infowindow = new window.google.maps.InfoWindow({ content });
-      
+
       marker.addListener("click", () => {
         // Open info window on click instead of mouseover
         infowindow.open(map, marker);
         setActiveIdx(idx);
       });
-      
+
       // Close info window when clicking elsewhere on the map
       map.addListener("click", () => {
         infowindow.close();
@@ -663,10 +736,14 @@ function MapComponent({
 
     // Add global functions for route calculation and link opening
     // @ts-ignore
-    window.calculateRouteToCourt = (lat: number, lng: number, courtName: string) => {
+    window.calculateRouteToCourt = (
+      lat: number,
+      lng: number,
+      courtName: string
+    ) => {
       calculateRoute({ lat, lng }, courtName);
     };
-    
+
     // @ts-ignore
     window.openLink = (url: string) => {
       window.open(url, "_blank");

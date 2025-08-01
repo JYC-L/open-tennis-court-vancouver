@@ -1414,7 +1414,7 @@ export default function CourtFinder() {
           </div>
           <div className="flex justify-center mt-4 text-xs text-gray-400">
             <time>
-              Last updated at today&nbsp;
+              Last updated at&nbsp;
               {new Date(updatedAt).toLocaleTimeString("en-US", {
                 timeZone: "America/Vancouver",
                 hour: "2-digit",
