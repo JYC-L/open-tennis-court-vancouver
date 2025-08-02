@@ -56,7 +56,7 @@ The following stretch goals will **not** be implemented by M5:
 
 - AWS VSP Deployment: Deployed the docker image through the AWS LightSail service.
 - Domain Configuration: Purchased domain [VancouverTennis.org](https://VancouverTennis.org) and connected it with our AWS instance.
-- UI Adjustment: Update time text changed, map style changed, and map mark style changed.
+- UI Adjustment: Made the data update time dynamic, map style changed, and map mark style changed.
 
 **Lewis Update:** New features - user location functionality & route planning capabilities
 
