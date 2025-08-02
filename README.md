@@ -26,9 +26,15 @@ You can filter the courts by its location so that you can choose to only see the
 
 **Court Map**
 
-You can see both the public and private tennis courts on a map. You can get your own location and get the route and estimated time to your target court.
+You can see both the public and private tennis courts on a map. You can use your own location to get the route and estimated time to your target court.
 
 ![Court Map](prototype_sketch/vt_demo_3.png)
+
+**Freed Court Detector**
+
+You will recieve a notification toggle on the home page indicating some courts are freed due to cancellation.
+
+![Court Map](prototype_sketch/vt_demo_4.png)
 
 ## Standard Goals
 
