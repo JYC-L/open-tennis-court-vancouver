@@ -11,7 +11,7 @@ class AvailabilityManager {
    * @param {number} [options.freshnessCutoffMinutes=20] - Freshness window in minutes
    */
   constructor(
-    freshnessCutoffMinutes = 20,
+    freshnessCutoffMinutes = 15,
     orchestrator = null,
     courtScheduleRepository = null
   ) {
@@ -138,7 +138,7 @@ class AvailabilityManager {
    */
   isFresh(lastUpdated, now) {
     if (!lastUpdated) {
-      console.log("No data in DB yet, data is stale by default.")
+      console.log("No data in DB yet, data is stale by default.");
       return false; // No data means not fresh
     }
     const timeDiffMs = now.getTime() - lastUpdated.getTime();

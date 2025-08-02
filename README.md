@@ -31,8 +31,8 @@ All standard goals have been completed:
 The following stretch goals will **not** be implemented by M5:
 
 - Multi-page tennis lessons directory with filtering - **Dropped** (Scope too large for remaining timeline)
-- Multi-page tennis events directory with filtering - **Dropped** (Scope too large for remaining timeline)
-- Google OAuth user authentication and profiles - **Dropped** (Scope too large for remaining timeline)
+- Multi-page tennis events directory with filtering - **Dropped** (No stable data source; Scope too large for remaining timeline)
+- Google OAuth user authentication and profiles - **Dropped** (No real user need; Scope too large for remaining timeline)
 
 ## Non-Trivial Elements
 
@@ -48,62 +48,28 @@ The following stretch goals will **not** be implemented by M5:
 | Comprehensive API Test Suite                                     | **Completed**       |
 | Unified Timezone Handling (PST)                                  | **Completed**       |
 
-## XSS Security Assessment
+## M5 Highlights
 
-**Input Points Tested:**
+**Major Changes Since Milestone 4:**
 
-- API endpoint parameters: `/api/availability` with `start_date`, `end_date`, and `court` parameters
-- URL query strings and parameters
+**Francis Update:** WebApp deployment & UI adjustments
 
-**Tests Attempted:**
+- AWS VSP Deployment: Deployed the docker image through the AWS LightSail service.
+- Domain Configuration: Purchased domain [VancouverTennis.org](https://VancouverTennis.org) and connected it with our AWS instance.
+- UI Adjustment: Update time text changed, map style changed, and map mark style changed.
 
-- Injected script tags in date parameters: `GET /api/availability?start_date=<script>alert('xss')</script>`
-- Injected malicious image tags in court parameters: `GET /api/availability?court=<img src=x onerror=alert('XSS')>`
-- Tested various XSS payloads in API parameters
+**Lewis Update:** New features - user location functionality & route planning capabilities
 
-**Results:**
+- Users can now click "Get My Location" (available on both desktop and mobile views) to display their current position as a blue marker on the map, with the map automatically centering on their location.
+- The route planning feature allows users to click "Get Directions" on any court pin to calculate and display a driving route from their location to the selected court, complete with distance and time estimates. The route is visually represented as a polyline on the map, and users can clear the route using the "Clear Route" button.
 
-- **Secure**: No malicious payloads were reflected in API responses
-- Backend consistently returned proper JSON arrays of availability data regardless of input
-- No JavaScript execution occurred in the browser
-- API parameters are properly handled without interpretation of HTML/JavaScript content
+**Charlie Update**: New feature - toast notifications for freed up courts
 
-**Identified Risk:**
-
-- Potential vulnerability exists if scraped websites inject malicious JSON data that could affect server processing
-
-**Mitigation Measures:**
-
-- Implemented rate limiting and caching strategy to prevent scraper abuse
-- Backend input handling is agnostic to parameter content beyond timestamp validation
-- No direct reflection of user input in responses
-
-## M4 Highlights
-
-**Major Changes Since Milestone 3:**
-
-**Backend Improvements:**
-
-- **UBC Tennis Centre Scraper Enhancement**: Completely rebuilt the UBC scraper to work in Docker environments by implementing sophisticated cookie handling and dynamic header composition to access UBC's backend API directly
-- **Enhanced Test Coverage**: Added comprehensive test cases for Orchestrator and DataManager modules, including data retrieval strategy validation and operational window testing
-- **Improved Error Handling**: Implemented robust error handling and logging throughout the scraping pipeline
-
-**Frontend Enhancements:**
-
-- **Google Maps API Integration**: Implemented interactive map visualization displaying all tennis courts with clickable pins
-- **Enhanced Court Information**: Added court location pins with information bubbles containing direct links to Google Maps pages for easy navigation
-
-**Development Experience Improvements:**
-
-- **Root-level npm start**: Configured project to run from root directory with single command
-- **Debug Configuration**: Set up debugging console to stop at breakpoints in backend files
-- **Enhanced Developer Workflow**: Streamlined development process for better team productivity
-
-**System Reliability:**
-
-- **Stale Data Prevention**: Resolved issues where DataManager returned outdated information despite database updates
-- **Orchestrator Stability**: Added complete operational window testing and enhanced scheduling reliability
-- **Production Readiness**: Improved logging and monitoring for stable production deployment
+- Implemented backend logic using snapshot comparison - system stores old data snapshots and compares with new parsed data to detect when courts become available
+- Built API endpoints to serve freed court data to frontend with proper caching mechanism
+- Developed frontend toast notification component that automatically checks for freed courts when users visit landing page
+- Created comprehensive test cases covering snapshot comparison logic, API endpoints, and frontend notification behavior
+- Designed filtering system that excludes non-immediately available courts and only notifies users of genuinely freed booking opportunities
 
 **Bug List Location:**
-Bug tracking is maintained in GitHub Issues with P0-P5 priority labeling system.
+Bug tracking is maintained in GitHub Issues with P0-P5 priority labeling system. All of these bug issues are closed.
