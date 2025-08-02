@@ -10,6 +10,26 @@ VancouverTennis is a comprehensive web platform designed for local tennis enthus
 - docker-compose up --build
 - visit http://localhost:8080
 
+## Demo
+
+**Court Availability Feature**
+
+You can see the court availability info of four clubs on one joint calendar. Dark color indicates these courts can be booked now. Light color means these courts can only be booked 24hrs in advance. Click a time slot you will see a more details list of available court of that club during that time. The link will redirect you to the exact booking page.
+
+![Court Finder](prototype_sketch/vt_demo_1.png)
+
+**Courts Filter**
+
+You can filter the courts by its location so that you can choose to only see the courts in your desired area.
+
+![Court Finder Filter](prototype_sketch/vt_demo_2.png)
+
+**Court Map**
+
+You can see both the public and private tennis courts on a map. You can get your own location and get the route and estimated time to your target court.
+
+![Court Map](prototype_sketch/vt_demo_3.png)
+
 ## Standard Goals
 
 All standard goals have been completed:
