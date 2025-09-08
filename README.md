@@ -1,4 +1,4 @@
-# Team 16 - CourtFinder
+# open tennis court - Vancouver
 
 ## App Summary
 
