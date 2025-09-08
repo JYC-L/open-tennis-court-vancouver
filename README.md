@@ -1,4 +1,4 @@
-# open tennis court - Vancouver
+# OpenTennisCourt: Vancouver
 
 ## App Summary
 
