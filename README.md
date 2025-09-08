@@ -78,19 +78,11 @@ The following stretch goals will **not** be implemented by M5:
 
 **Major Changes Since Milestone 4:**
 
-**Francis Update:** WebApp deployment & UI adjustments
-
 - AWS VSP Deployment: Deployed the docker image through the AWS LightSail service.
 - Domain Configuration: Purchased domain [VancouverTennis.org](https://VancouverTennis.org) and connected it with our AWS instance.
 - UI Adjustment: Made the data update time dynamic, map style changed, and map mark style changed.
-
-**Lewis Update:** New features - user location functionality & route planning capabilities
-
 - Users can now click "Get My Location" (available on both desktop and mobile views) to display their current position as a blue marker on the map, with the map automatically centering on their location.
 - The route planning feature allows users to click "Get Directions" on any court pin to calculate and display a driving route from their location to the selected court, complete with distance and time estimates. The route is visually represented as a polyline on the map, and users can clear the route using the "Clear Route" button.
-
-**Charlie Update**: New feature - toast notifications for freed up courts
-
 - Implemented backend logic using snapshot comparison - system stores old data snapshots and compares with new parsed data to detect when courts become available
 - Built API endpoints to serve freed court data to frontend with proper caching mechanism
 - Developed frontend toast notification component that automatically checks for freed courts when users visit landing page
