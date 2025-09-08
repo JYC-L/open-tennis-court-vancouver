@@ -2,7 +2,7 @@
 
 ## App Summary
 
-VancouverTennis is a comprehensive web platform designed for local tennis enthusiasts who want to book tennis courts without expensive club memberships. The application aggregates real-time availability data from multiple tennis facilities across Metro Vancouver through automated web scraping, presenting users with a unified calendar interface and interactive map to easily discover and book available courts.
+OpenTennisCourt: Vancouver is a comprehensive web platform designed for local tennis enthusiasts who want to book tennis courts without expensive club memberships. The application aggregates real-time availability data from multiple tennis facilities across Metro Vancouver through automated web scraping, presenting users with a unified calendar interface and interactive map to easily discover and book available courts.
 
 ## Instructions
 
